@@ -8,13 +8,13 @@ export default function AboutPage() {
         <>
             <SEOMeta
                 title="About Export Desi"
-                description="Export Desi is a structured export execution partner for global buyers sourcing Indian food ingredients. Based in Gurgaon, Haryana, India."
+                description="Export Desi is a structured export execution partner for global buyers sourcing Indian food ingredients. Operations in Gurgaon, Haryana. Processor relationships in Bihar, Gujarat, and Rajasthan."
             />
 
             <HeroSection
                 label="About"
                 title="Export Desi."
-                subtitle="A structured export execution partner for global buyers sourcing Indian food ingredients and specialty produce."
+                subtitle="An export execution partner for global buyers sourcing Indian food ingredients. We manage the supply chain between verified Indian processors and international buyers."
                 background="surface"
             />
 
@@ -26,16 +26,16 @@ export default function AboutPage() {
                             label="What We Are"
                             heading="An execution partner, not a trading house."
                             paragraphs={[
-                                'Export Desi operates as a single-point execution partner for buyers who want to source from India without managing the complexity of the Indian export environment directly.',
-                                'We are not a manufacturer. We are not a warehousing operation. We are the accountable link between verified Indian processors and international buyers — managing quality verification, documentation, and logistics coordination.',
+                                'Export Desi coordinates the Indian side of the export process for buyers who want to source from India without building an in-country team. We identify and pre-qualify processors, manage quality verification, prepare and check documentation, and oversee shipping and port coordination.',
+                                'We do not hold stock. We do not manufacture. We function as the accountable intermediary between processor and buyer — with a defined process and a clear service boundary.',
                             ]}
                         />
                         <ContentBlock
-                            label="The Operating Model"
-                            heading="Ground team in India. Global delivery accountability."
+                            label="How We Operate"
+                            heading="Processor relationships, not catalogue listings."
                             paragraphs={[
-                                'Our operating model is built on processor-level relationships, not catalogue promises. Every product we supply comes from a processor we have assessed and an order we have personally managed through the full documentation and dispatch cycle.',
-                                'We operate from Gurgaon, Haryana, with sourcing relationships in Bihar, Rajasthan, and Gujarat covering our active product categories.',
+                                'Every product we supply is sourced from a processor we have directly assessed — against export compliance standing, facility hygiene, grading consistency, and capacity. We do not list products we cannot reliably supply.',
+                                'Our operations are based in Gurgaon, Haryana. Active processor relationships span Bihar (Makhana), Gujarat (dehydrated ingredients), and Rajasthan. New categories are not added without the corresponding ground-level qualification work.',
                             ]}
                         />
                     </div>
@@ -48,9 +48,21 @@ export default function AboutPage() {
                     <p className="section-label mb-12">The Team</p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border">
                         {[
-                            { name: 'Hemant', role: 'Sourcing & Processor Relations', note: 'Manages processor network identification, qualification, and ongoing supply relationships.' },
-                            { name: 'Nishant', role: 'Risk & Operations', note: 'Oversees order execution, pre-dispatch verification, and documentation compliance.' },
-                            { name: 'Sahil', role: 'Business Development', note: 'Manages buyer relationships, requirement qualification, and commercial terms.' },
+                            {
+                                name: 'Hemant',
+                                role: 'Sourcing & Processor Relations',
+                                note: 'Responsible for processor network identification, pre-qualification, and ongoing supply relationship management. Primary contact for processor-side questions.',
+                            },
+                            {
+                                name: 'Nishant',
+                                role: 'Risk & Operations',
+                                note: 'Manages order execution, pre-dispatch verification, documentation review, and port coordination. Responsible for shipment integrity across each consignment.',
+                            },
+                            {
+                                name: 'Sahil',
+                                role: 'Business Development',
+                                note: 'Handles buyer-side requirement qualification, enquiry assessment, and commercial terms. First point of contact for new supply discussions.',
+                            },
                         ].map((member) => (
                             <div key={member.name} className="bg-surface p-8">
                                 <div className="w-2 h-2 bg-brand mb-5" />
@@ -68,22 +80,30 @@ export default function AboutPage() {
                 <div className="page-container section-pad">
                     <ContentBlock
                         label="Location"
-                        heading="Based in Gurgaon, Haryana, India."
+                        heading="Operations based in Gurgaon, Haryana."
                         paragraphs={[
-                            'Our operations office is located in Gurgaon, Haryana. Processor relationships span Bihar (Makhana), Gujarat (dehydrated ingredients), and Rajasthan.',
-                            'We operate on Indian Standard Time (UTC+5:30). Standard response time for new enquiries is 24–48 business hours.',
+                            'Our office is in Gurgaon, Haryana (UTC+5:30). Processor relationships are maintained in Bihar, Gujarat, and Rajasthan across our active product categories.',
+                            'New enquiries are responded to within 48 business hours. If the requirement falls outside our current scope, we confirm that at first response rather than after extended discussion.',
                         ]}
                     />
-                    <div className="mt-8 space-y-1 text-sm text-muted">
-                        <p>contact@exportdesi.com</p>
-                        <p>+91 928 979 0283</p>
+                    <div className="mt-8 space-y-1.5 text-sm text-muted">
+                        <p>
+                            <a href="mailto:contact@exportdesi.com" className="hover:text-brand transition-colors">
+                                contact@exportdesi.com
+                            </a>
+                        </p>
+                        <p>
+                            <a href="tel:+919289790283" className="hover:text-brand transition-colors">
+                                +91 928 979 0283
+                            </a>
+                        </p>
                     </div>
                 </div>
             </section>
 
             <CTASection
-                heading="Discussing a sourcing requirement?"
-                subtext="Start by sharing your product, destination market, and volume. We confirm feasibility before accepting any enquiry."
+                heading="Want to discuss a sourcing requirement?"
+                subtext="Share your product specification, destination, and volume. We assess feasibility and respond within 48 business hours."
                 primaryCTA={{ label: 'Contact Us', href: '/contact' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"

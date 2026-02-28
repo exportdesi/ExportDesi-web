@@ -9,15 +9,15 @@ export default function HomePage() {
     return (
         <>
             <SEOMeta
-                title="Structured Global Export Execution from India"
-                description="Export Desi is a structured export execution partner for buyers sourcing Indian food ingredients. Verified processors, clean documentation, reliable delivery."
+                title="Structured Export Execution from India"
+                description="Export Desi manages the full Indian export pipeline for global buyers — processor qualification, pre-dispatch verification, documentation, and port coordination."
             />
 
             {/* Hero */}
             <HeroSection
                 label="Export Execution"
-                title="Structured Global Export Execution from India."
-                subtitle="We coordinate the full export pipeline — processor verification, quality checks, documentation, and logistics. You get a clean shipment. We handle the ground reality."
+                title="Structured Export Execution from India."
+                subtitle="We manage processor qualification, pre-dispatch quality verification, export documentation, and port coordination — as a single integrated service. Buyers receive a compliant shipment without building an in-country operation."
                 primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
             />
@@ -28,20 +28,20 @@ export default function HomePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
                             label="The Model"
-                            heading="We don't manufacture. We verify, secure, and ship."
+                            heading="We do not manufacture. We verify, qualify, and execute."
                             paragraphs={[
-                                'Export Desi operates as a structured sourcing and export execution partner. We identify reliable Indian processors, verify quality standards against buyer specifications, manage export documentation, and coordinate logistics.',
-                                'The result: direct-from-processor pricing without the complexity of managing multiple vendors across time zones. One accountable point of contact from enquiry to delivery.',
+                                'Export Desi is an export execution partner, not a trading house. We maintain direct relationships with processors across active product categories, assess them against defined quality and compliance criteria, and manage the full shipment cycle — from purchase order to Bill of Lading.',
+                                'Buyers deal with a single point of accountability. Pricing reflects processor-level rates. Documentation is complete before the container moves.',
                             ]}
                         />
                         <div className="space-y-6 pt-2 md:pt-14">
                             <StructuredList
                                 items={[
-                                    'Processor identification and pre-qualification',
-                                    'Third-party quality verification prior to dispatch',
-                                    'Complete export documentation management',
-                                    'Port coordination and freight forwarding',
-                                    'Post-shipment documentation handover',
+                                    'Processor identification and pre-qualification against buyer specification',
+                                    'Pre-dispatch quality verification — batch inspection, moisture and grade checks',
+                                    'Export documentation preparation and accuracy verification',
+                                    'Port coordination — container stuffing, seal, and BL issuance oversight',
+                                    'Post-shipment document set handover to buyer',
                                 ]}
                                 ordered
                             />
@@ -54,12 +54,12 @@ export default function HomePage() {
             <section className="bg-surface border-b border-border">
                 <div className="page-container section-pad">
                     <div className="mb-14">
-                        <p className="section-label">Current Sourcing Focus</p>
+                        <p className="section-label">Current Sourcing Scope</p>
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-2xl">
                             Food &amp; Ingredients
                         </h2>
                         <p className="text-muted mt-4 max-w-xl">
-                            Our active sourcing cluster covers Indian food commodities with established international demand and documented compliance pathways.
+                            Our active scope is limited to categories where we have established processor networks, verified compliance pathways, and documented shipment history.
                         </p>
                     </div>
 
@@ -69,13 +69,13 @@ export default function HomePage() {
                             <p className="section-label">Fox Nuts</p>
                             <h3 className="text-xl font-bold mb-3">Makhana</h3>
                             <p className="text-muted text-sm mb-6">
-                                Multiple size grades available. Sourced from verified processing clusters in Bihar. Suitable for retail, food ingredient, and snack manufacturing applications.
+                                Available in four size grades (12mm to 18mm+). Sourced from processing units in Bihar's Mithila cluster. Fully documented for retail, food ingredient, and snack manufacturing end-uses.
                             </p>
                             <Link
                                 to="/industries/food-ingredients/makhana"
                                 className="text-sm font-semibold text-brand border-b border-brand pb-0.5 hover:opacity-70 transition-opacity"
                             >
-                                View Product Details →
+                                View Grades &amp; Specifications →
                             </Link>
                         </div>
 
@@ -84,13 +84,13 @@ export default function HomePage() {
                             <p className="section-label">Dehydrated Ingredients</p>
                             <h3 className="text-xl font-bold mb-3">Dehydrated &amp; Dried Ingredients</h3>
                             <p className="text-muted text-sm mb-6">
-                                Onion, garlic, banana powder, moringa — available in multiple forms and pack formats. Process-grade and food-grade supply. Documentation-ready for destination market entry.
+                                Onion, garlic, banana powder, moringa — available in flakes, minced, granule, and powder forms. Process-grade and food-grade specifications. Third-party lab reports included as standard.
                             </p>
                             <Link
                                 to="/industries/food-ingredients/dehydrated-ingredients"
                                 className="text-sm font-semibold text-brand border-b border-brand pb-0.5 hover:opacity-70 transition-opacity"
                             >
-                                View Product Details →
+                                View Product Range →
                             </Link>
                         </div>
                     </div>
@@ -102,15 +102,15 @@ export default function HomePage() {
                 <div className="page-container section-pad">
                     <ContentBlock
                         label="Operations"
-                        heading="Execution over representation."
+                        heading="Consistent supply requires more than a supplier list."
                         paragraphs={[
-                            'Sourcing is straightforward. Consistent, compliant supply across multiple shipments is not. Export Desi exists for buyers who have learned that distinction.',
-                            'We do not work with processors we cannot verify. We do not commit to timelines we cannot hold. We do not move a consignment until documentation is complete.',
+                            'Finding a processor willing to quote is not the problem. Receiving the correct grade, with complete documentation, within the agreed timeline — across multiple consecutive shipments — is where most India-sourcing arrangements fail.',
+                            'We do not accept enquiries we cannot fulfil. We do not confirm timelines without processor verification. We do not release a consignment until the documentation set is complete and accurate.',
                         ]}
                     />
                     <div className="mt-10">
                         <Link to="/how-we-work" className="btn-secondary">
-                            See Our Export Execution Model
+                            View Our Export Execution Model
                         </Link>
                     </div>
                 </div>
@@ -118,8 +118,8 @@ export default function HomePage() {
 
             {/* CTA */}
             <CTASection
-                heading="Ready to discuss a supply requirement?"
-                subtext="Share your product specifications. We will confirm processor availability and provide indicative pricing within 48 hours."
+                heading="Have a supply requirement to discuss?"
+                subtext="Send us your product specification, destination market, and target volume. We confirm processor availability and provide indicative pricing within 48 business hours."
                 primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
                 secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
                 background="dark"

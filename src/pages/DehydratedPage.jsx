@@ -19,7 +19,7 @@ export default function DehydratedPage() {
             <HeroSection
                 label="Food & Ingredients — Dehydrated"
                 title="Dehydrated &amp; Dried Ingredients"
-                subtitle="Onion, garlic, banana powder, moringa — multiple forms and pack formats. Process-grade and food-grade supply from verified Indian processors."
+                subtitle="Onion, garlic, banana powder, moringa — available in flakes, minced, granule, and powder forms. Process-grade and food-grade specifications. Third-party lab reports and full export documentation as standard."
                 primaryCTA={{ label: 'Request Specifications', href: '/contact?type=dehydrated' }}
                 secondaryCTA={{ label: 'Discuss Supply', href: '/contact?type=dehydrated-supply' }}
             />
@@ -32,8 +32,8 @@ export default function DehydratedPage() {
                             label="Category Overview"
                             heading="Multi-product supply from a single execution partner."
                             paragraphs={[
-                                'Rather than managing separate vendor relationships for each ingredient, buyers can consolidate dehydrated ingredient sourcing through a single point of contact.',
-                                'All products in this category are sourced from processors with prior export history. Quality parameters are confirmed per order. Lab reports, documentation, and pre-dispatch verification are standard.',
+                                'Buyers sourcing more than one dehydrated ingredient can consolidate supply through a single shipment, rather than managing separate vendor relationships for each SKU. We source each product from an appropriate pre-qualified processor and coordinate a combined consignment with a unified documentation package.',
+                                'All products are sourced from processors with prior food export history. Quality parameters, lab reports, and documentation are confirmed per product per lot — not on a category-wide blanket basis.', ,
                             ]}
                         />
                         <div>
@@ -71,7 +71,7 @@ export default function DehydratedPage() {
                             label="Documentation"
                             heading="Complete export documentation as standard."
                             paragraphs={[
-                                'All dehydrated ingredient shipments include a full documentation package. No documentation is sent post-shipment without pre-confirmation.',
+                                'All dehydrated ingredient shipments are prepared against a document checklist specific to the shipment. HS code accuracy, certificate validity, and lab report lot traceability are verified before the container is approved for stuffing. No document is issued post-shipment to correct pre-dispatch omissions.',
                             ]}
                         />
                         <StructuredList
@@ -103,7 +103,7 @@ export default function DehydratedPage() {
             {/* CTA */}
             <CTASection
                 heading="Have a dehydrated ingredient requirement?"
-                subtext="Share your specifications. We confirm processor availability and pricing within 48 hours."
+                subtext="Send us your required products, forms or grades, target volume, and destination market. We confirm processor availability and indicative pricing within 48 business hours."
                 primaryCTA={{ label: 'Request Specifications', href: '/contact?type=dehydrated' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"

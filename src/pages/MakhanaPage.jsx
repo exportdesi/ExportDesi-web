@@ -21,7 +21,7 @@ export default function MakhanaPage() {
             <HeroSection
                 label="Food & Ingredients — Makhana"
                 title="Makhana (Fox Nuts)"
-                subtitle="Multiple size grades sourced directly from processing clusters in Bihar. Pre-dispatch verified. Fully documented for international export."
+                subtitle="Available in four size grades from 12mm to 18mm+. Sourced from processing units in Bihar's Mithila cluster. Supplied with pre-dispatch verification and a complete export documentation package."
                 primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
                 secondaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
             />
@@ -31,11 +31,11 @@ export default function MakhanaPage() {
                 leftContent={
                     <ContentBlock
                         label="Supply Structure"
-                        heading="Grade-based supply from verified processors."
+                        heading="Grade-separated supply from pre-qualified processing units."
                         paragraphs={[
-                            'All Makhana is sourced from established processing units in the Mithila cluster of Bihar — the primary producing region for Indian Fox Nuts.',
-                            'We work with processors who maintain consistent grading standards and have prior export history. Selection criteria include processing hygiene, grading equipment specification, and moisture control capability.',
-                            'Supply is grade-separated at source. Mixed or non-graded stock is not accepted for export consignments.',
+                            'All Makhana is sourced from processing units in the Mithila cluster of Bihar — the concentrated production region for Indian Fox Nuts. The cluster accounts for the predominant share of India\'s commercial Makhana output.',
+                            'Processor eligibility requires: FSSAI licence, prior export documentation history, mechanical grading equipment (not manual sorting), and moisture-controlled storage. Processors are assessed per these criteria before any commercial order is placed.',
+                            'Grade separation is maintained at the processor level. We do not blend or re-sort at an intermediate stage. Mixed or non-graded stock is not accepted for export consignments.',
                         ]}
                     />
                 }
@@ -76,8 +76,8 @@ export default function MakhanaPage() {
 
             {/* Mid-page CTA */}
             <CTASection
-                heading="Interested in a trial sample?"
-                subtext="Trial samples are available for qualified buyers. Sample weight and shipping costs are discussed on a case-by-case basis."
+                heading="Evaluating Makhana for your supply chain?"
+                subtext="Trial samples are available for serious buyers. Share your grade requirement and destination — we confirm availability, sample weight, and logistics costs before shipment."
                 primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
                 background="surface"
             />
@@ -88,9 +88,9 @@ export default function MakhanaPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
                             label="Documentation"
-                            heading="Standard export documentation package."
+                            heading="Full documentation set verified before the container is stuffed."
                             paragraphs={[
-                                'Every Makhana consignment ships with a complete documentation set. Documents are prepared and verified before container stuffing.',
+                                'No Makhana consignment is released for loading until the complete document set is assembled, cross-checked against the shipment details, and confirmed accurate. This includes HS code verification, certificate issuer validity, and lab report traceability to the specific lot being shipped.',
                             ]}
                         />
                         <StructuredList
@@ -108,7 +108,7 @@ export default function MakhanaPage() {
 
                     <div className="mt-12 pt-8 border-t border-border">
                         <p className="text-sm text-muted max-w-2xl">
-                            Destination-market-specific requirements — health certificates, import permits, fumigation certificates — are coordinated on a per-shipment basis.{' '}
+                            Destination-specific requirements — health certificates, fumigation certificates, halal certification — are identified at enquiry stage and coordinated as part of the shipment preparation, not added after booking.{' '}
                             <Link to="/compliance" className="text-brand font-medium underline underline-offset-2">
                                 View Compliance Framework →
                             </Link>
@@ -126,8 +126,8 @@ export default function MakhanaPage() {
 
             {/* Bottom CTA */}
             <CTASection
-                heading="Ready to discuss a Makhana supply arrangement?"
-                subtext="Share your grade requirement, volume, and destination. We confirm processor availability and indicative pricing within 48 hours."
+                heading="Discuss a Makhana supply requirement."
+                subtext="Send us your grade, target volume, pack format, destination market, and required timeline. We confirm processor availability and indicative pricing within 48 business hours."
                 primaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"

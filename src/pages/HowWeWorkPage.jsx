@@ -9,27 +9,27 @@ const STEPS = [
     {
         number: 1,
         title: 'Requirement Qualification',
-        description: 'Buyer shares product specification, destination market, required certifications, volume, and timeline. We review feasibility before accepting the enquiry. If we cannot reliably supply, we say so at this stage.',
+        description: 'The buyer provides product specification, destination market, required certifications, volume, and delivery timeline. We assess supply feasibility internally before accepting the enquiry — against current processor availability, seasonal constraints, and documentation requirements for the destination market. If we cannot fulfil reliably, we communicate that at this stage rather than after order placement.',
     },
     {
         number: 2,
-        title: 'Processor Identification & Verification',
-        description: 'We identify processors in our network who match the specification. Processor eligibility is assessed on: export track record, facility hygiene standard, compliance documentation status, and grading/processing consistency. New processors undergo a structured pre-qualification before acceptance.',
+        title: 'Processor Identification and Verification',
+        description: 'We identify processors from our active network whose output matches the confirmed specification. Eligibility is assessed across four criteria: prior export documentation compliance, facility hygiene and FSSAI standing, grading consistency across lots, and capacity relative to the required volume and timeline. Processors not previously assessed undergo a structured pre-qualification before any order is placed with them.',
     },
     {
         number: 3,
-        title: 'Order Confirmation & Commercial Terms',
-        description: 'On agreeing to proceed, we issue a Proforma Invoice covering product specification, quantity, pricing, Incoterm, packaging, and documentation list. No order is placed without a confirmed PI and deposit.',
+        title: 'Order Confirmation and Commercial Terms',
+        description: 'We issue a Proforma Invoice specifying product grade, quantity, pricing, Incoterm, packaging format, and the full documentation list to be provided with the shipment. The order is not placed with the processor until the PI is counter-signed and the agreed advance is received. This is the point at which the supply commitment is made.',
     },
     {
         number: 4,
-        title: 'Pre-Dispatch Quality Verification',
-        description: 'Before the container is stuffed, we verify: packaging conformance, label accuracy, documentation set completeness, and physical lot condition via batch photography. Third-party inspection is coordinated on request or as required by the destination market.',
+        title: 'Pre-Dispatch Verification',
+        description: 'Before container stuffing, we conduct a physical verification of the lot: grade and size conformance, moisture check, packaging integrity, label accuracy, and documentary completeness. Batch photographs are taken and shared with the buyer. Third-party pre-shipment inspection is coordinated where required by the destination market or buyer specification. The container is not released for stuffing until verification is complete.',
     },
     {
         number: 5,
-        title: 'Shipment, Documentation & Post-Dispatch',
-        description: 'Container is sealed, Bill of Lading is issued, and the full document set is dispatched electronically on the same day. Marine insurance coordination is available. We remain the point of contact for any post-shipment documentation requirements from the importing country.',
+        title: 'Shipment and Post-Dispatch Documentation',
+        description: 'Once the container is sealed, the Bill of Lading is obtained and the full document set — BL, commercial invoice, packing list, certificate of origin, phytosanitary certificate, and lab reports — is dispatched to the buyer electronically on the same working day. We remain the primary contact for any post-shipment documentation requirements raised by the importing country\'s authorities.',
     },
 ];
 
@@ -38,20 +38,20 @@ export default function HowWeWorkPage() {
         <>
             <SEOMeta
                 title="How We Work"
-                description="Export Desi's 5-step export execution model. From requirement qualification to post-dispatch documentation. Structured, accountable, no intermediary layers."
+                description="Export Desi's five-step export execution process — from requirement qualification to post-shipment documentation. No intermediary layers. Defined outcomes at each stage."
             />
 
             <HeroSection
                 label="Export Execution Model"
                 title="How We Work."
-                subtitle="A structured, five-step export execution process. Each stage has a defined outcome. Nothing moves to the next step until the current one is complete."
+                subtitle="Five sequential steps. Each stage has a defined output. The next step does not begin until the current one is complete and verified."
                 background="surface"
             />
 
             {/* 5-Step Process */}
             <ProcessSteps
                 label="The Process"
-                heading="Five steps. One accountable partner."
+                heading="Five steps. A single accountable contact throughout."
                 steps={STEPS}
             />
 
@@ -60,19 +60,19 @@ export default function HowWeWorkPage() {
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
-                            label="Scope of Service"
-                            heading="What is explicitly outside our scope."
+                            label="Service Boundary"
+                            heading="What falls outside our scope."
                             paragraphs={[
-                                'Clarity on what we do not do is as important as what we do. The following are not part of our service model.',
+                                'The following are explicitly not part of our service. Buyers should make independent arrangements for these functions before or alongside engaging us.',
                             ]}
                         />
                         <StructuredList
                             items={[
-                                'Manufacturing or processing of any product',
-                                'Customs clearance at the destination port (buyer\'s responsibility)',
-                                'Distribution or end-customer logistics at destination',
-                                'Advisory on tariff classification or import duty (consult your customs broker)',
-                                'Working with processors we have not pre-qualified',
+                                'Manufacturing, processing, or modification of any product',
+                                'Customs clearance at the destination port — buyer\'s freight forwarder or customs broker',
+                                'Last-mile delivery or distribution within the destination country',
+                                'Import duty or tariff classification advice — consult your customs broker',
+                                'Engaging processors who have not completed our pre-qualification process',
                             ]}
                         />
                     </div>
@@ -83,19 +83,19 @@ export default function HowWeWorkPage() {
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <ContentBlock
-                        label="Getting Started"
-                        heading="Trial orders are the correct way to begin."
+                        label="First Shipment"
+                        heading="Begin with a trial order."
                         paragraphs={[
-                            'If you are evaluating a new product or a new supply source, a trial order is the appropriate starting point. We accommodate flexible minimum quantities for trial shipments to allow buyers to validate quality, documentation, and process fit before committing to commercial volumes.',
-                            'A trial order follows the same five-step process as a commercial order. There are no shortcuts on documentation or verification for smaller volumes.',
+                            'A trial order is the correct starting point for any new supply relationship. We support reduced minimum quantities for initial shipments — sufficient to validate grade conformance, documentation accuracy, and process fit prior to commercial volume commitment.',
+                            'Trial orders follow the same five-step process as commercial orders. Verification and documentation standards are not reduced for smaller volumes.',
                         ]}
                     />
                 </div>
             </section>
 
             <CTASection
-                heading="Ready to start the process?"
-                subtext="Share your requirement. We confirm feasibility and respond within 48 hours."
+                heading="Ready to submit a requirement?"
+                subtext="Share your specification, destination, and volume. We assess feasibility and respond within 48 business hours."
                 primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
                 secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
                 background="dark"
