@@ -63,14 +63,23 @@ export default function FoodIngredientsPage() {
                                 'Destination-specific requirements such as fumigation certificates, health certificates, or halal certification are identified at enquiry stage and coordinated before loading.',
                             ]}
                         />
-                        <ContentBlock
-                            label="Logistics"
-                            heading="Logistics are structured based on shipment volume and destination."
-                            paragraphs={[
-                                'Commercial consignments typically move by sea freight, either consolidated (LCL) or full container (FCL), depending on order size. Ports are selected based on processor location and prevailing freight conditions, including Nhava Sheva, Mundra, and Chennai. Air freight is available for samples and urgent dispatches.',
-                                'Incoterms are confirmed at the Proforma Invoice stage and may include FOB, CIF, or DAP depending on buyer preference and destination requirements.',
-                            ]}
-                        />
+                        <div>
+                            <p className="section-label">Logistics</p>
+                            <h2 className="text-xl md:text-2xl font-bold mb-8">Logistics are structured based on shipment volume and destination.</h2>
+                            <div className="space-y-0 divide-y divide-border border-t border-border">
+                                {[
+                                    { label: 'Sea Freight', detail: 'LCL (consolidated) or FCL (full container) depending on order size.' },
+                                    { label: 'Primary Ports', detail: 'Nhava Sheva, Mundra, and Chennai — selected by processor location and freight conditions.' },
+                                    { label: 'Air Freight', detail: 'Available for samples and urgent dispatches.' },
+                                    { label: 'Incoterms', detail: 'FOB, CIF, or DAP confirmed at the Proforma Invoice stage.' },
+                                ].map(({ label, detail }) => (
+                                    <div key={label} className="flex gap-6 py-4">
+                                        <span className="text-xs font-bold uppercase tracking-widest text-brand min-w-[100px] pt-0.5">{label}</span>
+                                        <span className="text-sm text-muted leading-relaxed">{detail}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     <div className="mt-12">
                         <Link to="/compliance" className="btn-secondary">

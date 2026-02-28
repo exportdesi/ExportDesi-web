@@ -14,12 +14,13 @@
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
     }
 
     body {
         @apply bg-white text-brand font-sans;
         font-size: 16px;
-        line-height: 1.6;
+        line-height: 1.65;
     }
 
     h1,
@@ -37,8 +38,26 @@
         text-decoration: none;
     }
 
+    /* Longer paragraphs get extra breathing room */
     p {
-        @apply leading-relaxed;
+        line-height: 1.8;
+    }
+
+    /* Clear, consistent focus ring across all interactive elements */
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    button:focus-visible {
+        outline: 2px solid #0a0a0a;
+        outline-offset: 2px;
+    }
+
+    /* Remove default outline only when using mouse (not keyboard) */
+    input:focus:not(:focus-visible),
+    select:focus:not(:focus-visible),
+    textarea:focus:not(:focus-visible) {
+        outline: none;
+        border-color: #1a1a1a;
     }
 }
 
@@ -47,8 +66,9 @@
         @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
     }
 
+    /* Consistent vertical rhythm: tighter on mobile, generous on desktop */
     .section-pad {
-        @apply py-20 md:py-24;
+        @apply py-16 md:py-24 lg:py-28;
     }
 
     .btn-primary {
@@ -63,6 +83,7 @@
         @apply text-xs font-semibold tracking-widest uppercase text-muted mb-4;
     }
 }
+
 
 /* react-phone-number-input overrides */
 .PhoneInput {

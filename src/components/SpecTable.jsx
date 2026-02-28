@@ -1,11 +1,7 @@
 /**
  * SpecTable — structured product specification table.
- * Props:
- *   headers  string[]     — table column headers
- *   rows     string[][]   — 2D array of row data
- *   caption  string       — optional table caption
- *   label    string       — optional eyebrow label
- *   heading  string       — optional section heading
+ * Visually heavier: larger row padding, stronger first-column treatment,
+ * tighter caption, more prominent header row.
  */
 export default function SpecTable({ headers = [], rows = [], caption, label, heading }) {
     return (
@@ -19,31 +15,35 @@ export default function SpecTable({ headers = [], rows = [], caption, label, hea
                 )}
 
                 <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-sm border border-border">
-                        {caption && (
-                            <caption className="text-left text-xs text-muted mb-3 caption-top">
-                                {caption}
-                            </caption>
-                        )}
+                    {caption && (
+                        <p className="text-xs text-muted mb-3">{caption}</p>
+                    )}
+                    <table className="w-full border-collapse text-sm">
                         <thead>
                             <tr className="bg-brand text-white">
                                 {headers.map((h, i) => (
                                     <th
                                         key={i}
-                                        className="text-left px-5 py-3.5 font-semibold text-xs tracking-wide uppercase border-r border-brand-light last:border-r-0"
+                                        className="text-left px-6 py-4 font-semibold text-xs tracking-widest uppercase border-r border-brand-light last:border-r-0"
                                     >
                                         {h}
                                     </th>
                                 ))}
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="divide-y divide-border">
                             {rows.map((row, ri) => (
-                                <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-surface'}>
+                                <tr
+                                    key={ri}
+                                    className={`group ${ri % 2 === 0 ? 'bg-white' : 'bg-surface'}`}
+                                >
                                     {row.map((cell, ci) => (
                                         <td
                                             key={ci}
-                                            className={`px-5 py-3.5 border-r border-border last:border-r-0 border-t border-border ${ci === 0 ? 'font-medium text-brand' : 'text-muted'}`}
+                                            className={`px-6 py-4 border-r border-border last:border-r-0 ${ci === 0
+                                                    ? 'font-semibold text-brand text-sm'
+                                                    : 'text-muted text-sm'
+                                                }`}
                                         >
                                             {cell}
                                         </td>

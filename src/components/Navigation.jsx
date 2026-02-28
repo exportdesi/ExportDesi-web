@@ -42,13 +42,13 @@ export default function Navigation() {
                                 key={link.href}
                                 to={link.href}
                                 end
-                                className={({ isActive: defaultActive, location: _l }) => {
+                                className={({ isActive: defaultActive }) => {
                                     const resolved = link.isActive
                                         ? link.isActive(window.location.pathname)
                                         : defaultActive;
-                                    return `text-sm font-medium transition-colors ${resolved
-                                        ? 'text-brand border-b-2 border-brand pb-0.5'
-                                        : 'text-muted hover:text-brand'
+                                    return `text-sm font-medium transition-all duration-150 border-b-2 pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${resolved
+                                        ? 'text-brand border-brand'
+                                        : 'text-muted border-transparent hover:text-brand hover:border-brand/40'
                                         }`;
                                 }}
                             >

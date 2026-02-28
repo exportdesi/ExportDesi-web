@@ -1,10 +1,6 @@
 /**
  * ComplianceGrid — grid of compliance/certification items.
- * Props:
- *   items    Array<{ label, sublabel? }>
- *   label    string  — optional eyebrow label
- *   heading  string  — optional section heading
- *   columns  2 | 3 | 4  — grid columns (default 3)
+ * Visually heavier: left accent border, larger padding, stronger label weight.
  */
 export default function ComplianceGrid({ items = [], label, heading, columns = 3 }) {
     const colMap = {
@@ -14,7 +10,7 @@ export default function ComplianceGrid({ items = [], label, heading, columns = 3
     };
 
     return (
-        <section className="bg-surface border-b border-border">
+        <section className="bg-white border-b border-border">
             <div className="page-container section-pad">
                 {(label || heading) && (
                     <div className="mb-12">
@@ -25,14 +21,17 @@ export default function ComplianceGrid({ items = [], label, heading, columns = 3
                     </div>
                 )}
 
-                <div className={`grid ${colMap[columns] || colMap[3]} gap-px bg-border`}>
+                <div className={`grid ${colMap[columns] || colMap[3]} gap-4`}>
                     {items.map((item, i) => (
-                        <div key={i} className="bg-surface p-6 md:p-8">
-                            {/* Marker */}
-                            <div className="w-2 h-2 bg-brand mb-4" />
-                            <p className="text-sm font-semibold text-brand tracking-wide">{item.label}</p>
+                        <div
+                            key={i}
+                            className="border border-border bg-surface border-l-4 border-l-brand p-6 md:p-7"
+                        >
+                            <p className="text-sm font-bold text-brand tracking-wide leading-snug mb-2">
+                                {item.label}
+                            </p>
                             {item.sublabel && (
-                                <p className="text-xs text-muted mt-1">{item.sublabel}</p>
+                                <p className="text-xs text-muted leading-relaxed">{item.sublabel}</p>
                             )}
                         </div>
                     ))}
