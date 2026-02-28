@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const NAV_LINKS = [
-    { label: 'Industries', href: '/industries' },
+    { label: 'Products', href: '/industries/food-ingredients', isActive: (p) => p.startsWith('/industries') },
+    { label: 'Industries', href: '/industries', isActive: () => false },
     { label: 'How We Work', href: '/how-we-work' },
     { label: 'Compliance', href: '/compliance' },
     { label: 'About', href: '/about' },
@@ -40,12 +41,16 @@ export default function Navigation() {
                             <NavLink
                                 key={link.href}
                                 to={link.href}
-                                className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors ${isActive
+                                end
+                                className={({ isActive: defaultActive, location: _l }) => {
+                                    const resolved = link.isActive
+                                        ? link.isActive(window.location.pathname)
+                                        : defaultActive;
+                                    return `text-sm font-medium transition-colors ${resolved
                                         ? 'text-brand border-b-2 border-brand pb-0.5'
                                         : 'text-muted hover:text-brand'
-                                    }`
-                                }
+                                        }`;
+                                }}
                             >
                                 {link.label}
                             </NavLink>
@@ -77,11 +82,14 @@ export default function Navigation() {
                             <NavLink
                                 key={link.href}
                                 to={link.href}
+                                end
                                 onClick={() => setMobileOpen(false)}
-                                className={({ isActive }) =>
-                                    `block px-3 py-2.5 text-sm font-medium rounded transition-colors ${isActive ? 'bg-surface text-brand' : 'text-muted hover:text-brand'
-                                    }`
-                                }
+                                className={({ isActive: defaultActive }) => {
+                                    const resolved = link.isActive
+                                        ? link.isActive(window.location.pathname)
+                                        : defaultActive;
+                                    return `block px-3 py-2.5 text-sm font-medium rounded transition-colors ${resolved ? 'bg-surface text-brand' : 'text-muted hover:text-brand'}`;
+                                }}
                             >
                                 {link.label}
                             </NavLink>
