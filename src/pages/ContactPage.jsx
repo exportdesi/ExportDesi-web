@@ -5,7 +5,7 @@ import ContentBlock from '../components/ContentBlock';
 
 // Formspree endpoint — replace YOUR_FORMSPREE_ID with your actual form ID from formspree.io
 // Steps: 1) Sign up at formspree.io  2) Create a new form  3) Copy the form ID (e.g. xpwzlkjq)
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgolbwqy';
 
 const PRODUCTS = [
     { value: '', label: 'Select product (optional)' },
