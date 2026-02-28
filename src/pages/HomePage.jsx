@@ -30,6 +30,8 @@ export default function HomePage() {
                     <span className="text-border">|</span>
                     <span>APEDA Registered</span>
                     <span className="text-border">|</span>
+                    <span>FIEO Registered</span>
+                    <span className="text-border">|</span>
                     <span>Spice Board Registered</span>
                 </div>
             </div>

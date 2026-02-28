@@ -10,9 +10,9 @@ const REGISTRATIONS = [
     { label: 'IEC: Importer Exporter Code', sublabel: 'DGFT. Required for all export transactions from India.' },
     { label: 'FSSAI License', sublabel: 'Food safety authority licence. Mandatory for food product exports.' },
     { label: 'APEDA Registration', sublabel: 'Agricultural and Processed Food Products Export Development Authority.' },
+    { label: 'FIEO Registration', sublabel: 'Federation of Indian Export Organisations. Issues Certificate of Origin and supports export documentation.' },
     { label: 'GST Registration', sublabel: 'GST-compliant invoicing and export refund eligibility.' },
     { label: 'Spice Board Registration', sublabel: 'Required for spice and condiment category exports.' },
-    { label: 'RCMC', sublabel: 'Registration-cum-Membership Certificate from the relevant Export Promotion Council.' },
 ];
 
 const DOCUMENT_TYPES = [
