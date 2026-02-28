@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const NAV_LINKS = [
-    { label: 'Products', href: '/industries/food-ingredients', isActive: (p) => p.startsWith('/industries') },
-    { label: 'Industries', href: '/industries', isActive: () => false },
+    { label: 'Food & Ingredients', href: '/industries/food-ingredients', isActive: (p) => p.startsWith('/industries') && p !== '/industries' },
+    { label: 'Industries', href: '/industries', isActive: (p) => p === '/industries' },
     { label: 'How We Work', href: '/how-we-work' },
     { label: 'Compliance', href: '/compliance' },
     { label: 'About', href: '/about' },
