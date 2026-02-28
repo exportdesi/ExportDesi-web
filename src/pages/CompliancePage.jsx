@@ -62,7 +62,7 @@ export default function CompliancePage() {
                             label="Document Control"
                             heading="Every document is checked against the shipment before dispatch."
                             paragraphs={[
-                                'For each consignment, we run a pre-dispatch document review covering: Incoterm consistency between the commercial invoice and the Proforma Invoice, packing list reconciliation against the actual lot loaded, phytosanitary certificate validity relative to the sailing date, and lab report traceability to the specific batch being shipped.',
+                                'HS classification is verified before the Proforma Invoice is confirmed. For each consignment, we run a pre-dispatch document review covering: Incoterm consistency between the commercial invoice and the Proforma Invoice, packing list reconciliation line-by-line against the actual lot loaded, phytosanitary certificate validity relative to the sailing date, and lab report traceability to the specific batch being shipped.',
                                 'Post-dispatch corrections require re-engagement with the original issuing authority and typically cause delays at both the origin port and destination customs. We treat the pre-dispatch review as the only point at which errors can be caught without cost.',
                             ]}
                         />
@@ -111,10 +111,37 @@ export default function CompliancePage() {
                 </div>
             </section>
 
+            {/* Internal links to product pages */}
+            <section className="bg-white border-b border-border">
+                <div className="page-container section-pad">
+                    <p className="section-label mb-6">Product-Specific Documentation</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+                        <div className="border border-border p-6">
+                            <p className="font-semibold text-sm mb-2">Makhana (Fox Nuts)</p>
+                            <p className="text-xs text-muted mb-4">
+                                Certificate of Origin, phytosanitary certificate, grade-specific lab report, and packing list. Destination-specific coordination at enquiry stage.
+                            </p>
+                            <Link to="/industries/food-ingredients/makhana" className="text-xs text-brand font-medium underline underline-offset-2">
+                                View Makhana specifications
+                            </Link>
+                        </div>
+                        <div className="border border-border p-6">
+                            <p className="font-semibold text-sm mb-2">Dehydrated and Dried Ingredients</p>
+                            <p className="text-xs text-muted mb-4">
+                                Per-product lab reports, line-by-line packing list, and consolidated documentation for multi-SKU consignments.
+                            </p>
+                            <Link to="/industries/food-ingredients/dehydrated-ingredients" className="text-xs text-brand font-medium underline underline-offset-2">
+                                View dehydrated ingredient specifications
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <CTASection
                 heading="Need documentation confirmed for a specific market?"
                 subtext="Share your product and destination at enquiry stage. We identify the required document set before order placement."
-                primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
+                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
                 background="dark"
             />
         </>

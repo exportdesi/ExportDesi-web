@@ -24,13 +24,13 @@ export default function ContactPage() {
     return (
         <>
             <SEOMeta
-                title="Request Export Details"
+                title="Submit Your Requirement"
                 description="Contact Export Desi to discuss a supply requirement. Provide your product, destination, and volume. We respond within 48 business hours."
             />
 
             <HeroSection
                 label="Contact"
-                title="Request Export Details."
+                title="Submit Your Requirement."
                 subtitle="We review every enquiry before responding. If the requirement falls outside what we can fulfil, we confirm that at first response, not after extended back-and-forth."
                 background="surface"
             />
@@ -46,7 +46,7 @@ export default function ContactPage() {
                                     <div className="w-2 h-2 bg-brand mb-6" />
                                     <h2 className="text-xl font-bold mb-3">Enquiry Received.</h2>
                                     <p className="text-muted text-sm">
-                                        We will review the requirement and respond within 48 business hours. If we cannot fulfil it, we will say so at that point.
+                                        You will receive a response within 48 business hours after we complete our internal feasibility review. If the requirement falls outside our current scope, we will confirm that in our first reply.
                                     </p>
                                 </div>
                             ) : (
@@ -90,9 +90,14 @@ export default function ContactPage() {
                                         />
                                     </div>
 
-                                    <button type="submit" className="btn-primary w-full sm:w-auto">
-                                        Submit Requirement
-                                    </button>
+                                    <div>
+                                        <button type="submit" className="btn-primary w-full sm:w-auto">
+                                            Submit Requirement
+                                        </button>
+                                        <p className="text-xs text-muted mt-3">
+                                            You will receive a response within 48 business hours after review.
+                                        </p>
+                                    </div>
                                 </form>
                             )}
                         </div>

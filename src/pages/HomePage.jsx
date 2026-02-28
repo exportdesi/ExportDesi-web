@@ -17,10 +17,36 @@ export default function HomePage() {
                 label="Export Execution"
                 title="Structured Export Execution from India."
                 subtitle="We handle processor qualification, pre-dispatch verification, documentation, and port coordination for international buyers sourcing Indian food ingredients. You deal with one contact. The shipment arrives with a complete, accurate document set."
-                primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
+                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
             />
 
+            {/* Trust bar */}
+            <div className="bg-white border-b border-border">
+                <div className="page-container py-4 flex flex-wrap gap-6 items-center text-xs font-semibold text-muted tracking-wide">
+                    <span>IEC Registered</span>
+                    <span className="text-border">|</span>
+                    <span>FSSAI Licensed</span>
+                    <span className="text-border">|</span>
+                    <span>APEDA Registered</span>
+                    <span className="text-border">|</span>
+                    <span>Spice Board Registered</span>
+                </div>
+            </div>
+
+            {/* Definition block */}
+            <section className="bg-surface border-b border-border">
+                <div className="page-container section-pad">
+                    <div className="max-w-2xl">
+                        <p className="section-label">What We Are</p>
+                        <p className="text-base text-muted leading-relaxed">
+                            Export Desi is a merchant export management operation based in Gurgaon, India. We structure international B2B supply of Indian food ingredients across defined product categories: verifying processors, managing documentation, and coordinating shipments from purchase order through to Bill of Lading.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Execution Model */}
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -29,7 +55,7 @@ export default function HomePage() {
                             heading="We do not manufacture. We qualify processors and manage the shipment."
                             paragraphs={[
                                 'Export Desi works directly with processing units across active product categories. Before any order is placed, processors are assessed on four criteria: current FSSAI compliance status, prior export documentation track record, mechanical grading capability, and moisture-controlled storage. Processors who do not meet all four are not used.',
-                                'Once a processor is confirmed, we manage the full cycle: purchase order, pre-dispatch lot inspection, documentation preparation, and port coordination through to Bill of Lading issuance. Buyers receive processor-level pricing. Documentation is verified against the specific shipment before the container is released.',
+                                'HS classification is verified before the Proforma Invoice is issued. Packing lists are matched line-by-line against invoice values before the container is released. Phytosanitary certificate validity is checked against the confirmed sailing date.',
                             ]}
                         />
                         <div className="space-y-6 pt-2 md:pt-14">
@@ -48,12 +74,13 @@ export default function HomePage() {
                 </div>
             </section>
 
+            {/* Food & Ingredients */}
             <section className="bg-surface border-b border-border">
                 <div className="page-container section-pad">
                     <div className="mb-14">
                         <p className="section-label">Current Sourcing Scope</p>
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-2xl">
-                            Food &amp; Ingredients
+                            Food and Ingredients
                         </h2>
                         <p className="text-muted mt-4 max-w-xl">
                             We source within categories where we have active processor relationships, prior shipment history, and a documented compliance pathway for the product. We do not list products we have not shipped.
@@ -92,28 +119,10 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section className="bg-white border-b border-border">
-                <div className="page-container section-pad">
-                    <ContentBlock
-                        label="Operations"
-                        heading="Consistent supply is not a sourcing problem. It is an execution problem."
-                        paragraphs={[
-                            'Most India-sourcing arrangements break at the second or third shipment. Grade variance creeps in, documentation is missing or misaligned with the bank\'s letter of credit requirements, or the processor that performed well on a trial order cannot maintain the same grade at commercial volume.',
-                            'We do not commit to a timeline we have not verified with the processor. We do not release a container without confirming the full document set, including that the commercial invoice Incoterm matches the LC terms and the packing list quantities reconcile with the Bill of Lading.',
-                        ]}
-                    />
-                    <div className="mt-10">
-                        <Link to="/how-we-work" className="btn-secondary">
-                            View Our Export Execution Model
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
             <CTASection
                 heading="Have a supply requirement?"
                 subtext="Send us the product, grade or specification, destination market, and target volume. We assess processor availability and respond with indicative pricing within 48 business hours."
-                primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
+                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
                 secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
                 background="dark"
             />

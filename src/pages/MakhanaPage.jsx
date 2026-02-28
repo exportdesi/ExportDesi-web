@@ -9,6 +9,8 @@ import TwoColumnSection from '../components/TwoColumnSection';
 import { makhanaSpecs } from '../data/makhana';
 import { Link } from 'react-router-dom';
 
+const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers — contact us to confirm current availability before placing an order.';
+
 export default function MakhanaPage() {
     return (
         <>
@@ -16,6 +18,15 @@ export default function MakhanaPage() {
                 title="Makhana (Fox Nuts) Export from India"
                 description="Export Desi supplies Makhana in four size grades from pre-qualified Bihar processors. Pre-dispatch lot verification, grade-specific lab reports, and full export documentation."
             />
+
+            {/* Definition block for SEO / AI extraction */}
+            <div className="bg-surface border-b border-border">
+                <div className="page-container py-4">
+                    <p className="text-xs text-muted">
+                        <strong>Makhana (Fox Nuts)</strong> is a processed seed sourced from the <em>Euryale ferox</em> plant, used in snack, retail, and food ingredient supply chains. India is the dominant global producer, with the Mithila region of Bihar accounting for the majority of commercial output.
+                    </p>
+                </div>
+            </div>
 
             <HeroSection
                 label="Food and Ingredients: Makhana"
@@ -71,6 +82,13 @@ export default function MakhanaPage() {
                 rows={makhanaSpecs.packagingTable.rows}
             />
 
+            {/* MOQ note */}
+            <section className="bg-surface border-b border-border">
+                <div className="page-container py-6">
+                    <p className="text-sm text-muted max-w-2xl">{MOQ_NOTE}</p>
+                </div>
+            </section>
+
             <CTASection
                 heading="Evaluating Makhana for your supply chain?"
                 subtext="Trial samples are available. Share your grade requirement and destination and we will confirm processor availability, sample weight, and freight cost before dispatch."
@@ -85,7 +103,7 @@ export default function MakhanaPage() {
                             label="Documentation"
                             heading="Document set verified against the lot before the container is released."
                             paragraphs={[
-                                'Before container stuffing is authorised, we verify HS code accuracy on the commercial invoice, phytosanitary certificate validity relative to sailing date, packing list reconciliation against the actual lot count, and lab report traceability to the specific batch being shipped. No container moves with an outstanding document.',
+                                'HS classification is verified before PI confirmation. Before container stuffing is authorised, we verify commercial invoice values against the packing list line-by-line, phytosanitary certificate validity relative to sailing date, and lab report traceability to the specific batch being shipped. No container moves with an outstanding document.',
                             ]}
                         />
                         <StructuredList
@@ -105,7 +123,7 @@ export default function MakhanaPage() {
                         <p className="text-sm text-muted max-w-2xl">
                             Destination-specific requirements such as fumigation certificates, health certificates, or halal certification are confirmed at enquiry stage and coordinated before loading.{' '}
                             <Link to="/compliance" className="text-brand font-medium underline underline-offset-2">
-                                View Compliance Framework
+                                View full compliance framework
                             </Link>
                         </p>
                     </div>
@@ -121,7 +139,7 @@ export default function MakhanaPage() {
             <CTASection
                 heading="Discuss a Makhana supply requirement."
                 subtext="Send us your grade, target volume, pack format, destination market, and timeline. We confirm processor availability and indicative pricing within 48 business hours."
-                primaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
+                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact?product=makhana&type=supply' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"
             />

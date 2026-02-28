@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
 /**
- * FAQAccordion — collapsible FAQ section.
- * Props:
- *   items    Array<{ question, answer }>
- *   label    string  — optional eyebrow label
- *   heading  string  — optional section heading
+ * FAQAccordion — crawlable collapsible FAQ section.
+ * Answers are always rendered in DOM (for SEO + AI extraction).
+ * Visibility is controlled via CSS height/opacity.
  */
 export default function FAQAccordion({ items = [], label, heading }) {
     const [openIndex, setOpenIndex] = useState(null);
@@ -23,33 +21,34 @@ export default function FAQAccordion({ items = [], label, heading }) {
                 )}
 
                 <div className="max-w-3xl divide-y divide-border border-t border-border">
-                    {items.map((item, i) => (
-                        <div key={i}>
-                            <button
-                                onClick={() => toggle(i)}
-                                className="w-full flex justify-between items-start gap-6 py-5 text-left"
-                                aria-expanded={openIndex === i}
-                            >
-                                <span className="font-semibold text-sm md:text-base text-brand">
-                                    {item.question}
-                                </span>
-                                <span className="flex-shrink-0 mt-0.5 text-muted">
-                                    {openIndex === i ? (
-                                        <MinusIcon />
-                                    ) : (
-                                        <PlusIcon />
-                                    )}
-                                </span>
-                            </button>
-                            {openIndex === i && (
-                                <div className="pb-5">
+                    {items.map((item, i) => {
+                        const isOpen = openIndex === i;
+                        return (
+                            <div key={i}>
+                                <button
+                                    onClick={() => toggle(i)}
+                                    className="w-full flex justify-between items-start gap-6 py-5 text-left"
+                                    aria-expanded={isOpen}
+                                >
+                                    <span className="font-semibold text-sm md:text-base text-brand">
+                                        {item.question}
+                                    </span>
+                                    <span className="flex-shrink-0 mt-0.5 text-muted">
+                                        {isOpen ? <MinusIcon /> : <PlusIcon />}
+                                    </span>
+                                </button>
+                                {/* Answer always in DOM for crawlability — hidden visually when closed */}
+                                <div
+                                    className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'}`}
+                                    aria-hidden={!isOpen}
+                                >
                                     <p className="text-muted text-sm md:text-base leading-relaxed">
                                         {item.answer}
                                     </p>
                                 </div>
-                            )}
-                        </div>
-                    ))}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

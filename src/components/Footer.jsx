@@ -101,7 +101,7 @@ export default function Footer() {
 }
 
 function WhatsAppButton() {
-    const message = encodeURIComponent('Hi Export Desi team, I need export specifications and pricing information.');
+    const message = encodeURIComponent('Hi, I have a sourcing requirement I\'d like to discuss.');
     const url = `https://wa.me/919289790283?text=${message}`;
 
     return (
