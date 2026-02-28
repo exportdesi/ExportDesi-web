@@ -1,3 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        @apply bg-white text-brand font-sans;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold leading-tight tracking-tight;
+        color: #0a0a0a;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    p {
+        @apply leading-relaxed;
+    }
+}
+
+@layer components {
+    .page-container {
+        @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-pad {
+        @apply py-20 md:py-24;
+    }
+
+    .btn-primary {
+        @apply inline-block bg-brand text-white px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-light transition-colors duration-150;
+    }
+
+    .btn-secondary {
+        @apply inline-block border border-border-strong text-brand px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-surface transition-colors duration-150;
+    }
+
+    .section-label {
+        @apply text-xs font-semibold tracking-widest uppercase text-muted mb-4;
+    }
+}
