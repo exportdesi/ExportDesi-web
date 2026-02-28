@@ -18,7 +18,6 @@ export default function ContactPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Replace with actual form submission (Formspree, Netlify Forms, etc.)
         setSubmitted(true);
     };
 
@@ -26,13 +25,13 @@ export default function ContactPage() {
         <>
             <SEOMeta
                 title="Request Export Details"
-                description="Contact Export Desi to discuss product specifications, volumes, and export requirements. We respond within 48 business hours."
+                description="Contact Export Desi to discuss a supply requirement. Provide your product, destination, and volume. We respond within 48 business hours."
             />
 
             <HeroSection
                 label="Contact"
                 title="Request Export Details."
-                subtitle="Share your requirement. We review feasibility and respond within 48 business hours. We do not accept enquiries we cannot fulfil."
+                subtitle="We review every enquiry before responding. If the requirement falls outside what we can fulfil, we confirm that at first response, not after extended back-and-forth."
                 background="surface"
             />
 
@@ -47,7 +46,7 @@ export default function ContactPage() {
                                     <div className="w-2 h-2 bg-brand mb-6" />
                                     <h2 className="text-xl font-bold mb-3">Enquiry Received.</h2>
                                     <p className="text-muted text-sm">
-                                        We will review your requirement and respond within 48 business hours. If we cannot fulfil the requirement, we will let you know at that point.
+                                        We will review the requirement and respond within 48 business hours. If we cannot fulfil it, we will say so at that point.
                                     </p>
                                 </div>
                             ) : (
@@ -60,7 +59,6 @@ export default function ContactPage() {
                                     <Field label="Email Address" id="email" type="email" required />
                                     <Field label="Phone / WhatsApp" id="phone" type="tel" />
 
-                                    {/* Product */}
                                     <div>
                                         <label htmlFor="product" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
                                             Product
@@ -76,10 +74,8 @@ export default function ContactPage() {
                                         </select>
                                     </div>
 
-                                    {/* Destination */}
                                     <Field label="Destination Country / Market" id="destination" />
 
-                                    {/* Requirement */}
                                     <div>
                                         <label htmlFor="requirement" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
                                             Requirement Details <span className="text-red-500">*</span>
@@ -89,15 +85,12 @@ export default function ContactPage() {
                                             name="requirement"
                                             required
                                             rows={5}
-                                            placeholder="Describe your requirement: product specification, grade, volume, packaging, destination market, timeline."
+                                            placeholder="Product grade or specification, required volume, pack format, destination market, and timeline."
                                             className="w-full border border-border bg-white px-4 py-3 text-sm text-brand placeholder:text-gray-300 focus:outline-none focus:border-brand-light resize-y"
                                         />
                                     </div>
 
-                                    <button
-                                        type="submit"
-                                        className="btn-primary w-full sm:w-auto"
-                                    >
+                                    <button type="submit" className="btn-primary w-full sm:w-auto">
                                         Submit Requirement
                                     </button>
                                 </form>
@@ -109,7 +102,7 @@ export default function ContactPage() {
                             <div className="border border-border bg-surface p-6">
                                 <p className="section-label mb-4">Direct Contact</p>
                                 <div className="space-y-2 text-sm">
-                                    <p className="font-medium">Sahil — Business Development</p>
+                                    <p className="font-medium">Sahil, Business Development</p>
                                     <a href="mailto:contact@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
                                         contact@exportdesi.com
                                     </a>
@@ -122,7 +115,7 @@ export default function ContactPage() {
                             <div className="border border-border bg-surface p-6">
                                 <p className="section-label mb-4">WhatsApp</p>
                                 <p className="text-sm text-muted mb-4">
-                                    For quick enquiries, WhatsApp is monitored during Indian business hours (9am–7pm IST, Mon–Sat).
+                                    Available during Indian business hours: 9am to 7pm IST, Monday to Saturday.
                                 </p>
                                 <a
                                     href="https://wa.me/919289790283"
@@ -135,11 +128,11 @@ export default function ContactPage() {
                             </div>
 
                             <ContentBlock
-                                label="Response time"
+                                label="Response Time"
                                 heading="48 business hours."
                                 headingLevel="h3"
                                 paragraphs={[
-                                    'We review all enquiries before responding. If there are questions about feasibility of supply, we resolve those internally before our first response.',
+                                    'We assess feasibility internally before responding. If the requirement raises supply or compliance questions, we resolve those before our first reply.',
                                 ]}
                                 maxWidth={false}
                             />

@@ -8,13 +8,13 @@ const PRODUCTS = [
     {
         label: 'Fox Nuts',
         name: 'Makhana',
-        summary: 'Multiple size grades. Verified processor network in Bihar. Suitable for retail, food ingredient, and snack manufacturing.',
+        summary: 'Four size grades from 12mm to 18mm+. Sourced from processing units in Bihar\'s Mithila cluster. Each shipment includes Certificate of Origin, phytosanitary certificate, grade-specific lab report, and packing list.',
         href: '/industries/food-ingredients/makhana',
     },
     {
         label: 'Dehydrated Ingredients',
-        name: 'Dehydrated & Dried Ingredients',
-        summary: 'Onion, garlic, banana powder, moringa — multiple forms and pack formats. Process-grade and food-grade supply.',
+        name: 'Dehydrated and Dried Ingredients',
+        summary: 'Onion and garlic in flakes, minced, chopped, granule, and powder forms. Banana powder. Moringa leaf powder. Process-grade and food-grade supply. Third-party lab reports per lot.',
         href: '/industries/food-ingredients/dehydrated-ingredients',
     },
 ];
@@ -23,18 +23,17 @@ export default function FoodIngredientsPage() {
     return (
         <>
             <SEOMeta
-                title="Food & Ingredients"
-                description="Export Desi's food & ingredients export cluster. Makhana, dehydrated onion, garlic, and functional powders from verified Indian processors."
+                title="Food and Ingredients"
+                description="Export Desi's food and ingredients sourcing cluster. Makhana in four grades plus dehydrated onion, garlic, banana powder, and moringa from pre-qualified Indian processors."
             />
 
             <HeroSection
-                label="Food & Ingredients"
+                label="Food and Ingredients"
                 title="Indian Food Ingredients for Global Supply Chains."
-                subtitle="Direct-from-processor supply across verified food ingredient categories. Full documentation, quality verification, and compliance support."
+                subtitle="Supply from processors we have verified, not catalogue listings. Each product ships with pre-dispatch lot verification and a complete export documentation package."
                 background="surface"
             />
 
-            {/* Product Grid */}
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <p className="section-label mb-12">Active Products</p>
@@ -45,7 +44,7 @@ export default function FoodIngredientsPage() {
                                 <h2 className="text-xl md:text-2xl font-bold mb-4">{product.name}</h2>
                                 <p className="text-muted text-sm leading-relaxed mb-8">{product.summary}</p>
                                 <Link to={product.href} className="btn-primary text-xs">
-                                    View Product Details
+                                    View Specifications
                                 </Link>
                             </div>
                         ))}
@@ -53,24 +52,23 @@ export default function FoodIngredientsPage() {
                 </div>
             </section>
 
-            {/* Cluster context */}
             <section className="bg-surface border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
-                            label="Compliance"
-                            heading="Export documentation is handled end-to-end."
+                            label="Documentation"
+                            heading="Full document set per shipment, verified before dispatch."
                             paragraphs={[
-                                'All products in this cluster ship with a standard documentation package: Certificate of Origin, Phytosanitary Certificate, Quality/Test Reports, Commercial Invoice, and Packing List.',
-                                'Destination-market-specific requirements — including import permits, fumigation certificates, and halal/organic documentation — are coordinated on a shipment basis.',
+                                'All products in this cluster ship with Certificate of Origin, phytosanitary certificate, third-party lab report, commercial invoice, and packing list. Documents are checked for HS code accuracy, Incoterm consistency, and lot traceability before the container is released.',
+                                'Destination-specific requirements such as fumigation certificates, health certificates, or halal certification are identified at enquiry stage and coordinated before loading.',
                             ]}
                         />
                         <ContentBlock
                             label="Logistics"
-                            heading="Sea and air freight across all major ports."
+                            heading="Sea freight from Nhava Sheva, Mundra, or Chennai."
                             paragraphs={[
-                                'Standard shipments are consolidated or FCL by sea from Nhava Sheva, Mundra, or Chennai depending on product and processor location. Air freight is available for samples.',
-                                'Incoterm flexibility: FOB, CIF, and DAP terms are all accommodated.',
+                                'Commercial volumes move by sea, either consolidated (LCL) or full container (FCL) depending on volume and product. Port selection is determined by processor location and freight rates at time of booking. Air freight is available for samples.',
+                                'We accommodate FOB, CIF, and DAP Incoterms. Incoterm selection is confirmed at PI stage.',
                             ]}
                         />
                     </div>
@@ -83,8 +81,8 @@ export default function FoodIngredientsPage() {
             </section>
 
             <CTASection
-                heading="Working on a food ingredient sourcing requirement?"
-                subtext="Share specifications. We confirm processor availability and indicative pricing within 48 hours."
+                heading="Have a food ingredient sourcing requirement?"
+                subtext="Send us the product, grade, volume, and destination. We confirm processor availability and indicative pricing within 48 business hours."
                 primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
                 background="dark"
             />

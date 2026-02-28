@@ -14,28 +14,25 @@ export default function MakhanaPage() {
         <>
             <SEOMeta
                 title="Makhana (Fox Nuts) Export from India"
-                description="Export Desi supplies Makhana (Fox Nuts) in multiple size grades from verified Bihar processors. Full documentation, pre-dispatch verification, and international export support."
+                description="Export Desi supplies Makhana in four size grades from pre-qualified Bihar processors. Pre-dispatch lot verification, grade-specific lab reports, and full export documentation."
             />
 
-            {/* Product Hero */}
             <HeroSection
-                label="Food & Ingredients — Makhana"
+                label="Food and Ingredients: Makhana"
                 title="Makhana (Fox Nuts)"
-                subtitle="Available in four size grades from 12mm to 18mm+. Sourced from processing units in Bihar's Mithila cluster. Supplied with pre-dispatch verification and a complete export documentation package."
+                subtitle="Four size grades from 12mm to 18mm+. Sourced from processing units in Bihar's Mithila cluster. Each lot is verified before dispatch. Certificate of Origin, phytosanitary certificate, grade-specific lab report, and packing list are included as standard."
                 primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
                 secondaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
             />
 
-            {/* Supply Structure */}
             <TwoColumnSection
                 leftContent={
                     <ContentBlock
                         label="Supply Structure"
                         heading="Grade-separated supply from pre-qualified processing units."
                         paragraphs={[
-                            'All Makhana is sourced from processing units in the Mithila cluster of Bihar — the concentrated production region for Indian Fox Nuts. The cluster accounts for the predominant share of India\'s commercial Makhana output.',
-                            'Processor eligibility requires: FSSAI licence, prior export documentation history, mechanical grading equipment (not manual sorting), and moisture-controlled storage. Processors are assessed per these criteria before any commercial order is placed.',
-                            'Grade separation is maintained at the processor level. We do not blend or re-sort at an intermediate stage. Mixed or non-graded stock is not accepted for export consignments.',
+                            'All Makhana is sourced from the Mithila cluster in Bihar, the production region that accounts for the majority of India\'s commercial Fox Nut output. Processing units are assessed before any order is placed. Criteria: FSSAI licence, APEDA registration, mechanical grading equipment (not manual sorting), moisture-controlled storage, and prior export documentation history.',
+                            'Grade separation is done at the processor. We do not blend grades or re-sort at an intermediate point. Mixed or non-conforming stock is rejected before packing.',
                         ]}
                     />
                 }
@@ -44,29 +41,29 @@ export default function MakhanaPage() {
                         <p className="section-label">Available Grades</p>
                         <StructuredList
                             items={[
-                                'Standard — 12–14 mm',
-                                'Select — 14–16 mm',
-                                'Premium — 16–18 mm',
-                                'Extra Premium — 18+ mm',
+                                'Standard: 12 to 14 mm',
+                                'Select: 14 to 16 mm',
+                                'Premium: 16 to 18 mm',
+                                'Extra Premium: 18mm and above',
                             ]}
                         />
                         <div className="mt-8 pt-6 border-t border-border">
-                            <p className="text-xs text-muted">Moisture specifications and broken percentage per grade available in the specification table below.</p>
+                            <p className="text-xs text-muted">
+                                Moisture tolerance and maximum broken percentage per grade are detailed in the specification table below.
+                            </p>
                         </div>
                     </div>
                 }
             />
 
-            {/* Grade Specification Table */}
             <SpecTable
                 label="Product Specifications"
                 heading="Grade Specifications"
-                caption="All parameters are indicative. Exact specifications confirmed per lot at time of order."
+                caption="Parameters are indicative. Exact specification including moisture and broken percentage is confirmed per lot at order stage."
                 headers={makhanaSpecs.gradeTable.headers}
                 rows={makhanaSpecs.gradeTable.rows}
             />
 
-            {/* Packaging Table */}
             <SpecTable
                 label="Packaging"
                 heading="Standard Pack Formats"
@@ -74,60 +71,56 @@ export default function MakhanaPage() {
                 rows={makhanaSpecs.packagingTable.rows}
             />
 
-            {/* Mid-page CTA */}
             <CTASection
                 heading="Evaluating Makhana for your supply chain?"
-                subtext="Trial samples are available for serious buyers. Share your grade requirement and destination — we confirm availability, sample weight, and logistics costs before shipment."
+                subtext="Trial samples are available. Share your grade requirement and destination and we will confirm processor availability, sample weight, and freight cost before dispatch."
                 primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
                 background="surface"
             />
 
-            {/* Documentation & Compliance */}
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
                             label="Documentation"
-                            heading="Full documentation set verified before the container is stuffed."
+                            heading="Document set verified against the lot before the container is released."
                             paragraphs={[
-                                'No Makhana consignment is released for loading until the complete document set is assembled, cross-checked against the shipment details, and confirmed accurate. This includes HS code verification, certificate issuer validity, and lab report traceability to the specific lot being shipped.',
+                                'Before container stuffing is authorised, we verify HS code accuracy on the commercial invoice, phytosanitary certificate validity relative to sailing date, packing list reconciliation against the actual lot count, and lab report traceability to the specific batch being shipped. No container moves with an outstanding document.',
                             ]}
                         />
                         <StructuredList
                             heading="Documents Provided"
                             items={[
-                                'Certificate of Origin (India)',
-                                'Phytosanitary Certificate (NPPO India)',
-                                'Commercial Invoice & Packing List',
-                                'Bill of Lading / Airway Bill',
-                                'Third-party Lab Report (moisture, purity, microbial)',
-                                'Pre-shipment Inspection Certificate (on request)',
+                                'Certificate of Origin: issued by FIEO or Chamber of Commerce',
+                                'Phytosanitary Certificate: NPPO India',
+                                'Commercial Invoice and Packing List',
+                                'Bill of Lading or Airway Bill',
+                                'Third-party Lab Report: moisture, purity, microbial count',
+                                'Pre-shipment Inspection Certificate: on request or per destination requirement',
                             ]}
                         />
                     </div>
 
                     <div className="mt-12 pt-8 border-t border-border">
                         <p className="text-sm text-muted max-w-2xl">
-                            Destination-specific requirements — health certificates, fumigation certificates, halal certification — are identified at enquiry stage and coordinated as part of the shipment preparation, not added after booking.{' '}
+                            Destination-specific requirements such as fumigation certificates, health certificates, or halal certification are confirmed at enquiry stage and coordinated before loading.{' '}
                             <Link to="/compliance" className="text-brand font-medium underline underline-offset-2">
-                                View Compliance Framework →
+                                View Compliance Framework
                             </Link>
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ */}
             <FAQAccordion
                 label="Common Questions"
-                heading="Makhana Supply — Frequently Asked Questions"
+                heading="Makhana Supply: Frequently Asked Questions"
                 items={makhanaSpecs.faqs}
             />
 
-            {/* Bottom CTA */}
             <CTASection
                 heading="Discuss a Makhana supply requirement."
-                subtext="Send us your grade, target volume, pack format, destination market, and required timeline. We confirm processor availability and indicative pricing within 48 business hours."
+                subtext="Send us your grade, target volume, pack format, destination market, and timeline. We confirm processor availability and indicative pricing within 48 business hours."
                 primaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"

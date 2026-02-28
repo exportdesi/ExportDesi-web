@@ -8,41 +8,39 @@ export default function AboutPage() {
         <>
             <SEOMeta
                 title="About Export Desi"
-                description="Export Desi is a structured export execution partner for global buyers sourcing Indian food ingredients. Operations in Gurgaon, Haryana. Processor relationships in Bihar, Gujarat, and Rajasthan."
+                description="Export Desi coordinates the Indian side of the export process for global buyers: processor qualification, documentation, and shipment management from Gurgaon, Haryana."
             />
 
             <HeroSection
                 label="About"
                 title="Export Desi."
-                subtitle="An export execution partner for global buyers sourcing Indian food ingredients. We manage the supply chain between verified Indian processors and international buyers."
+                subtitle="We coordinate the Indian side of the export process for international buyers sourcing food ingredients. Processor qualification, documentation preparation, pre-dispatch verification, and port coordination, managed from Gurgaon, Haryana."
                 background="surface"
             />
 
-            {/* What we are */}
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
                             label="What We Are"
-                            heading="An execution partner, not a trading house."
+                            heading="An export management operation, not a trading house."
                             paragraphs={[
-                                'Export Desi coordinates the Indian side of the export process for buyers who want to source from India without building an in-country team. We identify and pre-qualify processors, manage quality verification, prepare and check documentation, and oversee shipping and port coordination.',
-                                'We do not hold stock. We do not manufacture. We function as the accountable intermediary between processor and buyer — with a defined process and a clear service boundary.',
+                                'We do not hold stock. We do not own processing facilities. We identify processors who can meet a buyer\'s specification, verify them against compliance and quality criteria, manage the full documentation cycle, and coordinate the shipment through to Bill of Lading issuance.',
+                                'Buyers get processor-level pricing without having to manage multiple vendor relationships, chase documentation across time zones, or absorb the cost of building an in-country sourcing team.',
                             ]}
                         />
                         <ContentBlock
                             label="How We Operate"
-                            heading="Processor relationships, not catalogue listings."
+                            heading="Processor relationships built on shipment history, not directories."
                             paragraphs={[
-                                'Every product we supply is sourced from a processor we have directly assessed — against export compliance standing, facility hygiene, grading consistency, and capacity. We do not list products we cannot reliably supply.',
-                                'Our operations are based in Gurgaon, Haryana. Active processor relationships span Bihar (Makhana), Gujarat (dehydrated ingredients), and Rajasthan. New categories are not added without the corresponding ground-level qualification work.',
+                                'Every processor in our active network has been through a pre-qualification: FSSAI and APEDA compliance check, facility review, sample assessment, and prior export documentation review. We do not source from processors we have not assessed.',
+                                'Our operations are based in Gurgaon, Haryana. Processor relationships currently cover Bihar for Makhana and Gujarat for dehydrated ingredients. We do not expand categories without first establishing the same processor-level groundwork.',
                             ]}
                         />
                     </div>
                 </div>
             </section>
 
-            {/* Team */}
             <section className="bg-surface border-b border-border">
                 <div className="page-container section-pad">
                     <p className="section-label mb-12">The Team</p>
@@ -50,18 +48,18 @@ export default function AboutPage() {
                         {[
                             {
                                 name: 'Hemant',
-                                role: 'Sourcing & Processor Relations',
-                                note: 'Responsible for processor network identification, pre-qualification, and ongoing supply relationship management. Primary contact for processor-side questions.',
+                                role: 'Sourcing and Processor Relations',
+                                note: 'Manages processor network identification, pre-qualification, and ongoing supply-side relationships.',
                             },
                             {
                                 name: 'Nishant',
-                                role: 'Risk & Operations',
-                                note: 'Manages order execution, pre-dispatch verification, documentation review, and port coordination. Responsible for shipment integrity across each consignment.',
+                                role: 'Risk and Operations',
+                                note: 'Responsible for order execution, pre-dispatch verification, and documentation accuracy across every consignment.',
                             },
                             {
                                 name: 'Sahil',
                                 role: 'Business Development',
-                                note: 'Handles buyer-side requirement qualification, enquiry assessment, and commercial terms. First point of contact for new supply discussions.',
+                                note: 'Handles buyer-side requirement qualification, feasibility assessment, and commercial terms. First point of contact for new enquiries.',
                             },
                         ].map((member) => (
                             <div key={member.name} className="bg-surface p-8">
@@ -75,15 +73,13 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Location */}
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <ContentBlock
                         label="Location"
-                        heading="Operations based in Gurgaon, Haryana."
+                        heading="Gurgaon, Haryana. UTC+5:30."
                         paragraphs={[
-                            'Our office is in Gurgaon, Haryana (UTC+5:30). Processor relationships are maintained in Bihar, Gujarat, and Rajasthan across our active product categories.',
-                            'New enquiries are responded to within 48 business hours. If the requirement falls outside our current scope, we confirm that at first response rather than after extended discussion.',
+                            'We operate on Indian Standard Time. New enquiries are responded to within 48 business hours. If the requirement falls outside our current scope, we confirm that at first response.',
                         ]}
                     />
                     <div className="mt-8 space-y-1.5 text-sm text-muted">

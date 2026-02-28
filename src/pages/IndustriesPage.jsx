@@ -9,41 +9,39 @@ export default function IndustriesPage() {
         <>
             <SEOMeta
                 title="Industries"
-                description="Export Desi's active sourcing clusters — food ingredients and specialty produce from India. Structured export execution for global buyers."
+                description="Export Desi's active sourcing scope: food ingredients and specialty produce from India. Makhana, dehydrated onion, garlic, banana powder, moringa."
             />
 
             <HeroSection
                 label="Industries"
-                title="Active Export Clusters"
-                subtitle="We operate in categories where we have established processor relationships, documented compliance pathways, and repeatable export processes."
+                title="Active Export Clusters."
+                subtitle="We work within categories where we have active processor relationships and prior shipment history. We do not list categories we cannot fulfil."
                 background="surface"
             />
 
-            {/* Food & Ingredients */}
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-12 lg:gap-20 items-start">
                         <div>
                             <p className="section-label">Active Cluster</p>
-                            <h2 className="text-2xl md:text-3xl font-bold mb-5">Food &amp; Ingredients</h2>
+                            <h2 className="text-2xl md:text-3xl font-bold mb-5">Food and Ingredients</h2>
                             <p className="text-muted mb-6">
-                                Our primary sourcing cluster. Covers Indian food commodities with established international demand, defined quality parameters, and export compliance frameworks in place.
+                                Our primary sourcing cluster. Covers Indian food commodities with established international buyer demand, documented compliance pathways for key destination markets, and processor networks built and verified over multiple shipments.
                             </p>
                             <p className="text-muted mb-8">
-                                Current active products include Makhana (Fox Nuts) across multiple grades, and a range of dehydrated and dried ingredients including onion, garlic, and functional powders.
+                                Active products: Makhana (Fox Nuts) in four size grades, and a range of dehydrated ingredients including onion, garlic, banana powder, and moringa leaf powder.
                             </p>
                             <Link to="/industries/food-ingredients" className="btn-primary">
-                                View Food &amp; Ingredients
+                                View Food and Ingredients
                             </Link>
                         </div>
 
-                        {/* Highlight box */}
                         <div className="border border-border bg-surface p-8">
-                            <p className="section-label">Products in this cluster</p>
+                            <p className="section-label">Products in This Cluster</p>
                             <ul className="space-y-4">
                                 {[
                                     { name: 'Makhana (Fox Nuts)', href: '/industries/food-ingredients/makhana' },
-                                    { name: 'Dehydrated Onion & Garlic', href: '/industries/food-ingredients/dehydrated-ingredients' },
+                                    { name: 'Dehydrated Onion and Garlic', href: '/industries/food-ingredients/dehydrated-ingredients' },
                                     { name: 'Banana Powder', href: '/industries/food-ingredients/dehydrated-ingredients' },
                                     { name: 'Moringa Powder', href: '/industries/food-ingredients/dehydrated-ingredients' },
                                 ].map((p) => (
@@ -52,7 +50,7 @@ export default function IndustriesPage() {
                                             to={p.href}
                                             className="text-sm font-medium text-brand flex items-center gap-2 hover:opacity-70 transition-opacity"
                                         >
-                                            <span className="text-muted">—</span> {p.name}
+                                            {p.name}
                                         </Link>
                                     </li>
                                 ))}
@@ -62,15 +60,14 @@ export default function IndustriesPage() {
                 </div>
             </section>
 
-            {/* Future clusters notice */}
             <section className="bg-surface">
                 <div className="page-container section-pad">
                     <ContentBlock
                         label="Scope"
                         heading="Focused by design."
                         paragraphs={[
-                            'We deliberately operate within a defined product scope. Expanding beyond it without the corresponding processor relationships and compliance knowledge is how quality failures happen.',
-                            'Additional categories are assessed on a request basis. If you have a consistent volume requirement for an Indian agricultural commodity not listed here, contact us to discuss feasibility.',
+                            'Adding a product category without established processor relationships and a tested compliance path is how grade failures and document errors enter the supply chain. We do not expand scope ahead of the groundwork.',
+                            'If you have a consistent volume requirement for an Indian agricultural or food commodity not listed here, contact us. We assess feasibility and will tell you directly if it is within our reach.',
                         ]}
                     />
                 </div>
