@@ -30,7 +30,7 @@ export default function FoodIngredientsPage() {
             <HeroSection
                 label="Food and Ingredients"
                 title="Indian Food Ingredients for Global Supply Chains."
-                subtitle="We work with verified processors. We do not operate through catalogue listings or trading platforms. Each product ships with pre-dispatch lot verification and a complete export documentation package."
+                subtitle="We work directly with verified processors. We do not operate through catalogue-based sourcing. Each product ships with pre-dispatch lot verification and a complete export documentation package."
                 background="surface"
             />
 
@@ -65,7 +65,7 @@ export default function FoodIngredientsPage() {
                         />
                         <ContentBlock
                             label="Logistics"
-                            heading="Structured around shipment volume and destination."
+                            heading="Logistics are structured based on shipment volume and destination."
                             paragraphs={[
                                 'Commercial consignments typically move by sea freight, either consolidated (LCL) or full container (FCL), depending on order size. Ports are selected based on processor location and prevailing freight conditions, including Nhava Sheva, Mundra, and Chennai. Air freight is available for samples and urgent dispatches.',
                                 'Incoterms are confirmed at the Proforma Invoice stage and may include FOB, CIF, or DAP depending on buyer preference and destination requirements.',

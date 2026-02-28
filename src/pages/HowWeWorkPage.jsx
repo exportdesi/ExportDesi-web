@@ -9,7 +9,7 @@ const STEPS = [
     {
         number: 1,
         title: 'Requirement Qualification',
-        description: 'The buyer provides product specification, destination market, required certifications, volume, and delivery timeline. We assess feasibility against current processor availability, seasonal stock position, and the documentation requirements of the destination market before accepting the enquiry. If a requirement falls outside what we can reliably fulfil, we say so at this stage.',
+        description: 'The buyer provides product specification, destination market, required certifications, volume, and delivery timeline. We assess feasibility against current processor availability, seasonal stock position, and the documentation requirements of the destination market before accepting the enquiry. Timelines are confirmed only after processor capacity and documentation readiness are reviewed. If a requirement falls outside what we can reliably fulfil, we confirm that at this stage.',
     },
     {
         number: 2,
@@ -93,7 +93,7 @@ export default function HowWeWorkPage() {
             <CTASection
                 heading="Ready to submit a requirement?"
                 subtext="Share your specification, destination, and volume. We assess feasibility and respond within 48 business hours."
-                primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
+                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
                 secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
                 background="dark"
             />

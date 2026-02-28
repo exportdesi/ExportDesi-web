@@ -9,7 +9,7 @@ import TwoColumnSection from '../components/TwoColumnSection';
 import { makhanaSpecs } from '../data/makhana';
 import { Link } from 'react-router-dom';
 
-const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers — contact us to confirm current availability before placing an order.';
+const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers. Contact us to confirm current availability before placing an order.';
 
 export default function MakhanaPage() {
     return (
@@ -40,7 +40,7 @@ export default function MakhanaPage() {
                 leftContent={
                     <ContentBlock
                         label="Supply Structure"
-                        heading="Grade-separated supply from pre-qualified processing units."
+                        heading="Supply is grade-separated and sourced from pre-qualified processing units."
                         paragraphs={[
                             'All Makhana is sourced from the Mithila cluster in Bihar, the production region that accounts for the majority of India\'s commercial Fox Nut output. Processing units are assessed before any order is placed. Criteria: FSSAI licence, APEDA registration, mechanical grading equipment (not manual sorting), moisture-controlled storage, and prior export documentation history.',
                             'Grade separation is done at the processor. We do not blend grades or re-sort at an intermediate point. Mixed or non-conforming stock is rejected before packing.',
@@ -70,7 +70,7 @@ export default function MakhanaPage() {
             <SpecTable
                 label="Product Specifications"
                 heading="Grade Specifications"
-                caption="Parameters are indicative. Exact specification including moisture and broken percentage is confirmed per lot at order stage."
+                caption="Parameters are indicative. Exact specification including moisture and broken percentage is confirmed for each lot at order stage."
                 headers={makhanaSpecs.gradeTable.headers}
                 rows={makhanaSpecs.gradeTable.rows}
             />

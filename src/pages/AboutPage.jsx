@@ -50,19 +50,19 @@ export default function AboutPage() {
                             {
                                 name: 'Hemant Kumar',
                                 role: 'Sourcing and Processor Relations',
-                                note: 'Manages processor network identification, pre-qualification, and ongoing supply-side relationships.',
+                                note: 'Oversees processor identification, qualification, and ongoing supply relationships.',
                                 linkedin: null, // Add LinkedIn URL here when available
                             },
                             {
                                 name: 'Nishant Chaudhary',
                                 role: 'Risk and Operations',
-                                note: 'Responsible for order execution, pre-dispatch verification, and documentation accuracy across every consignment.',
+                                note: 'Oversees order execution, pre-dispatch verification, and documentation accuracy for every consignment.',
                                 linkedin: null,
                             },
                             {
                                 name: 'Sahil Dudeja',
                                 role: 'Business Development',
-                                note: 'Handles buyer-side requirement qualification, feasibility assessment, and commercial terms. First point of contact for new enquiries.',
+                                note: 'Handles buyer requirement qualification, feasibility assessment, and commercial terms. First point of contact for new enquiries.',
                                 linkedin: null,
                             },
                         ].map((member) => (
