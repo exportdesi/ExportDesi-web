@@ -8,6 +8,24 @@ import FAQAccordion from '../components/FAQAccordion';
 import TwoColumnSection from '../components/TwoColumnSection';
 import { makhanaSpecs } from '../data/makhana';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+
+const PRODUCT_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Makhana (Fox Nuts)',
+    description: 'Indian Makhana (Euryale ferox) in four size grades from 12mm to 18mm+, sourced from pre-qualified processors in Bihar. Available in Standard, Select, Premium, and Extra Premium grades.',
+    brand: { '@type': 'Brand', name: 'Export Desi' },
+    category: 'Food Ingredients',
+    countryOfOrigin: 'IN',
+    offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'USD',
+        offerCount: 4,
+        availability: 'https://schema.org/InStock',
+        seller: { '@type': 'Organization', name: 'Export Desi', url: 'https://exportdesi.com' },
+    },
+};
 
 const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers. Contact us to confirm current availability before placing an order.';
 
@@ -18,6 +36,11 @@ export default function MakhanaPage() {
                 title="Makhana (Fox Nuts) Export from India"
                 description="Export Desi supplies Makhana in four size grades from pre-qualified Bihar processors. Pre-dispatch lot verification, grade-specific lab reports, and full export documentation."
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(PRODUCT_SCHEMA)}
+                </script>
+            </Helmet>
 
             {/* Definition block for SEO / AI extraction */}
             <div className="bg-surface border-b border-border">

@@ -1,17 +1,36 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 /**
  * FAQAccordion — crawlable collapsible FAQ section.
  * Answers are always rendered in DOM (for SEO + AI extraction).
- * Visibility is controlled via CSS height/opacity.
+ * Includes FAQPage JSON-LD schema for rich results.
  */
 export default function FAQAccordion({ items = [], label, heading }) {
     const [openIndex, setOpenIndex] = useState(null);
 
     const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
+    const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: items.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+            },
+        })),
+    };
+
     return (
         <section className="bg-white border-b border-border">
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(faqSchema)}
+                </script>
+            </Helmet>
             <div className="page-container section-pad">
                 {(label || heading) && (
                     <div className="mb-12">
@@ -37,7 +56,6 @@ export default function FAQAccordion({ items = [], label, heading }) {
                                         {isOpen ? <MinusIcon /> : <PlusIcon />}
                                     </span>
                                 </button>
-                                {/* Answer always in DOM for crawlability — hidden visually when closed */}
                                 <div
                                     className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'}`}
                                     aria-hidden={!isOpen}

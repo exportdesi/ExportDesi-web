@@ -3,6 +3,10 @@ import SEOMeta from '../components/SEOMeta';
 import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 
+// Formspree endpoint — replace YOUR_FORMSPREE_ID with your actual form ID from formspree.io
+// Steps: 1) Sign up at formspree.io  2) Create a new form  3) Copy the form ID (e.g. xpwzlkjq)
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
+
 const PRODUCTS = [
     { value: '', label: 'Select product (optional)' },
     { value: 'makhana', label: 'Makhana (Fox Nuts)' },
@@ -14,11 +18,30 @@ const PRODUCTS = [
 ];
 
 export default function ContactPage() {
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState('idle'); // idle | submitting | success | error
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setStatus('submitting');
+        const form = e.target;
+        const data = new FormData(form);
+
+        try {
+            const res = await fetch(FORMSPREE_ENDPOINT, {
+                method: 'POST',
+                body: data,
+                headers: { Accept: 'application/json' },
+            });
+
+            if (res.ok) {
+                setStatus('success');
+                form.reset();
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
     };
 
     return (
@@ -41,7 +64,7 @@ export default function ContactPage() {
 
                         {/* Form */}
                         <div>
-                            {submitted ? (
+                            {status === 'success' ? (
                                 <div className="border border-border bg-surface p-8">
                                     <div className="w-2 h-2 bg-brand mb-6" />
                                     <h2 className="text-xl font-bold mb-3">Enquiry Received.</h2>
@@ -52,12 +75,12 @@ export default function ContactPage() {
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <Field label="First Name" id="first_name" required />
-                                        <Field label="Last Name" id="last_name" required />
+                                        <Field label="First Name" id="first_name" name="first_name" required />
+                                        <Field label="Last Name" id="last_name" name="last_name" required />
                                     </div>
-                                    <Field label="Company Name" id="company" required />
-                                    <Field label="Email Address" id="email" type="email" required />
-                                    <Field label="Phone / WhatsApp" id="phone" type="tel" />
+                                    <Field label="Company Name" id="company" name="company" required />
+                                    <Field label="Email Address" id="email" name="email" type="email" required />
+                                    <Field label="Phone / WhatsApp" id="phone" name="phone" type="tel" />
 
                                     <div>
                                         <label htmlFor="product" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
@@ -74,7 +97,7 @@ export default function ContactPage() {
                                         </select>
                                     </div>
 
-                                    <Field label="Destination Country / Market" id="destination" />
+                                    <Field label="Destination Country / Market" id="destination" name="destination" />
 
                                     <div>
                                         <label htmlFor="requirement" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
@@ -90,9 +113,20 @@ export default function ContactPage() {
                                         />
                                     </div>
 
+                                    {status === 'error' && (
+                                        <p className="text-sm text-red-600">
+                                            There was an error submitting your enquiry. Please email us directly at{' '}
+                                            <a href="mailto:contact@exportdesi.com" className="underline">contact@exportdesi.com</a>.
+                                        </p>
+                                    )}
+
                                     <div>
-                                        <button type="submit" className="btn-primary w-full sm:w-auto">
-                                            Submit Requirement
+                                        <button
+                                            type="submit"
+                                            disabled={status === 'submitting'}
+                                            className="btn-primary w-full sm:w-auto disabled:opacity-60"
+                                        >
+                                            {status === 'submitting' ? 'Submitting...' : 'Submit Requirement'}
                                         </button>
                                         <p className="text-xs text-muted mt-3">
                                             You will receive a response within 48 business hours after review.
@@ -107,7 +141,7 @@ export default function ContactPage() {
                             <div className="border border-border bg-surface p-6">
                                 <p className="section-label mb-4">Direct Contact</p>
                                 <div className="space-y-2 text-sm">
-                                    <p className="font-medium">Sahil, Business Development</p>
+                                    <p className="font-medium">Sahil Dudeja, Business Development</p>
                                     <a href="mailto:contact@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
                                         contact@exportdesi.com
                                     </a>
@@ -149,7 +183,7 @@ export default function ContactPage() {
     );
 }
 
-function Field({ label, id, type = 'text', required = false }) {
+function Field({ label, id, name, type = 'text', required = false }) {
     return (
         <div>
             <label htmlFor={id} className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
@@ -158,7 +192,7 @@ function Field({ label, id, type = 'text', required = false }) {
             <input
                 type={type}
                 id={id}
-                name={id}
+                name={name}
                 required={required}
                 className="w-full border border-border bg-white px-4 py-3 text-sm text-brand placeholder:text-gray-300 focus:outline-none focus:border-brand-light"
             />
