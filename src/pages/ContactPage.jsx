@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import SEOMeta from '../components/SEOMeta';
 import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 
-// Formspree endpoint — replace YOUR_FORMSPREE_ID with your actual form ID from formspree.io
-// Steps: 1) Sign up at formspree.io  2) Create a new form  3) Copy the form ID (e.g. xpwzlkjq)
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgolbwqy';
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const RATE_LIMIT_MS = 60 * 1000; // 1 minute between submissions
 
 const PRODUCTS = [
-    { value: '', label: 'Select product (optional)' },
+    { value: '', label: 'Select product' },
     { value: 'makhana', label: 'Makhana (Fox Nuts)' },
     { value: 'dehydrated-onion', label: 'Dehydrated Onion' },
     { value: 'dehydrated-garlic', label: 'Dehydrated Garlic' },
@@ -17,27 +19,99 @@ const PRODUCTS = [
     { value: 'other', label: 'Other / Not Listed' },
 ];
 
+const COUNTRIES = [
+    '', 'Afghanistan', 'Albania', 'Algeria', 'Australia', 'Austria', 'Bahrain', 'Bangladesh',
+    'Belgium', 'Brazil', 'Cambodia', 'Canada', 'Chile', 'China', 'Colombia', 'Czech Republic',
+    'Denmark', 'Egypt', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece',
+    'Hong Kong', 'Hungary', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy',
+    'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kuwait', 'Malaysia', 'Mexico', 'Morocco',
+    'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Philippines',
+    'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Saudi Arabia', 'Singapore',
+    'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland',
+    'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom',
+    'United States', 'Vietnam', 'Yemen', 'Other',
+];
+
 export default function ContactPage() {
     const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+    const [phone, setPhone] = useState('');
+    const [errors, setErrors] = useState({});
+    const lastSubmitRef = useRef(null);
+
+    const validate = (data) => {
+        const errs = {};
+        if (!data.first_name.trim()) errs.first_name = 'Required';
+        if (!data.last_name.trim()) errs.last_name = 'Required';
+        if (!data.company.trim()) errs.company = 'Required';
+        if (!data.email.trim()) {
+            errs.email = 'Required';
+        } else if (!EMAIL_REGEX.test(data.email)) {
+            errs.email = 'Enter a valid email address';
+        }
+        if (phone && !isValidPhoneNumber(phone)) {
+            errs.phone = 'Enter a valid international phone number';
+        }
+        if (!data.product) errs.product = 'Select a product';
+        if (!data.destination) errs.destination = 'Select a destination country';
+        if (!data.requirement.trim()) errs.requirement = 'Required';
+        return errs;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setStatus('submitting');
+
+        // Client-side rate limiting
+        const now = Date.now();
+        if (lastSubmitRef.current && now - lastSubmitRef.current < RATE_LIMIT_MS) {
+            setErrors({ _rate: 'Please wait a minute before submitting again.' });
+            return;
+        }
+
         const form = e.target;
-        const data = new FormData(form);
+        const data = {
+            first_name: form.first_name.value,
+            last_name: form.last_name.value,
+            company: form.company.value,
+            email: form.email.value,
+            product: form.product.value,
+            destination: form.destination.value,
+            requirement: form.requirement.value,
+        };
+
+        const errs = validate(data);
+        if (Object.keys(errs).length > 0) {
+            setErrors(errs);
+            return;
+        }
+
+        setErrors({});
+        setStatus('submitting');
+
+        const formData = new FormData();
+        Object.entries(data).forEach(([k, v]) => formData.append(k, v));
+        if (phone) formData.append('phone', phone);
+        // Honeypot for spam — Formspree ignores submissions where this is filled
+        formData.append('_gotcha', '');
 
         try {
             const res = await fetch(FORMSPREE_ENDPOINT, {
                 method: 'POST',
-                body: data,
+                body: formData,
                 headers: { Accept: 'application/json' },
             });
 
             if (res.ok) {
+                lastSubmitRef.current = Date.now();
                 setStatus('success');
                 form.reset();
+                setPhone('');
             } else {
-                setStatus('error');
+                const json = await res.json().catch(() => ({}));
+                if (json.error === 'FORM_NOT_FOUND' || res.status === 422) {
+                    setStatus('error');
+                } else {
+                    setStatus('error');
+                }
             }
         } catch {
             setStatus('error');
@@ -62,43 +136,81 @@ export default function ContactPage() {
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-16 lg:gap-24 items-start">
 
-                        {/* Form */}
                         <div>
                             {status === 'success' ? (
                                 <div className="border border-border bg-surface p-8">
                                     <div className="w-2 h-2 bg-brand mb-6" />
                                     <h2 className="text-xl font-bold mb-3">Enquiry Received.</h2>
                                     <p className="text-muted text-sm">
-                                        You will receive a response within 48 business hours after we complete our internal feasibility review. If the requirement falls outside our current scope, we will confirm that in our first reply.
+                                        You will receive a response within 48 business hours after we complete our internal feasibility review. If the requirement falls outside our current scope, we confirm that in our first reply.
                                     </p>
                                 </div>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                        <Field label="First Name" id="first_name" name="first_name" required />
-                                        <Field label="Last Name" id="last_name" name="last_name" required />
-                                    </div>
-                                    <Field label="Company Name" id="company" name="company" required />
-                                    <Field label="Email Address" id="email" name="email" type="email" required />
-                                    <Field label="Phone / WhatsApp" id="phone" name="phone" type="tel" />
+                                <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                                    {/* Honeypot — hidden from real users */}
+                                    <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
 
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <Field label="First Name" id="first_name" name="first_name" required error={errors.first_name} />
+                                        <Field label="Last Name" id="last_name" name="last_name" required error={errors.last_name} />
+                                    </div>
+                                    <Field label="Company Name" id="company" name="company" required error={errors.company} />
+                                    <Field label="Email Address" id="email" name="email" type="email" required error={errors.email} />
+
+                                    {/* Phone with international selector */}
+                                    <div>
+                                        <label className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
+                                            Phone / WhatsApp
+                                        </label>
+                                        <PhoneInput
+                                            international
+                                            defaultCountry="IN"
+                                            value={phone}
+                                            onChange={setPhone}
+                                            className="phone-input-wrapper"
+                                            inputClassName={`w-full border px-4 py-3 text-sm text-brand focus:outline-none ${errors.phone ? 'border-red-400' : 'border-border focus:border-brand-light'}`}
+                                        />
+                                        {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
+                                    </div>
+
+                                    {/* Product — required */}
                                     <div>
                                         <label htmlFor="product" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
-                                            Product
+                                            Product <span className="text-red-500">*</span>
                                         </label>
                                         <select
                                             id="product"
                                             name="product"
-                                            className="w-full border border-border bg-white px-4 py-3 text-sm text-brand focus:outline-none focus:border-brand-light"
+                                            required
+                                            className={`w-full border px-4 py-3 text-sm text-brand bg-white focus:outline-none ${errors.product ? 'border-red-400' : 'border-border focus:border-brand-light'}`}
                                         >
                                             {PRODUCTS.map((p) => (
-                                                <option key={p.value} value={p.value}>{p.label}</option>
+                                                <option key={p.value} value={p.value} disabled={p.value === ''}>{p.label}</option>
                                             ))}
                                         </select>
+                                        {errors.product && <p className="text-xs text-red-500 mt-1">{errors.product}</p>}
                                     </div>
 
-                                    <Field label="Destination Country / Market" id="destination" name="destination" />
+                                    {/* Destination country — required */}
+                                    <div>
+                                        <label htmlFor="destination" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
+                                            Destination Country <span className="text-red-500">*</span>
+                                        </label>
+                                        <select
+                                            id="destination"
+                                            name="destination"
+                                            required
+                                            className={`w-full border px-4 py-3 text-sm text-brand bg-white focus:outline-none ${errors.destination ? 'border-red-400' : 'border-border focus:border-brand-light'}`}
+                                        >
+                                            <option value="">Select country</option>
+                                            {COUNTRIES.filter(Boolean).map((c) => (
+                                                <option key={c} value={c}>{c}</option>
+                                            ))}
+                                        </select>
+                                        {errors.destination && <p className="text-xs text-red-500 mt-1">{errors.destination}</p>}
+                                    </div>
 
+                                    {/* Requirement — required */}
                                     <div>
                                         <label htmlFor="requirement" className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
                                             Requirement Details <span className="text-red-500">*</span>
@@ -109,13 +221,18 @@ export default function ContactPage() {
                                             required
                                             rows={5}
                                             placeholder="Product grade or specification, required volume, pack format, destination market, and timeline."
-                                            className="w-full border border-border bg-white px-4 py-3 text-sm text-brand placeholder:text-gray-300 focus:outline-none focus:border-brand-light resize-y"
+                                            className={`w-full border px-4 py-3 text-sm text-brand placeholder:text-gray-300 focus:outline-none resize-y ${errors.requirement ? 'border-red-400' : 'border-border focus:border-brand-light'}`}
                                         />
+                                        {errors.requirement && <p className="text-xs text-red-500 mt-1">{errors.requirement}</p>}
                                     </div>
+
+                                    {errors._rate && (
+                                        <p className="text-sm text-amber-600">{errors._rate}</p>
+                                    )}
 
                                     {status === 'error' && (
                                         <p className="text-sm text-red-600">
-                                            There was an error submitting your enquiry. Please email us directly at{' '}
+                                            There was an error submitting your enquiry. Email us directly at{' '}
                                             <a href="mailto:contact@exportdesi.com" className="underline">contact@exportdesi.com</a>.
                                         </p>
                                     )}
@@ -183,7 +300,7 @@ export default function ContactPage() {
     );
 }
 
-function Field({ label, id, name, type = 'text', required = false }) {
+function Field({ label, id, name, type = 'text', required = false, error }) {
     return (
         <div>
             <label htmlFor={id} className="block text-xs font-semibold uppercase tracking-wide text-muted mb-2">
@@ -194,8 +311,9 @@ function Field({ label, id, name, type = 'text', required = false }) {
                 id={id}
                 name={name}
                 required={required}
-                className="w-full border border-border bg-white px-4 py-3 text-sm text-brand placeholder:text-gray-300 focus:outline-none focus:border-brand-light"
+                className={`w-full border px-4 py-3 text-sm text-brand focus:outline-none ${error ? 'border-red-400' : 'border-border focus:border-brand-light'}`}
             />
+            {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
         </div>
     );
 }
