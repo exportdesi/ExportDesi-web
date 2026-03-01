@@ -85,10 +85,11 @@ export default function MakhanaPage() {
                 subtitle="Four size grades from 12mm to 18mm+. Sourced from processing units in Bihar's Mithila cluster. Each lot is verified before dispatch."
                 primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
                 secondaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
+                imageUrl="https://placehold.co/900x700/f3f4f6/6b7280/png?text=Makhana+Product"
             />
 
             {/* Jump links */}
-            <nav className="bg-white border-b border-border sticky top-[73px] z-30" aria-label="Page sections">
+            <nav className="bg-white border-b border-border sticky top-[81px] z-30" aria-label="Page sections">
                 <div className="page-container">
                     <div className="flex items-center overflow-x-auto scrollbar-none">
                         {JUMP_LINKS.map((link) => (
@@ -126,7 +127,7 @@ export default function MakhanaPage() {
             </section>
 
             {/* ③ Supply Structure */}
-            <div id="grades" style={{ scrollMarginTop: '120px' }} />
+            <div id="grades" style={{ scrollMarginTop: '130px' }} />
             <TwoColumnSection
                 leftContent={
                     <ContentBlock
@@ -176,7 +177,7 @@ export default function MakhanaPage() {
             />
 
             {/* ⑤ Packaging Table */}
-            <div id="packaging" style={{ scrollMarginTop: '120px' }} />
+            <div id="packaging" style={{ scrollMarginTop: '130px' }} />
             <SpecTable
                 label="Packaging"
                 heading="Standard Pack Formats"
@@ -191,7 +192,7 @@ export default function MakhanaPage() {
             />
 
             {/* ⑥ Logistics */}
-            <div id="logistics" style={{ scrollMarginTop: '120px' }} />
+            <div id="logistics" style={{ scrollMarginTop: '130px' }} />
             <section className="bg-surface border-b border-border">
                 <div className="page-container section-pad">
                     <p className="section-label">Logistics</p>
@@ -214,7 +215,7 @@ export default function MakhanaPage() {
             </section>
 
             {/* ⑦ Documentation */}
-            <div id="documentation" style={{ scrollMarginTop: '120px' }} />
+            <div id="documentation" style={{ scrollMarginTop: '130px' }} />
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -249,7 +250,7 @@ export default function MakhanaPage() {
             </section>
 
             {/* ⑧ FAQ */}
-            <div id="faq" style={{ scrollMarginTop: '120px' }} />
+            <div id="faq" style={{ scrollMarginTop: '130px' }} />
             <FAQAccordion
                 label="Common Questions"
                 heading="Makhana Supply: Frequently Asked Questions"

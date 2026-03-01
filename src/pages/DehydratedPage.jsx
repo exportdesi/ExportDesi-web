@@ -67,10 +67,11 @@ export default function DehydratedPage() {
                 subtitle="Onion, garlic, banana powder, and moringa from pre-qualified processors in Gujarat. Multiple forms per product. Third-party lab reports per lot."
                 primaryCTA={{ label: 'Request Specifications', href: '/contact?type=dehydrated' }}
                 secondaryCTA={{ label: 'Request Sample', href: '/contact?type=dehydrated&subtype=sample' }}
+                imageUrl="https://placehold.co/900x700/f3f4f6/6b7280/png?text=Dehydrated+Ingredients"
             />
 
             {/* Jump links */}
-            <nav className="bg-white border-b border-border sticky top-[73px] z-30" aria-label="Page sections">
+            <nav className="bg-white border-b border-border sticky top-[81px] z-30" aria-label="Page sections">
                 <div className="page-container">
                     <div className="flex items-center overflow-x-auto scrollbar-none">
                         {JUMP_LINKS.map((link) => (

@@ -15,23 +15,19 @@ export default function Navigation() {
     return (
         <nav className="bg-white border-b border-border sticky top-0 z-40">
             <div className="page-container">
-                <div className="flex justify-between items-center h-18 py-4">
-                    {/* Logo */}
-                    <Link to="/" className="flex-shrink-0">
+                <div className="flex justify-between items-center h-20">
+                    {/* Logo + Wordmark */}
+                    <Link to="/" className="flex-shrink-0 flex items-center gap-3 pr-4">
                         <img
-                            className="h-12 w-auto"
+                            className="h-14 w-auto"
                             src="/ExportDesi-logo.png"
                             alt="Export Desi"
                             onError={(e) => {
                                 e.target.style.display = 'none';
-                                e.target.nextSibling.style.display = 'block';
                             }}
                         />
-                        <span
-                            className="hidden text-brand font-black text-lg tracking-tight"
-                            style={{ display: 'none' }}
-                        >
-                            Export Desi
+                        <span className="text-xs font-black uppercase tracking-[0.18em] text-brand leading-none">
+                            Export<br />Desi
                         </span>
                     </Link>
 

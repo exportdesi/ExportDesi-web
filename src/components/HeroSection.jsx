@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
  *   primaryCTA    { label, href }  — primary button
  *   secondaryCTA  { label, href }  — secondary button (optional)
  *   background    'white' | 'surface'  — default 'white'
+ *   imageUrl      string  — optional right-side product image (very low opacity)
  */
 export default function HeroSection({
     label,
@@ -17,13 +18,31 @@ export default function HeroSection({
     primaryCTA,
     secondaryCTA,
     background = 'white',
+    imageUrl,
 }) {
     const bg = background === 'surface' ? 'bg-surface' : 'bg-white';
 
     return (
-        <section className={`${bg} border-b border-border`}>
-            <div className="page-container section-pad">
-                <div className="max-w-3xl">
+        <section className={`${bg} border-b border-border relative overflow-hidden`}>
+            {/* Subtle right-side product image — low opacity documentary tone */}
+            {imageUrl && (
+                <div
+                    className="absolute inset-y-0 right-0 w-2/5 hidden lg:block pointer-events-none"
+                    aria-hidden="true"
+                >
+                    <img
+                        src={imageUrl}
+                        alt=""
+                        className="h-full w-full object-cover opacity-[0.07] select-none"
+                        loading="eager"
+                    />
+                    {/* Left gradient fade so image blends into text */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
+                </div>
+            )}
+
+            <div className="page-container section-pad relative z-10">
+                <div className="max-w-2xl">
                     {label && <p className="section-label">{label}</p>}
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-6">
                         {title}
