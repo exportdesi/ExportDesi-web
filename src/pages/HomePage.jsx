@@ -16,9 +16,9 @@ export default function HomePage() {
             <HeroSection
                 label="Export Execution"
                 title="Structured Export Execution from India."
-                subtitle="We handle processor qualification, pre-dispatch verification, documentation, and port coordination for international buyers sourcing Indian food ingredients. You deal with one contact. The shipment arrives with a complete, accurate document set."
                 primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
+                imageUrl="/hero-product.png"
             />
 
             {/* Trust bar */}
@@ -41,12 +41,16 @@ export default function HomePage() {
                 <div className="page-container section-pad">
                     <div className="max-w-2xl">
                         <p className="section-label">What We Are</p>
-                        <p className="text-base text-muted leading-relaxed">
+                        <p className="text-base text-muted leading-[1.85] max-w-2xl mb-5">
                             Export Desi is a merchant export management operation based in Gurgaon, India. We structure international B2B supply of Indian food ingredients across defined product categories: verifying processors, managing documentation, and coordinating shipments from purchase order through to Bill of Lading.
+                        </p>
+                        <p className="text-base text-muted leading-[1.85] max-w-2xl">
+                            We handle processor qualification, pre-dispatch verification, documentation alignment, and port coordination for international buyers sourcing Indian food ingredients. You work with one point of contact. Each shipment moves with a complete, verified document set.
                         </p>
                     </div>
                 </div>
             </section>
+
 
             {/* Execution Model */}
             <section className="bg-white border-b border-border">

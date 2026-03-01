@@ -88,6 +88,14 @@ export default function MakhanaPage() {
                 imageUrl="https://placehold.co/900x700/f3f4f6/6b7280/png?text=Makhana+Product"
             />
 
+            {/* Visual Reference — immediately after hero */}
+            <ImageGrid
+                label="Visual Reference"
+                heading="Product and Packing Imagery"
+                images={MAKHANA_IMAGES}
+                columns={4}
+            />
+
             {/* Jump links */}
             <nav className="bg-white border-b border-border sticky top-[81px] z-30" aria-label="Page sections">
                 <div className="page-container">
@@ -105,26 +113,7 @@ export default function MakhanaPage() {
                 </div>
             </nav>
 
-            {/* ② Quick Snapshot Box */}
-            <section className="bg-brand border-b border-brand-light">
-                <div className="page-container">
-                    <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-brand-light">
-                        {SNAPSHOT.map(({ label, value, sub }) => (
-                            <div key={label} className="px-6 py-8 md:px-8 md:py-10">
-                                <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-3">
-                                    {label}
-                                </p>
-                                <p className="text-base md:text-lg font-bold text-white leading-snug mb-1.5">
-                                    {value}
-                                </p>
-                                <p className="text-xs text-white/60 leading-relaxed">
-                                    {sub}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* ② Quick Snapshot Box — removed */}
 
             {/* ③ Supply Structure */}
             <div id="grades" style={{ scrollMarginTop: '130px' }} />
@@ -157,14 +146,6 @@ export default function MakhanaPage() {
                         </div>
                     </div>
                 }
-            />
-
-            {/* Visual Evidence */}
-            <ImageGrid
-                label="Visual Reference"
-                heading="Product and Packing Imagery"
-                images={MAKHANA_IMAGES}
-                columns={4}
             />
 
             {/* ④ Grade Table */}

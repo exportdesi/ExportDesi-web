@@ -9,6 +9,7 @@ import HowWeWorkPage from './pages/HowWeWorkPage';
 import CompliancePage from './pages/CompliancePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import ThankYouPage from './pages/ThankYouPage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="compliance" element={<CompliancePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
+        <Route path="thank-you" element={<ThankYouPage />} />
         {/* Catch-all: redirect to home */}
         <Route path="*" element={<HomePage />} />
       </Route>

@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import SEOMeta from '../components/SEOMeta';
@@ -33,6 +34,7 @@ const COUNTRIES = [
 ];
 
 export default function ContactPage() {
+    const navigate = useNavigate();
     const [status, setStatus] = useState('idle'); // idle | submitting | success | error
     const [phone, setPhone] = useState('');
     const [errors, setErrors] = useState({});
@@ -102,9 +104,13 @@ export default function ContactPage() {
 
             if (res.ok) {
                 lastSubmitRef.current = Date.now();
-                setStatus('success');
+                // Fire Clarity tracking event
+                if (typeof window.clarity === 'function') {
+                    window.clarity('event', 'form_submit');
+                }
                 form.reset();
                 setPhone('');
+                navigate('/thank-you');
             } else {
                 const json = await res.json().catch(() => ({}));
                 if (json.error === 'FORM_NOT_FOUND' || res.status === 422) {
@@ -277,6 +283,11 @@ export default function ContactPage() {
                                     href="https://wa.me/919289790283"
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => {
+                                        if (typeof window.clarity === 'function') {
+                                            window.clarity('event', 'whatsapp_click');
+                                        }
+                                    }}
                                     className="btn-primary text-xs inline-block"
                                 >
                                     Open WhatsApp Chat
