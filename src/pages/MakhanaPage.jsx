@@ -6,6 +6,7 @@ import StructuredList from '../components/StructuredList';
 import CTASection from '../components/CTASection';
 import FAQAccordion from '../components/FAQAccordion';
 import TwoColumnSection from '../components/TwoColumnSection';
+import ImageGrid from '../components/ImageGrid';
 import { makhanaSpecs } from '../data/makhana';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -27,6 +28,19 @@ const PRODUCT_SCHEMA = {
     },
 };
 
+const MAKHANA_IMAGES = [
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Raw+Makhana+(Close-up)', alt: 'Raw Makhana close-up', caption: 'Product Close-up', subcaption: 'Natural lighting, true colour representation' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=18mm+vs+12mm+(Comparison)', alt: 'Grade comparison 18mm vs 12mm', caption: 'Grade Variation', subcaption: 'Extra Premium (18mm+) vs Standard (12mm) size check' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Broken+Percentage+(Visual)', alt: 'Broken percentage check', caption: 'Tolerance Validation', subcaption: 'Visual representation of ≤ 2% broken tolerance' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=20kg+PP+Woven+(Packed)', alt: 'Packaging 20kg PP Woven bag', caption: 'Packaging Format', subcaption: '20kg PP Woven Bag (Loose vs Packed)' },
+];
+
+const MAKHANA_PROCESS_IMAGES = [
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Sorting+Line+(Processor)', alt: 'Makhana sorting line in Bihar', caption: 'Grade Separation', subcaption: 'Mechanical sorting at pre-qualified Mithila processor' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Container+Loading+(Dispatch)', alt: 'Makhana container stuffing', caption: 'Dispatch Readiness', subcaption: 'Container stuffing post-clearance' },
+];
+
+const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers. Contact us to confirm current availability before placing an order.';
 const SNAPSHOT = [
     { label: 'Grade Range', value: 'Standard to Extra Premium', sub: '12mm – 18mm+, four grades' },
     { label: 'MOQ', value: 'Trial from 100 kg', sub: 'Commercial from 1 MT per grade' },
@@ -144,6 +158,14 @@ export default function MakhanaPage() {
                 }
             />
 
+            {/* Visual Evidence */}
+            <ImageGrid
+                label="Visual Reference"
+                heading="Product and Packing Imagery"
+                images={MAKHANA_IMAGES}
+                columns={4}
+            />
+
             {/* ④ Grade Table */}
             <SpecTable
                 label="Product Specifications"
@@ -160,6 +182,12 @@ export default function MakhanaPage() {
                 heading="Standard Pack Formats"
                 headers={makhanaSpecs.packagingTable.headers}
                 rows={makhanaSpecs.packagingTable.rows}
+            />
+
+            {/* Process Anchoring */}
+            <ImageGrid
+                images={MAKHANA_PROCESS_IMAGES}
+                columns={2}
             />
 
             {/* ⑥ Logistics */}

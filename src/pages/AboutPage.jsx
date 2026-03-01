@@ -2,6 +2,13 @@ import SEOMeta from '../components/SEOMeta';
 import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
+import ImageGrid from '../components/ImageGrid';
+
+const ABOUT_IMAGES = [
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Makhana+Processing+(Bihar)', alt: 'Makhana processing facility in Bihar', caption: 'Bihar Sourcing', subcaption: 'Mithila region processor network' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Dehydration+Plant+(Gujarat)', alt: 'Dehydration plant in Gujarat', caption: 'Gujarat Sourcing', subcaption: 'Mahuva dehydration cluster' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Export+Dispatch+(Nhava+Sheva)', alt: 'Container loading for export', caption: 'Export Dispatch', subcaption: 'Pre-dispatch verification complete' },
+];
 
 export default function AboutPage() {
     return (
@@ -40,6 +47,12 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Geographic Anchoring */}
+            <ImageGrid
+                images={ABOUT_IMAGES}
+                columns={3}
+            />
 
             {/* Team */}
             <section className="bg-surface border-b border-border">

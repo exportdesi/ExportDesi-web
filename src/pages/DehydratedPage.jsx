@@ -5,6 +5,7 @@ import SpecTable from '../components/SpecTable';
 import StructuredList from '../components/StructuredList';
 import CTASection from '../components/CTASection';
 import FAQAccordion from '../components/FAQAccordion';
+import ImageGrid from '../components/ImageGrid';
 import { dehydratedSpecTable, dehydratedFaqs } from '../data/dehydrated';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +14,18 @@ const SNAPSHOT = [
     { label: 'MOQ', value: 'Trial quantities from 50 kg', sub: 'Multi-SKU consolidation available' },
     { label: 'Pack Formats', value: '5 kg · 10 kg · 25 kg', sub: 'Individually labelled corrugated cartons' },
     { label: 'Samples', value: 'Available', sub: 'Per product, with lab report on request' },
+];
+
+const DEHYDRATED_IMAGES = [
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Flakes+vs+Powder+(Comparison)', alt: 'Flakes vs Powder comparison', caption: 'Form Comparison', subcaption: 'Dehydrated Onion Flakes vs Powder' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Garlic+vs+Onion+(Texture)', alt: 'Garlic vs Onion texture', caption: 'Texture Reference', subcaption: 'Minced Garlic vs Minced Onion' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Product+Close-up+(Raw)', alt: 'Raw dehydrated product close-up', caption: 'Product Close-up', subcaption: 'Natural lighting, true colour representation' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=PE+Lined+Carton+(Packed)', alt: 'Packaging PE lined carton', caption: 'Packaging Format', subcaption: 'PE Liner inside Corrugated Carton' },
+];
+
+const DEHYDRATED_PROCESS_IMAGES = [
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Dehydration+Plant+(Gujarat)', alt: 'Dehydration facility in Gujarat', caption: 'Processing Infrastructure', subcaption: 'Temperature-controlled processing environment' },
+    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Stacked+Cartons+(Dispatch)', alt: 'Dehydrated ingredients stacked cartons', caption: 'Dispatch Readiness', subcaption: 'Cartons palletised and ready for container loading' },
 ];
 
 const JUMP_LINKS = [
@@ -122,6 +135,14 @@ export default function DehydratedPage() {
                 </div>
             </section>
 
+            {/* Visual Evidence */}
+            <ImageGrid
+                label="Visual Reference"
+                heading="Product and Form Imagery"
+                images={DEHYDRATED_IMAGES}
+                columns={4}
+            />
+
             {/* ④ Specification Table */}
             <div id="specs" style={{ scrollMarginTop: '120px' }} />
             <SpecTable
@@ -130,6 +151,12 @@ export default function DehydratedPage() {
                 caption="Moisture values are maximum permitted. Exact parameters confirmed at order stage per product and form."
                 headers={dehydratedSpecTable.headers}
                 rows={dehydratedSpecTable.rows}
+            />
+
+            {/* Process Anchoring */}
+            <ImageGrid
+                images={DEHYDRATED_PROCESS_IMAGES}
+                columns={2}
             />
 
             {/* ⑤ Logistics */}
