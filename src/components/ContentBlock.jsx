@@ -1,11 +1,7 @@
 /**
- * ContentBlock — a constrained text block: heading + one or more paragraphs.
- * Props:
- *   heading       string
- *   headingLevel  'h2' | 'h3'  — default 'h2'
- *   paragraphs    string[]
- *   maxWidth      boolean — constrain text width (default true)
- *   label         string  — optional eyebrow label above heading
+ * ContentBlock — constrained text block: eyebrow label + heading + paragraphs.
+ * h2 is the primary section heading — bold and large.
+ * h3 is a sub-heading — clearly smaller and lighter weight.
  */
 export default function ContentBlock({
     label,
@@ -15,16 +11,19 @@ export default function ContentBlock({
     maxWidth = true,
 }) {
     const Tag = headingLevel;
-    const sizeClass = headingLevel === 'h2'
-        ? 'text-2xl md:text-3xl lg:text-4xl'
-        : 'text-xl md:text-2xl';
+
+    const headingClass = headingLevel === 'h2'
+        ? 'font-extrabold mb-6 leading-tight'
+        : headingLevel === 'h3'
+            ? 'font-bold mb-4 leading-snug text-lg md:text-xl'
+            : 'font-semibold mb-3 leading-snug';
 
     return (
         <div className={maxWidth ? 'max-w-3xl' : ''}>
             {label && <p className="section-label">{label}</p>}
-            <Tag className={`${sizeClass} font-bold mb-5`}>{heading}</Tag>
+            <Tag className={headingClass}>{heading}</Tag>
             {paragraphs.map((p, i) => (
-                <p key={i} className="text-muted text-base md:text-lg mb-4 last:mb-0">
+                <p key={i} className="text-muted text-base leading-[1.85] mb-5 last:mb-0">
                     {p}
                 </p>
             ))}

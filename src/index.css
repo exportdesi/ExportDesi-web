@@ -33,6 +33,25 @@
         color: #0a0a0a;
     }
 
+    /* Explicit heading hierarchy — prevents h2/h3 from visually blending */
+    h2 {
+        font-size: clamp(1.375rem, 2.5vw, 2.25rem);
+        font-weight: 800;
+        letter-spacing: -0.025em;
+    }
+
+    h3 {
+        font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+    }
+
+    h4 {
+        font-size: 0.9375rem;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
     a {
         color: inherit;
         text-decoration: none;

@@ -1,18 +1,15 @@
 /**
- * TwoColumnSection — a left content column + right highlight/callout box.
- * Props:
- *   leftContent   ReactNode — full left column slot
- *   rightContent  ReactNode — full right column slot (rendered in a styled box)
- *   reverseOnMobile boolean — default false
- *   background   'white' | 'surface' — default 'white'
+ * TwoColumnSection — left content column + right highlight callout.
+ * Defaults to 'surface' background so structural text sections
+ * contrast against adjacent white table/data sections.
  */
 export default function TwoColumnSection({
     leftContent,
     rightContent,
     reverseOnMobile = false,
-    background = 'white',
+    background = 'surface',
 }) {
-    const bg = background === 'surface' ? 'bg-surface' : 'bg-white';
+    const bg = background === 'white' ? 'bg-white' : 'bg-surface';
     const order = reverseOnMobile ? 'flex-col-reverse md:flex-row' : 'flex-col md:flex-row';
 
     return (
@@ -26,7 +23,7 @@ export default function TwoColumnSection({
 
                     {/* Right Highlight Box */}
                     <div className="flex-shrink-0 w-full md:w-[340px] lg:w-[380px]">
-                        <div className="border border-border bg-surface p-8">
+                        <div className="border border-border bg-white p-8">
                             {rightContent}
                         </div>
                     </div>

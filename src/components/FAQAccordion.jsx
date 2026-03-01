@@ -25,7 +25,7 @@ export default function FAQAccordion({ items = [], label, heading }) {
     };
 
     return (
-        <section className="bg-white border-b border-border">
+        <section className="bg-surface border-b border-border">
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(faqSchema)}
