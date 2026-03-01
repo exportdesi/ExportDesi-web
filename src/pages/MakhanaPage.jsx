@@ -29,6 +29,14 @@ const PRODUCT_SCHEMA = {
 
 const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers. Contact us to confirm current availability before placing an order.';
 
+const JUMP_LINKS = [
+    { label: 'Grades', href: '#grades' },
+    { label: 'Packaging', href: '#packaging' },
+    { label: 'Documentation', href: '#documentation' },
+    { label: 'MOQ', href: '#moq' },
+    { label: 'Logistics', href: '#logistics' },
+];
+
 export default function MakhanaPage() {
     return (
         <>
@@ -59,6 +67,25 @@ export default function MakhanaPage() {
                 secondaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
             />
 
+            {/* Jump link bar */}
+            <nav className="bg-white border-b border-border sticky top-[73px] z-30" aria-label="Page sections">
+                <div className="page-container">
+                    <div className="flex items-center gap-0 overflow-x-auto scrollbar-none">
+                        {JUMP_LINKS.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="flex-shrink-0 text-xs font-semibold uppercase tracking-widest text-muted hover:text-brand px-4 py-3.5 border-b-2 border-transparent hover:border-brand transition-all duration-150"
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </nav>
+
+            {/* Grades */}
+            <div id="grades" style={{ scrollMarginTop: '120px' }} />
             <TwoColumnSection
                 leftContent={
                     <ContentBlock
@@ -90,6 +117,7 @@ export default function MakhanaPage() {
                 }
             />
 
+            <div style={{ scrollMarginTop: '120px' }} />
             <SpecTable
                 label="Product Specifications"
                 heading="Grade Specifications"
@@ -98,6 +126,8 @@ export default function MakhanaPage() {
                 rows={makhanaSpecs.gradeTable.rows}
             />
 
+            {/* Packaging */}
+            <div id="packaging" style={{ scrollMarginTop: '120px' }} />
             <SpecTable
                 label="Packaging"
                 heading="Standard Pack Formats"
@@ -105,9 +135,11 @@ export default function MakhanaPage() {
                 rows={makhanaSpecs.packagingTable.rows}
             />
 
-            {/* MOQ note */}
+            {/* MOQ */}
+            <div id="moq" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-surface border-b border-border">
                 <div className="page-container py-6">
+                    <p className="text-xs font-bold uppercase tracking-widest text-brand mb-2">Minimum Order</p>
                     <p className="text-sm text-muted max-w-2xl">{MOQ_NOTE}</p>
                 </div>
             </section>
@@ -119,6 +151,8 @@ export default function MakhanaPage() {
                 background="surface"
             />
 
+            {/* Documentation */}
+            <div id="documentation" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -149,6 +183,29 @@ export default function MakhanaPage() {
                                 View full compliance framework
                             </Link>
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Logistics */}
+            <div id="logistics" style={{ scrollMarginTop: '120px' }} />
+            <section className="bg-surface border-b border-border">
+                <div className="page-container section-pad">
+                    <p className="section-label">Logistics</p>
+                    <h2 className="text-xl md:text-2xl font-bold mb-8">Shipment structure for Makhana.</h2>
+                    <div className="max-w-2xl divide-y divide-border border-t border-border">
+                        {[
+                            { label: 'Sea Freight', detail: 'LCL (consolidated) or FCL (full container) depending on order volume.' },
+                            { label: 'Primary Ports', detail: 'Nhava Sheva and Kolkata. Port selected based on processor location.' },
+                            { label: 'Air Freight', detail: 'Available for samples and urgent dispatches.' },
+                            { label: 'Incoterms', detail: 'FOB, CIF, or DAP confirmed at the Proforma Invoice stage.' },
+                            { label: 'Lead Time', detail: 'Production and documentation lead time confirmed per processor at order stage.' },
+                        ].map(({ label, detail }) => (
+                            <div key={label} className="flex gap-6 py-4">
+                                <span className="text-xs font-bold uppercase tracking-widest text-brand min-w-[110px] pt-0.5">{label}</span>
+                                <span className="text-sm text-muted leading-relaxed">{detail}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
