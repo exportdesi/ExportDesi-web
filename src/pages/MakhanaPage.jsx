@@ -27,14 +27,19 @@ const PRODUCT_SCHEMA = {
     },
 };
 
-const MOQ_NOTE = 'Minimum order quantities vary by grade and packing format. Trial quantities are structured for new buyers. Contact us to confirm current availability before placing an order.';
+const SNAPSHOT = [
+    { label: 'Grade Range', value: 'Standard to Extra Premium', sub: '12mm – 18mm+, four grades' },
+    { label: 'MOQ', value: 'Trial from 100 kg', sub: 'Commercial from 1 MT per grade' },
+    { label: 'Pack Formats', value: '5 kg · 10 kg · 20 kg', sub: 'PP woven bag or corrugated carton' },
+    { label: 'Samples', value: 'Available', sub: 'Grade, weight, and freight confirmed upfront' },
+];
 
 const JUMP_LINKS = [
     { label: 'Grades', href: '#grades' },
     { label: 'Packaging', href: '#packaging' },
-    { label: 'Documentation', href: '#documentation' },
-    { label: 'MOQ', href: '#moq' },
     { label: 'Logistics', href: '#logistics' },
+    { label: 'Documentation', href: '#documentation' },
+    { label: 'FAQ', href: '#faq' },
 ];
 
 export default function MakhanaPage() {
@@ -50,7 +55,7 @@ export default function MakhanaPage() {
                 </script>
             </Helmet>
 
-            {/* Definition block for SEO / AI extraction */}
+            {/* Definition block — SEO / AI extraction */}
             <div className="bg-surface border-b border-border">
                 <div className="page-container py-4">
                     <p className="text-xs text-muted">
@@ -59,18 +64,19 @@ export default function MakhanaPage() {
                 </div>
             </div>
 
+            {/* ① Hero */}
             <HeroSection
                 label="Food and Ingredients: Makhana"
                 title="Makhana (Fox Nuts)"
-                subtitle="Four size grades from 12mm to 18mm+. Sourced from processing units in Bihar's Mithila cluster. Each lot is verified before dispatch. Certificate of Origin, phytosanitary certificate, grade-specific lab report, and packing list are included as standard."
+                subtitle="Four size grades from 12mm to 18mm+. Sourced from processing units in Bihar's Mithila cluster. Each lot is verified before dispatch."
                 primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
                 secondaryCTA={{ label: 'Discuss Supply', href: '/contact?product=makhana&type=supply' }}
             />
 
-            {/* Jump link bar */}
+            {/* Jump links */}
             <nav className="bg-white border-b border-border sticky top-[73px] z-30" aria-label="Page sections">
                 <div className="page-container">
-                    <div className="flex items-center gap-0 overflow-x-auto scrollbar-none">
+                    <div className="flex items-center overflow-x-auto scrollbar-none">
                         {JUMP_LINKS.map((link) => (
                             <a
                                 key={link.href}
@@ -84,7 +90,28 @@ export default function MakhanaPage() {
                 </div>
             </nav>
 
-            {/* Grades */}
+            {/* ② Quick Snapshot Box */}
+            <section className="bg-brand border-b border-brand-light">
+                <div className="page-container">
+                    <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-brand-light">
+                        {SNAPSHOT.map(({ label, value, sub }) => (
+                            <div key={label} className="px-6 py-8 md:px-8 md:py-10">
+                                <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-3">
+                                    {label}
+                                </p>
+                                <p className="text-base md:text-lg font-bold text-white leading-snug mb-1.5">
+                                    {value}
+                                </p>
+                                <p className="text-xs text-white/60 leading-relaxed">
+                                    {sub}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ③ Supply Structure */}
             <div id="grades" style={{ scrollMarginTop: '120px' }} />
             <TwoColumnSection
                 leftContent={
@@ -117,7 +144,7 @@ export default function MakhanaPage() {
                 }
             />
 
-            <div style={{ scrollMarginTop: '120px' }} />
+            {/* ④ Grade Table */}
             <SpecTable
                 label="Product Specifications"
                 heading="Grade Specifications"
@@ -126,7 +153,7 @@ export default function MakhanaPage() {
                 rows={makhanaSpecs.gradeTable.rows}
             />
 
-            {/* Packaging */}
+            {/* ⑤ Packaging Table */}
             <div id="packaging" style={{ scrollMarginTop: '120px' }} />
             <SpecTable
                 label="Packaging"
@@ -135,23 +162,30 @@ export default function MakhanaPage() {
                 rows={makhanaSpecs.packagingTable.rows}
             />
 
-            {/* MOQ */}
-            <div id="moq" style={{ scrollMarginTop: '120px' }} />
+            {/* ⑥ Logistics */}
+            <div id="logistics" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-surface border-b border-border">
-                <div className="page-container py-6">
-                    <p className="text-xs font-bold uppercase tracking-widest text-brand mb-2">Minimum Order</p>
-                    <p className="text-sm text-muted max-w-2xl">{MOQ_NOTE}</p>
+                <div className="page-container section-pad">
+                    <p className="section-label">Logistics</p>
+                    <h2 className="text-xl md:text-2xl font-bold mb-8">Shipment structure for Makhana.</h2>
+                    <div className="max-w-2xl divide-y divide-border border-t border-border">
+                        {[
+                            { label: 'Sea Freight', detail: 'LCL (consolidated) or FCL (full container) depending on order volume.' },
+                            { label: 'Primary Ports', detail: 'Nhava Sheva and Kolkata. Port selected based on processor location.' },
+                            { label: 'Air Freight', detail: 'Available for samples and urgent dispatches.' },
+                            { label: 'Incoterms', detail: 'FOB, CIF, or DAP confirmed at the Proforma Invoice stage.' },
+                            { label: 'Lead Time', detail: 'Production and documentation lead time confirmed per processor at order stage.' },
+                        ].map(({ label, detail }) => (
+                            <div key={label} className="flex gap-6 py-4">
+                                <span className="text-xs font-bold uppercase tracking-widest text-brand min-w-[110px] pt-0.5">{label}</span>
+                                <span className="text-sm text-muted leading-relaxed">{detail}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            <CTASection
-                heading="Evaluating Makhana for your supply chain?"
-                subtext="Trial samples are available. Share your grade requirement and destination and we will confirm processor availability, sample weight, and freight cost before dispatch."
-                primaryCTA={{ label: 'Request Sample', href: '/contact?product=makhana&type=sample' }}
-                background="surface"
-            />
-
-            {/* Documentation */}
+            {/* ⑦ Documentation */}
             <div id="documentation" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
@@ -175,7 +209,6 @@ export default function MakhanaPage() {
                             ]}
                         />
                     </div>
-
                     <div className="mt-12 pt-8 border-t border-border">
                         <p className="text-sm text-muted max-w-2xl">
                             Destination-specific requirements such as fumigation certificates, health certificates, or halal certification are confirmed at enquiry stage and coordinated before loading.{' '}
@@ -187,35 +220,15 @@ export default function MakhanaPage() {
                 </div>
             </section>
 
-            {/* Logistics */}
-            <div id="logistics" style={{ scrollMarginTop: '120px' }} />
-            <section className="bg-surface border-b border-border">
-                <div className="page-container section-pad">
-                    <p className="section-label">Logistics</p>
-                    <h2 className="text-xl md:text-2xl font-bold mb-8">Shipment structure for Makhana.</h2>
-                    <div className="max-w-2xl divide-y divide-border border-t border-border">
-                        {[
-                            { label: 'Sea Freight', detail: 'LCL (consolidated) or FCL (full container) depending on order volume.' },
-                            { label: 'Primary Ports', detail: 'Nhava Sheva and Kolkata. Port selected based on processor location.' },
-                            { label: 'Air Freight', detail: 'Available for samples and urgent dispatches.' },
-                            { label: 'Incoterms', detail: 'FOB, CIF, or DAP confirmed at the Proforma Invoice stage.' },
-                            { label: 'Lead Time', detail: 'Production and documentation lead time confirmed per processor at order stage.' },
-                        ].map(({ label, detail }) => (
-                            <div key={label} className="flex gap-6 py-4">
-                                <span className="text-xs font-bold uppercase tracking-widest text-brand min-w-[110px] pt-0.5">{label}</span>
-                                <span className="text-sm text-muted leading-relaxed">{detail}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
+            {/* ⑧ FAQ */}
+            <div id="faq" style={{ scrollMarginTop: '120px' }} />
             <FAQAccordion
                 label="Common Questions"
                 heading="Makhana Supply: Frequently Asked Questions"
                 items={makhanaSpecs.faqs}
             />
 
+            {/* ⑨ Final CTA */}
             <CTASection
                 heading="Discuss a Makhana supply requirement."
                 subtext="Send us your grade, target volume, pack format, destination market, and timeline. We confirm processor availability and indicative pricing within 48 business hours."

@@ -8,6 +8,21 @@ import FAQAccordion from '../components/FAQAccordion';
 import { dehydratedSpecTable, dehydratedFaqs } from '../data/dehydrated';
 import { Link } from 'react-router-dom';
 
+const SNAPSHOT = [
+    { label: 'Products', value: 'Onion · Garlic · Banana · Moringa', sub: 'Flakes, powder, granule, minced forms' },
+    { label: 'MOQ', value: 'Trial quantities from 50 kg', sub: 'Multi-SKU consolidation available' },
+    { label: 'Pack Formats', value: '5 kg · 10 kg · 25 kg', sub: 'Individually labelled corrugated cartons' },
+    { label: 'Samples', value: 'Available', sub: 'Per product, with lab report on request' },
+];
+
+const JUMP_LINKS = [
+    { label: 'Products', href: '#products' },
+    { label: 'Specifications', href: '#specs' },
+    { label: 'Logistics', href: '#logistics' },
+    { label: 'Documentation', href: '#documentation' },
+    { label: 'FAQ', href: '#faq' },
+];
+
 const DEHYDRATED_FAQS_EXTENDED = [
     ...dehydratedFaqs,
     {
@@ -32,15 +47,55 @@ export default function DehydratedPage() {
                 description="Export Desi supplies dehydrated onion, garlic, banana powder, and moringa from pre-qualified Indian processors. Multiple forms and grades, third-party lab reports per lot."
             />
 
+            {/* ① Hero */}
             <HeroSection
                 label="Food and Ingredients: Dehydrated"
                 title="Dehydrated and Dried Ingredients"
-                subtitle="Onion and garlic in flakes, minced, chopped, granule, and powder forms. Banana powder. Moringa leaf powder. Process-grade and food-grade supply. Third-party lab reports covering moisture, pesticide residue, and microbiology are included per lot."
+                subtitle="Onion, garlic, banana powder, and moringa from pre-qualified processors in Gujarat. Multiple forms per product. Third-party lab reports per lot."
                 primaryCTA={{ label: 'Request Specifications', href: '/contact?type=dehydrated' }}
                 secondaryCTA={{ label: 'Request Sample', href: '/contact?type=dehydrated&subtype=sample' }}
             />
 
-            {/* Sourcing model */}
+            {/* Jump links */}
+            <nav className="bg-white border-b border-border sticky top-[73px] z-30" aria-label="Page sections">
+                <div className="page-container">
+                    <div className="flex items-center overflow-x-auto scrollbar-none">
+                        {JUMP_LINKS.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="flex-shrink-0 text-xs font-semibold uppercase tracking-widest text-muted hover:text-brand px-4 py-3.5 border-b-2 border-transparent hover:border-brand transition-all duration-150"
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </nav>
+
+            {/* ② Quick Snapshot Box */}
+            <section className="bg-brand border-b border-brand-light">
+                <div className="page-container">
+                    <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-brand-light">
+                        {SNAPSHOT.map(({ label, value, sub }) => (
+                            <div key={label} className="px-6 py-8 md:px-8 md:py-10">
+                                <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-3">
+                                    {label}
+                                </p>
+                                <p className="text-base md:text-lg font-bold text-white leading-snug mb-1.5">
+                                    {value}
+                                </p>
+                                <p className="text-xs text-white/60 leading-relaxed">
+                                    {sub}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ③ Supply Structure */}
+            <div id="products" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-surface border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -48,7 +103,7 @@ export default function DehydratedPage() {
                             label="Sourcing Model"
                             heading="Multiple products. One shipment. One document package."
                             paragraphs={[
-                                'Buyers sourcing more than one dehydrated ingredient can consolidate into a single shipment rather than managing separate vendor relationships for each SKU. We source each product from a pre-qualified processor in Gujarat\'s dehydrated ingredient clusters and coordinate the combined consignment with a single packing list and unified document set.',
+                                "Buyers sourcing more than one dehydrated ingredient can consolidate into a single shipment rather than managing separate vendor relationships for each SKU. We source each product from a pre-qualified processor in Gujarat's dehydrated ingredient clusters and coordinate the combined consignment with a single packing list and unified document set.",
                                 'Lab reports, quality parameters, and compliance documentation are confirmed per product per lot. There is no category-wide certificate that substitutes for lot-level verification.',
                             ]}
                         />
@@ -58,81 +113,95 @@ export default function DehydratedPage() {
                                 items={[
                                     'Dehydrated Onion: Flakes, Minced, Chopped, Granules, Powder (white and red variants)',
                                     'Dehydrated Garlic: Flakes, Minced, Granules, Powder (double-sorted, machine cleaned)',
-                                    'Banana Powder: Natural, Green Banana',
-                                    'Moringa Powder: Leaf Powder (cold-milled; organic-compliant supply available on request)',
+                                    'Banana Powder: Natural and green banana. Food supplement and ingredient grade.',
+                                    'Moringa Powder: Leaf powder, cold-milled. Organic-compliant supply available.',
                                 ]}
                             />
-                            <p className="text-xs text-muted mt-6">
-                                Additional products assessed on request. We confirm feasibility before any commitment.
-                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
+            {/* ④ Specification Table */}
+            <div id="specs" style={{ scrollMarginTop: '120px' }} />
             <SpecTable
                 label="Product Specifications"
-                heading="Indicative Specification Summary"
-                caption="Exact specifications including moisture, mesh size, and microbial limits are confirmed per lot at order stage."
+                heading="Forms, Moisture, and Pack Formats"
+                caption="Moisture values are maximum permitted. Exact parameters confirmed at order stage per product and form."
                 headers={dehydratedSpecTable.headers}
                 rows={dehydratedSpecTable.rows}
             />
 
-            {/* MOQ note */}
+            {/* ⑤ Logistics */}
+            <div id="logistics" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-surface border-b border-border">
-                <div className="page-container py-6">
-                    <p className="text-sm text-muted max-w-2xl">
-                        Minimum order quantities vary by product and packing format. Trial quantities are structured for new buyers evaluating specifications before committing to commercial volumes.
-                    </p>
+                <div className="page-container section-pad">
+                    <p className="section-label">Logistics</p>
+                    <h2 className="text-xl md:text-2xl font-bold mb-8">Shipment structure for dehydrated ingredients.</h2>
+                    <div className="max-w-2xl divide-y divide-border border-t border-border">
+                        {[
+                            { label: 'Sea Freight', detail: 'LCL or FCL depending on total volume. Multi-SKU consolidation in one container.' },
+                            { label: 'Primary Ports', detail: 'Nhava Sheva and Mundra. Port selected by processor location and freight conditions.' },
+                            { label: 'Air Freight', detail: 'Available for samples and urgent dispatches.' },
+                            { label: 'Incoterms', detail: 'FOB, CIF, or DAP confirmed at the Proforma Invoice stage.' },
+                            { label: 'Lead Time', detail: 'In-stock: 10–15 working days. Custom or organic: 4–6 weeks advance notice required.' },
+                        ].map(({ label, detail }) => (
+                            <div key={label} className="flex gap-6 py-4">
+                                <span className="text-xs font-bold uppercase tracking-widest text-brand min-w-[110px] pt-0.5">{label}</span>
+                                <span className="text-sm text-muted leading-relaxed">{detail}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            <CTASection
-                heading="Evaluating dehydrated ingredients for your supply chain?"
-                subtext="Trial samples are available per product. Share the SKUs, forms, and destination and we will confirm availability and logistics cost before dispatch."
-                primaryCTA={{ label: 'Request Sample', href: '/contact?type=dehydrated&subtype=sample' }}
-                background="surface"
-            />
-
-            {/* Documentation */}
+            {/* ⑥ Documentation */}
+            <div id="documentation" style={{ scrollMarginTop: '120px' }} />
             <section className="bg-white border-b border-border">
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
                             label="Documentation"
-                            heading="Document set verified before the container is released."
+                            heading="Per-product, per-lot documentation. Not category certificates."
                             paragraphs={[
-                                'HS classification is verified before the Proforma Invoice is issued. Before container stuffing is authorised, we verify HS code accuracy on the commercial invoice, phytosanitary certificate validity relative to the sailing date, and lab report traceability to the specific lot being loaded. Packing list quantities are reconciled against actual lot weight and carton count for each SKU. No document is amended or re-issued post-shipment to correct a pre-dispatch oversight.',
+                                'Each product in a consolidated shipment carries its own lab report, moisture test, and packing list entry. HS classification is verified per product before PI confirmation. Destination-specific requirements — fumigation, health certificates, country of origin specifics — are confirmed at enquiry stage.',
                             ]}
                         />
                         <StructuredList
-                            heading="Standard Documents"
+                            heading="Standard Documents Per Lot"
                             items={[
                                 'Certificate of Origin: FIEO or Chamber of Commerce',
                                 'Phytosanitary Certificate: NPPO India',
-                                'Commercial Invoice and Packing List (line-by-line per SKU)',
+                                'Commercial Invoice and Packing List',
                                 'Bill of Lading or Airway Bill',
-                                'Third-party Lab Report: moisture, microbial count, pesticide residue (per product per lot)',
+                                'Third-party Lab Report: moisture, microbiology, pesticide residue, heavy metals',
+                                'Pre-shipment Inspection Certificate: on request',
                             ]}
                         />
                     </div>
-                    <div className="mt-10">
-                        <Link to="/compliance" className="btn-secondary">
-                            View Full Compliance Framework
-                        </Link>
+                    <div className="mt-12 pt-8 border-t border-border">
+                        <p className="text-sm text-muted max-w-2xl">
+                            Buyer-specified testing labs and additional accreditation requirements can be accommodated with advance notice.{' '}
+                            <Link to="/compliance" className="text-brand font-medium underline underline-offset-2">
+                                View full compliance framework
+                            </Link>
+                        </p>
                     </div>
                 </div>
             </section>
 
+            {/* ⑦ FAQ */}
+            <div id="faq" style={{ scrollMarginTop: '120px' }} />
             <FAQAccordion
                 label="Common Questions"
                 heading="Dehydrated Ingredients: Frequently Asked Questions"
                 items={DEHYDRATED_FAQS_EXTENDED}
             />
 
+            {/* ⑧ Final CTA */}
             <CTASection
-                heading="Have a dehydrated ingredient requirement?"
-                subtext="Send us the products, required forms, grades, target volume, and destination market. We confirm processor availability and indicative pricing within 48 business hours."
+                heading="Discuss a dehydrated ingredient requirement."
+                subtext="Send us the product, form, target volume, pack format, and destination. We confirm processor availability and indicative pricing within 48 business hours."
                 primaryCTA={{ label: 'Submit Your Requirement', href: '/contact?type=dehydrated' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"
