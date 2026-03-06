@@ -3,6 +3,7 @@ import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import StructuredList from '../components/StructuredList';
+import CertificateMarquee from '../components/CertificateMarquee';
 import { Link } from 'react-router-dom';
 
 export default function HomePage() {
@@ -18,23 +19,11 @@ export default function HomePage() {
                 title="Structured Export Execution from India."
                 primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
-                imageUrl="/hero-product.png"
+                imageUrl="/hero-home.jpg"
             />
 
-            {/* Trust bar */}
-            <div className="bg-white border-b border-border">
-                <div className="page-container py-4 flex flex-wrap gap-6 items-center text-xs font-semibold text-muted tracking-wide">
-                    <span>IEC Registered</span>
-                    <span className="text-border">|</span>
-                    <span>FSSAI Licensed</span>
-                    <span className="text-border">|</span>
-                    <span>APEDA Registered</span>
-                    <span className="text-border">|</span>
-                    <span>FIEO Registered</span>
-                    <span className="text-border">|</span>
-                    <span>Spice Board Registered</span>
-                </div>
-            </div>
+            {/* Certificate marquee */}
+            <CertificateMarquee />
 
             {/* Definition block */}
             <section className="bg-surface border-b border-border">
