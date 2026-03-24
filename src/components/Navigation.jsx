@@ -26,8 +26,11 @@ export default function Navigation() {
                                 e.target.style.display = 'none';
                             }}
                         />
-                        <span className="text-xs font-black uppercase tracking-[0.18em] text-brand leading-none">
-                            Export<br />Desi
+                        <span
+                            className="font-normal leading-none whitespace-nowrap text-brand"
+                            style={{ fontFamily: "'Righteous', cursive", fontSize: '1.5rem', textTransform: 'capitalize', letterSpacing: '-0.01em' }}
+                        >
+                            Export Desi
                         </span>
                     </Link>
 
