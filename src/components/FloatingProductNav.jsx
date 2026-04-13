@@ -7,11 +7,12 @@ import { motion } from 'framer-motion';
  * Desktop: Right-side floating links
  * Mobile: Fixed bottom navigation bar
  */
-export default function FloatingProductNav({ items, currentPath, categoryLabel = 'Related' }) {
+export default function FloatingProductNav({ items, products, currentPath, categoryLabel = 'Related' }) {
     const [isHovered, setIsHovered] = useState(false);
 
-    // Filter out the current page
-    const relatedItems = items.filter(p => p.href !== currentPath);
+    // Filter out the current page - handle both prop names for resilience
+    const navItems = items || products || [];
+    const relatedItems = navItems.filter(p => p.href !== currentPath);
 
     if (relatedItems.length === 0) return null;
 

@@ -763,7 +763,7 @@ export default function MakhanaPage() {
 
             {/* Floating Product Navigation */}
             <FloatingProductNav
-                products={FOOD_INGREDIENTS_PRODUCTS}
+                items={FOOD_INGREDIENTS_PRODUCTS}
                 currentPath="/industries/food-ingredients/makhana"
                 categoryLabel="Food Ingredients"
             />
