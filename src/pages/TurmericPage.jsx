@@ -7,6 +7,7 @@ import CTASection from '../components/CTASection';
 import FAQAccordion from '../components/FAQAccordion';
 import ImageGrid from '../components/ImageGrid';
 import ProductSnapshot from '../components/ProductSnapshot';
+import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
@@ -56,6 +57,13 @@ const JUMP_LINKS = [
     { label: 'Packaging', href: '#packaging' },
     { label: 'Markets', href: '#markets' },
     { label: 'FAQ', href: '#faq' },
+];
+
+const FOOD_INGREDIENTS_PRODUCTS = [
+    { label: 'Fox Nuts', name: 'Makhana', href: '/industries/food-ingredients/makhana' },
+    { label: 'Dehydrated', name: 'Onion & Garlic', href: '/industries/food-ingredients/dehydrated-ingredients' },
+    { label: 'Ayurvedic', name: 'Moringa', href: '/industries/food-ingredients/moringa' },
+    { label: 'Spices', name: 'Turmeric', href: '/industries/food-ingredients/turmeric' },
 ];
 
 const TURMERIC_SPECS = {
@@ -352,6 +360,13 @@ export default function TurmericPage() {
                     background="dark"
                 />
             </MotionSection>
+
+            {/* Floating Product Navigation */}
+            <FloatingProductNav
+                items={FOOD_INGREDIENTS_PRODUCTS}
+                currentPath="/industries/food-ingredients/turmeric"
+                categoryLabel="Food Ingredients"
+            />
         </>
     );
 }

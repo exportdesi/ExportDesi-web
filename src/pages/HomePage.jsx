@@ -96,7 +96,7 @@ export default function HomePage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-border">
-                        <a href="/industries/food-ingredients/makhana" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                        <Link to="/industries/food-ingredients/makhana" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
                             <p className="section-label">Fox Nuts</p>
                             <h3 className="text-xl font-bold mb-3">Makhana</h3>
                             <p className="text-muted text-sm mb-6">
@@ -105,9 +105,9 @@ export default function HomePage() {
                             <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
                                 View Grades and Specifications
                             </span>
-                        </a>
+                        </Link>
 
-                        <a href="/industries/food-ingredients/dehydrated-ingredients" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                        <Link to="/industries/food-ingredients/dehydrated-ingredients" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
                             <p className="section-label">Dehydrated</p>
                             <h3 className="text-xl font-bold mb-3">Onion & Garlic</h3>
                             <p className="text-muted text-sm mb-6">
@@ -116,9 +116,9 @@ export default function HomePage() {
                             <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
                                 View Product Range
                             </span>
-                        </a>
+                        </Link>
 
-                        <a href="/industries/food-ingredients/moringa" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                        <Link to="/industries/food-ingredients/moringa" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
                             <p className="section-label">Ayurvedic & Wellness</p>
                             <h3 className="text-xl font-bold mb-3">Moringa Products</h3>
                             <p className="text-muted text-sm mb-6">
@@ -127,18 +127,18 @@ export default function HomePage() {
                             <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
                                 View Specifications
                             </span>
-                        </a>
+                        </Link>
 
-                        <a href="/industries/bags" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
-                            <p className="section-label">Eco-Friendly Packaging</p>
-                            <h3 className="text-xl font-bold mb-3">Jute & Non-Woven Bags</h3>
+                        <Link to="/industries/food-ingredients/turmeric" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                            <p className="section-label">Spices</p>
+                            <h3 className="text-xl font-bold mb-3">Turmeric</h3>
                             <p className="text-muted text-sm mb-6">
-                                Custom-sized jute bags and non-woven D-cut bags. Biodegradable, reusable, print-ready. Ideal for retail, promotional, and industrial use.
+                                Alleppey and Lakadong turmeric with 5-9% curcumin. Sourced from Kerala and Meghalaya. FSSAI, APEDA, and Organic certified lots.
                             </p>
                             <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
-                                View Bag Options
+                                View Turmeric Grades
                             </span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </MotionSection>

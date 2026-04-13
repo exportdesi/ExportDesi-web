@@ -25,6 +25,12 @@ const PRODUCTS = [
         summary: 'Moringa leaf powder, capsules, and tablets. Sourced from certified organic farms. Rich in vitamins, minerals, and antioxidants. USDA Organic, EU Organic available.',
         href: '/industries/food-ingredients/moringa',
     },
+    {
+        label: 'Spices',
+        name: 'Turmeric',
+        summary: 'Alleppey and Lakadong turmeric with 5-9% curcumin. Sourced from verified processors in Kerala and Meghalaya. Lab-tested per shipment.',
+        href: '/industries/food-ingredients/turmeric',
+    },
 ];
 
 export default function FoodIngredientsPage() {
@@ -54,16 +60,16 @@ export default function FoodIngredientsPage() {
             <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={200}>
                 <div className="page-container section-pad">
                     <p className="section-label mb-12">Active Products</p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
                         {PRODUCTS.map((product) => (
-                            <a key={product.name} href={product.href} className="bg-white p-10 hover:bg-white/5 transition-colors block">
+                            <Link key={product.name} to={product.href} className="bg-white p-10 hover:bg-white/5 transition-colors block">
                                 <p className="section-label">{product.label}</p>
                                 <h2 className="text-xl md:text-2xl font-bold mb-4">{product.name}</h2>
                                 <p className="text-muted text-sm leading-relaxed mb-8">{product.summary}</p>
                                 <span className="btn-primary text-xs">
                                     View Specifications
                                 </span>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>
