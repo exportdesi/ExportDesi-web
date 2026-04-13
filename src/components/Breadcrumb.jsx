@@ -5,6 +5,7 @@ const ROUTE_LABELS = {
     'industries': 'Industries',
     'food-ingredients': 'Food & Ingredients',
     'makhana': 'Makhana',
+    'turmeric': 'Turmeric',
     'dehydrated-ingredients': 'Dehydrated Ingredients',
     'how-we-work': 'How We Work',
     'compliance': 'Compliance',
@@ -23,10 +24,11 @@ export default function Breadcrumb() {
     const segments = pathname.split('/').filter(Boolean);
 
     const crumbs = [
-        { label: 'Home', href: '/' },
+        { label: 'Home', href: '/', clickable: true },
         ...segments.map((seg, i) => ({
             label: ROUTE_LABELS[seg] || seg,
             href: '/' + segments.slice(0, i + 1).join('/'),
+            clickable: seg !== 'industries', // Don't link to industries parent page
         })),
     ];
 
@@ -60,8 +62,8 @@ export default function Breadcrumb() {
                             const isLast = i === crumbs.length - 1;
                             return (
                                 <li key={crumb.href} className="flex items-center gap-1">
-                                    {isLast ? (
-                                        <span className="font-medium text-brand" aria-current="page">
+                                    {isLast || !crumb.clickable ? (
+                                        <span className={isLast ? 'font-medium text-brand' : 'text-muted'} aria-current={isLast ? 'page' : undefined}>
                                             {crumb.label}
                                         </span>
                                     ) : (

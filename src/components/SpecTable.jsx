@@ -3,10 +3,10 @@
  * Visually heavier: larger row padding, stronger first-column treatment,
  * tighter caption, more prominent header row.
  */
-export default function SpecTable({ headers = [], rows = [], caption, label, heading }) {
+export default function SpecTable({ headers = [], rows = [], caption, label, heading, compact = false }) {
     return (
-        <section className="bg-white border-b border-border">
-            <div className="page-container section-pad">
+        <section className={`bg-white border-b border-border ${compact ? '' : ''}`}>
+            <div className={`${compact ? 'px-4 py-4' : 'page-container section-pad'}`}>
                 {(label || heading) && (
                     <div className="mb-10">
                         {label && <p className="section-label">{label}</p>}
@@ -24,7 +24,7 @@ export default function SpecTable({ headers = [], rows = [], caption, label, hea
                                 {headers.map((h, i) => (
                                     <th
                                         key={i}
-                                        className="text-left px-6 py-4 font-semibold text-xs tracking-widest uppercase border-r border-brand-light last:border-r-0"
+                                        className="text-left px-4 py-4 font-semibold text-xs tracking-widest uppercase border-r border-brand-light last:border-r-0"
                                     >
                                         {h}
                                     </th>
@@ -40,7 +40,7 @@ export default function SpecTable({ headers = [], rows = [], caption, label, hea
                                     {row.map((cell, ci) => (
                                         <td
                                             key={ci}
-                                            className={`px-6 py-4 border-r border-border last:border-r-0 ${ci === 0
+                                            className={`px-4 py-4 border-r border-border last:border-r-0 ${ci === 0
                                                     ? 'font-semibold text-brand text-sm'
                                                     : 'text-muted text-sm'
                                                 }`}

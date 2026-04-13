@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export Desi - Team Kanban Board</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .draggable { cursor: grab; }
+    .draggable:active { cursor: grabbing; }
+    .drop-zone { min-height: 200px; }
+    .drop-zone.drag-over { background-color: rgba(59, 130, 246, 0.1); border: 2px dashed #3b82f6; }
+    .task-card { transition: all 0.2s; }
+    .task-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .priority-high { border-left: 3px solid #ef4444; }
+    .priority-medium { border-left: 3px solid #f59e0b; }
+    .priority-low { border-left: 3px solid #10b981; }
+    .assignee-avatar { width: 24px; height: 24px; border-radius: 50%; background: #3b82f6; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; }
+    .activity-log { max-height: 150px; overflow-y: auto; font-size: 11px; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+  <!-- Header -->
+  <div class="max-w-full mx-auto mb-4">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-800">Export Desi - Team Kanban</h1>
+        <p class="text-gray-600 text-sm">Website v2 Development Board</p>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm">
+          <span class="text-sm text-gray-600">File:</span>
+          <code class="text-xs bg-gray-100 px-2 py-1 rounded">kanban-data.json</code>
+          <span id="saveStatus" class="text-xs text-green-600 font-medium">● Synced</span>
+        </div>
+        <button onclick="saveToFile()" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm font-medium">
+          💾 Save
+        </button>
+        <label class="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm cursor-pointer font-medium">
+          📂 Load
+          <input type="file" onchange="loadFromFile(event)" class="hidden" accept=".json">
+        </label>
+        <button onclick="showActivityLog()" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded text-sm">
+          📋 Activity
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Members -->
+  <div class="max-w-full mx-auto mb-4 flex items-center gap-4 flex-wrap">
+    <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm">
+      <span class="text-sm text-gray-600">Team:</span>
+      <div class="flex -space-x-2">
+        <div class="assignee-avatar w-8 h-8 text-xs" title="Rajiv Dudeja">RD</div>
+        <div class="assignee-avatar w-8 h-8 text-xs bg-purple-600" title="Designer">DS</div>
+        <div class="assignee-avatar w-8 h-8 text-xs bg-green-600" title="Developer">DV</div>
+      </div>
+      <select id="currentAssignee" onchange="setCurrentAssignee()" class="border rounded px-2 py-1 text-sm">
+        <option value="">Select assignee...</option>
+        <option value="RD">Rajiv Dudeja</option>
+        <option value="DS">Designer</option>
+        <option value="DV">Developer</option>
+      </select>
+    </div>
+    <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm">
+      <span class="text-sm text-gray-600">Priority:</span>
+      <select id="defaultPriority" class="border rounded px-2 py-1 text-sm">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+    <div class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm">
+      <span class="text-sm text-gray-600">Sprint:</span>
+      <select id="defaultSprint" class="border rounded px-2 py-1 text-sm">
+        <option value="sprint1">Sprint 1</option>
+        <option value="sprint2">Sprint 2</option>
+        <option value="sprint3">Sprint 3</option>
+        <option value="sprint4">Sprint 4</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Kanban Board -->
+  <div class="max-w-full mx-auto grid grid-cols-5 gap-3">
+    <!-- Backlog -->
+    <div class="bg-gray-200 rounded-lg p-3 drop-zone" data-column="backlog"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-gray-700 mb-2 flex items-center justify-between text-sm">
+        <span class="flex items-center gap-2">
+          <span class="status-dot bg-gray-500"></span> Backlog
+        </span>
+        <span class="text-xs bg-gray-300 px-2 py-0.5 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container" ondrop="handleDrop(event)"></div>
+    </div>
+
+    <!-- To Do -->
+    <div class="bg-blue-100 rounded-lg p-3 drop-zone" data-column="todo"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-blue-800 mb-2 flex items-center justify-between text-sm">
+        <span class="flex items-center gap-2">
+          <span class="status-dot bg-blue-500"></span> To Do
+        </span>
+        <span class="text-xs bg-blue-200 px-2 py-0.5 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="bg-yellow-100 rounded-lg p-3 drop-zone" data-column="inprogress"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-yellow-800 mb-2 flex items-center justify-between text-sm">
+        <span class="flex items-center gap-2">
+          <span class="status-dot bg-yellow-500"></span> In Progress
+        </span>
+        <span class="text-xs bg-yellow-200 px-2 py-0.5 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- Review -->
+    <div class="bg-purple-100 rounded-lg p-3 drop-zone" data-column="review"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-purple-800 mb-2 flex items-center justify-between text-sm">
+        <span class="flex items-center gap-2">
+          <span class="status-dot bg-purple-500"></span> Review
+        </span>
+        <span class="text-xs bg-purple-200 px-2 py-0.5 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- Done -->
+    <div class="bg-green-100 rounded-lg p-3 drop-zone" data-column="done"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-green-800 mb-2 flex items-center justify-between text-sm">
+        <span class="flex items-center gap-2">
+          <span class="status-dot bg-green-500"></span> Done
+        </span>
+        <span class="text-xs bg-green-200 px-2 py-0.5 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+  </div>
+
+  <!-- Add Task & Controls -->
+  <div class="max-w-full mx-auto mt-4 flex gap-2 flex-wrap">
+    <button onclick="showAddTaskModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm">
+      + Add Task
+    </button>
+    <button onclick="loadSprintData()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium text-sm">
+      📦 Load Sprint Template
+    </button>
+    <button onclick="exportToJSON()" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded text-sm">
+      📥 Export
+    </button>
+    <button onclick="clearAll()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm">
+      🗑️ Clear All
+    </button>
+  </div>
+
+  <!-- Activity Log Panel -->
+  <div id="activityPanel" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 w-96 max-h-[80vh] overflow-hidden flex flex-col">
+      <h3 class="text-lg font-semibold mb-3">Activity Log</h3>
+      <div id="activityLogContent" class="activity-log flex-1 overflow-y-auto space-y-1 mb-4"></div>
+      <button onclick="hideActivityLog()" class="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">Close</button>
+    </div>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div id="addTaskModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 w-[400px]">
+      <h3 class="text-lg font-semibold mb-4">Add New Task</h3>
+      <input type="text" id="taskTitle" placeholder="Task title *"
+             class="w-full border rounded px-3 py-2 mb-3 text-sm" onkeypress="if(event.key==='Enter')addTask()">
+      <textarea id="taskDescription" placeholder="Description (optional)"
+                class="w-full border rounded px-3 py-2 mb-3 text-sm" rows="2"></textarea>
+      <div class="grid grid-cols-2 gap-2 mb-4">
+        <div>
+          <label class="text-xs text-gray-600">Assignee</label>
+          <select id="taskAssignee" class="w-full border rounded px-2 py-1.5 text-sm">
+            <option value="">Unassigned</option>
+            <option value="RD">Rajiv Dudeja</option>
+            <option value="DS">Designer</option>
+            <option value="DV">Developer</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs text-gray-600">Priority</label>
+          <select id="taskPriority" class="w-full border rounded px-2 py-1.5 text-sm">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="text-xs text-gray-600">Sprint</label>
+        <select id="taskSprint" class="w-full border rounded px-2 py-1.5 text-sm">
+          <option value="sprint1">Sprint 1 - Core Assets</option>
+          <option value="sprint2">Sprint 2 - WhatsApp API</option>
+          <option value="sprint3">Sprint 3 - CRM Integration</option>
+          <option value="sprint4">Sprint 4 - Sales Enablement</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="text-xs text-gray-600">Column</label>
+        <select id="taskColumn" class="w-full border rounded px-2 py-1.5 text-sm">
+          <option value="backlog">Backlog</option>
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="review">Review</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+      <div class="flex gap-2 justify-end">
+        <button onclick="hideAddTaskModal()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded text-sm">Cancel</button>
+        <button onclick="addTask()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'exportdesi-kanban-tasks';
+    const DATA_FILE = 'kanban-data.json';
+    let draggedTask = null;
+    let currentAssignee = '';
+    let activityLog = [];
+    let tasks = { backlog: [], todo: [], inprogress: [], review: [], done: [] };
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTasks();
+      renderActivityLog();
+    });
+
+    // Load tasks from object
+    function loadTasks() {
+      return tasks;
+    }
+
+    // Save tasks to object
+    function saveTasks(newTasks) {
+      tasks = newTasks;
+      renderTasks();
+    }
+
+    // Generate unique ID
+    function generateId() {
+      return 'task-' + Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+    }
+
+    // Log activity
+    function logActivity(action, details) {
+      const entry = {
+        timestamp: new Date().toISOString(),
+        action,
+        details
+      };
+      activityLog.unshift(entry);
+      if (activityLog.length > 50) activityLog.pop();
+      renderActivityLog();
+      updateSaveStatus('pending');
+    }
+
+    // Render activity log
+    function renderActivityLog() {
+      const container = document.getElementById('activityLogContent');
+      if (!container) return;
+      container.innerHTML = activityLog.map(entry => `
+        <div class="border-b pb-1 mb-1 text-gray-600">
+          <span class="text-gray-400">${new Date(entry.timestamp).toLocaleString()}</span>
+          <span class="font-medium">${entry.action}</span>
+          <span class="text-gray-500">${entry.details}</span>
+        </div>
+      `).join('');
+    }
+
+    // Show/Hide activity log
+    function showActivityLog() {
+      document.getElementById('activityPanel').classList.remove('hidden');
+    }
+    function hideActivityLog() {
+      document.getElementById('activityPanel').classList.add('hidden');
+    }
+
+    // Update save status
+    function updateSaveStatus(status) {
+      const el = document.getElementById('saveStatus');
+      if (status === 'pending') {
+        el.textContent = '● Saving...';
+        el.className = 'text-xs text-yellow-600 font-medium';
+      } else if (status === 'saved') {
+        el.textContent = '● Synced';
+        el.className = 'text-xs text-green-600 font-medium';
+      } else if (status === 'error') {
+        el.textContent = '● Error';
+        el.className = 'text-xs text-red-600 font-medium';
+      }
+    }
+
+    // Render all tasks
+    function renderTasks() {
+      Object.keys(tasks).forEach(column => {
+        const container = document.querySelector(`[data-column="${column}"] .tasks-container`);
+        const countEl = document.querySelector(`[data-column="${column}"] .count`);
+
+        if (!container) return;
+        container.innerHTML = '';
+        countEl.textContent = tasks[column].length;
+
+        tasks[column].forEach(task => {
+          const taskEl = createTaskElement(task, column);
+          container.appendChild(taskEl);
+        });
+      });
+    }
+
+    // Create task DOM element
+    function createTaskElement(task, column) {
+      const div = document.createElement('div');
+      div.className = `task-card bg-white rounded p-2.5 shadow draggable priority-${task.priority || 'medium'}`;
+      div.draggable = true;
+      div.dataset.taskId = task.id;
+      div.dataset.column = column;
+
+      const assigneeHtml = task.assignee
+        ? `<div class="assignee-avatar ml-auto" title="${task.assignee}">${task.assignee}</div>`
+        : '';
+
+      const sprintBadge = task.sprint
+        ? `<span class="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded">${task.sprint.replace('sprint', 'S')}</span>`
+        : '';
+
+      div.innerHTML = `
+        <div class="flex items-start gap-2">
+          <div class="flex-1 min-w-0">
+            <p class="font-medium text-gray-800 text-sm truncate">${escapeHtml(task.title)}</p>
+            ${task.description ? `<p class="text-gray-500 text-xs mt-0.5 truncate">${escapeHtml(task.description)}</p>` : ''}
+            <div class="flex items-center gap-2 mt-1.5">
+              ${sprintBadge}
+              <span class="text-gray-400 text-[10px]">${new Date(task.createdAt).toLocaleDateString()}</span>
+            </div>
+          </div>
+          ${assigneeHtml}
+        </div>
+        <div class="flex items-center justify-between mt-2">
+          <div class="flex items-center gap-1">
+            <span class="text-[10px] px-1.5 py-0.5 rounded ${getPriorityClass(task.priority)}">${task.priority || 'medium'}</span>
+          </div>
+          <button onclick="deleteTask('${task.id}', '${column}')" class="text-gray-400 hover:text-red-500 text-sm">&times;</button>
+        </div>
+      `;
+      div.addEventListener('dragstart', handleDragStart);
+      return div;
+    }
+
+    function getPriorityClass(priority) {
+      switch(priority) {
+        case 'high': return 'bg-red-100 text-red-700';
+        case 'medium': return 'bg-yellow-100 text-yellow-700';
+        case 'low': return 'bg-green-100 text-green-700';
+        default: return 'bg-gray-100 text-gray-700';
+      }
+    }
+
+    // Drag & Drop handlers
+    function handleDragStart(e) {
+      draggedTask = {
+        id: e.target.dataset.taskId,
+        column: e.target.dataset.column
+      };
+      e.dataTransfer.effectAllowed = 'move';
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      e.currentTarget.classList.add('drag-over');
+    }
+
+    function handleDragLeave(e) {
+      e.currentTarget.classList.remove('drag-over');
+    }
+
+    function handleDrop(e) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('drag-over');
+
+      const newColumn = e.currentTarget.closest('[data-column]').dataset.column;
+      if (!draggedTask) return;
+
+      const task = tasks[draggedTask.column].find(t => t.id === draggedTask.id);
+      if (task) {
+        const oldColumn = draggedTask.column;
+        const oldStatus = oldColumn.charAt(0).toUpperCase() + oldColumn.slice(1);
+        const newStatus = newColumn.charAt(0).toUpperCase() + newColumn.slice(1);
+
+        tasks[draggedTask.column] = tasks[draggedTask.column].filter(t => t.id !== draggedTask.id);
+        task.column = newColumn;
+        if (newColumn === 'done') {
+          task.completedAt = new Date().toISOString();
+          logActivity('✅ Completed', `"${task.title}" moved to Done by ${currentAssignee || 'Anonymous'}`);
+        } else {
+          logActivity('📍 Moved', `"${task.title}" ${oldStatus} → ${newStatus} by ${currentAssignee || 'Anonymous'}`);
+        }
+        tasks[newColumn].push(task);
+        saveTasks(tasks);
+      }
+
+      draggedTask = null;
+    }
+
+    // Set current assignee
+    function setCurrentAssignee() {
+      currentAssignee = document.getElementById('currentAssignee').value;
+    }
+
+    // Add new task
+    function addTask() {
+      const title = document.getElementById('taskTitle').value.trim();
+      const description = document.getElementById('taskDescription').value.trim();
+      const assignee = document.getElementById('taskAssignee').value;
+      const priority = document.getElementById('taskPriority').value;
+      const sprint = document.getElementById('taskSprint').value;
+      const column = document.getElementById('taskColumn').value;
+
+      if (!title) {
+        alert('Please enter a task title');
+        return;
+      }
+
+      const task = {
+        id: generateId(),
+        title,
+        description,
+        assignee: assignee || null,
+        priority,
+        sprint,
+        column,
+        createdAt: new Date().toISOString()
+      };
+
+      tasks[column].push(task);
+      logActivity('➕ Added', `"${title}" added to ${column} by ${currentAssignee || 'Anonymous'}`);
+      saveTasks(tasks);
+      hideAddTaskModal();
+
+      // Clear form
+      document.getElementById('taskTitle').value = '';
+      document.getElementById('taskDescription').value = '';
+      document.getElementById('taskAssignee').value = '';
+    }
+
+    // Delete task
+    function deleteTask(taskId, column) {
+      const task = tasks[column].find(t => t.id === taskId);
+      if (task) {
+        if (confirm(`Delete "${task.title}"?`)) {
+          logActivity('🗑️ Deleted', `"${task.title}" removed from ${column} by ${currentAssignee || 'Anonymous'}`);
+          tasks[column] = tasks[column].filter(t => t.id !== taskId);
+          saveTasks(tasks);
+        }
+      }
+    }
+
+    // Clear all tasks
+    function clearAll() {
+      if (confirm('⚠️ Delete ALL tasks? This cannot be undone.')) {
+        logActivity('🗑️ Cleared', 'All tasks deleted by ' + (currentAssignee || 'Anonymous'));
+        tasks = { backlog: [], todo: [], inprogress: [], review: [], done: [] };
+        saveTasks(tasks);
+      }
+    }
+
+    // Save to file (downloads JSON)
+    function saveToFile() {
+      try {
+        const blob = new Blob([JSON.stringify(tasks, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = DATA_FILE;
+        a.click();
+        URL.revokeObjectURL(url);
+        updateSaveStatus('saved');
+        logActivity('💾 Saved', 'Board exported to kanban-data.json');
+      } catch (err) {
+        updateSaveStatus('error');
+        console.error('Save error:', err);
+      }
+    }
+
+    // Load from file
+    function loadFromFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const loadedTasks = JSON.parse(event.target.result);
+          // Validate structure
+          if (typeof loadedTasks === 'object' && loadedTasks.backlog && loadedTasks.todo) {
+            tasks = loadedTasks;
+            saveTasks(tasks);
+            logActivity('📂 Loaded', 'Board imported from file');
+          } else {
+            alert('Invalid file format');
+          }
+        } catch (err) {
+          alert('Error reading file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+
+    // Export to JSON
+    function exportToJSON() {
+      saveToFile();
+    }
+
+    // Load Sprint Template
+    function loadSprintData() {
+      if (!confirm('Load sprint template? This will merge with existing tasks.')) return;
+
+      const sprintTasks = {
+        backlog: [
+          { title: 'Build /certs landing page', description: 'Single PDF, all 6 certifications', sprint: 'sprint2' },
+          { title: 'Add UTM tracking', description: 'Google Analytics ready', sprint: 'sprint2' },
+          { title: 'Test on mobile', description: 'iOS + Android working', sprint: 'sprint2' },
+          { title: 'Create business.facebook.com', description: 'Account verified', sprint: 'sprint2' },
+          { title: 'Verify phone (+91 9289790283)', description: 'OTP complete', sprint: 'sprint2' },
+          { title: 'Create WhatsApp app', description: 'App ID, API keys', sprint: 'sprint2' },
+          { title: 'Configure Cloud API', description: 'Test message sent', sprint: 'sprint2' },
+          { title: 'Write 5 message templates', description: 'Initial + 4 follow-ups', sprint: 'sprint2' },
+          { title: 'Submit templates for approval', description: 'Meta dashboard submitted', sprint: 'sprint2' },
+          { title: 'Build template library', description: 'JSON/store for reuse', sprint: 'sprint2' },
+          { title: 'Parse embassy-data.json', description: 'Extract companies, emails, phones', sprint: 'sprint3' },
+          { title: 'Classify by country and product', description: 'Food vs utensils tagged', sprint: 'sprint3' },
+          { title: 'Priority scoring (1-100)', description: 'France/Kuwait/Iran = high', sprint: 'sprint3' },
+          { title: 'Import into 04_Buyers_CRM', description: 'All fields mapped', sprint: 'sprint3' },
+          { title: 'Build CRM dashboard', description: 'Top countries, priority leads', sprint: 'sprint3' },
+          { title: 'Segment leads (Tier 1/2/3)', description: 'USA/UK vs UAE vs Africa', sprint: 'sprint3' },
+          { title: 'Write outreach sequences per segment', description: 'Email + WhatsApp per tier', sprint: 'sprint3' },
+          { title: 'Add pricing by country to CRM', description: 'USA $6.68 vs UAE $1.20', sprint: 'sprint3' },
+          { title: 'Build pricing calculator', description: 'EXW→FOB→CIF working', sprint: 'sprint3' },
+          { title: 'Write 9 email templates', description: 'Intro, follow-up, quote, case, close', sprint: 'sprint4' },
+          { title: 'Personalize templates by product', description: 'Makhana vs Turmeric variants', sprint: 'sprint4' },
+          { title: 'Write Makhana sales script', description: 'Objections, closers', sprint: 'sprint4' },
+          { title: 'Write Turmeric sales script', description: 'Differentiation vs 2,395 exporters', sprint: 'sprint4' },
+          { title: 'Build 30-day LinkedIn calendar', description: 'Daily posts planned', sprint: 'sprint4' },
+          { title: 'Create first 10 LinkedIn posts', description: 'Scheduled/published', sprint: 'sprint4' },
+          { title: 'Build competitor battle cards', description: 'Mrs Bectors, Ravi, Arjuna', sprint: 'sprint4' },
+          { title: 'Positioning vs each competitor', description: 'Your edge clear', sprint: 'sprint4' },
+          { title: 'Test full funnel', description: 'Lead → CRM → email → WhatsApp → close', sprint: 'sprint4' }
+        ],
+        todo: [
+          { title: 'Company Profile PDF fix', description: 'Export clean A4 PDF', sprint: 'sprint1' },
+          { title: 'Test all contact links', description: 'tel:, whatsapp:, mailto: work', sprint: 'sprint1' },
+          { title: 'Enhance certifications display', description: 'Click-to-copy GST, IEC, etc.', sprint: 'sprint1' },
+          { title: 'Deploy to exportdesi.com/profile', description: 'Live, accessible URL', sprint: 'sprint1' },
+          { title: 'Build Product Catalog page', description: '4 categories, specs, HS codes', sprint: 'sprint1' },
+          { title: 'Build Quote Form', description: 'Formspree or custom, tested', sprint: 'sprint1' },
+          { title: 'Deploy catalog and quote pages', description: 'Live URLs', sprint: 'sprint1' },
+          { title: 'Create PDF versions', description: 'Downloadable from pages', sprint: 'sprint1' }
+        ],
+        inprogress: [],
+        review: [],
+        done: []
+      };
+
+      // Merge without duplicates
+      Object.keys(sprintTasks).forEach(column => {
+        sprintTasks[column].forEach(sprintTask => {
+          const exists = tasks[column].some(t => t.title === sprintTask.title);
+          if (!exists) {
+            tasks[column].push({
+              id: generateId(),
+              ...sprintTask,
+              column,
+              priority: 'medium',
+              createdAt: new Date().toISOString()
+            });
+          }
+        });
+      });
+
+      logActivity('📦 Template', 'Sprint tasks loaded');
+      saveTasks(tasks);
+    }
+
+    // Modal functions
+    function showAddTaskModal() {
+      document.getElementById('addTaskModal').classList.remove('hidden');
+      document.getElementById('taskTitle').focus();
+    }
+
+    function hideAddTaskModal() {
+      document.getElementById('addTaskModal').classList.add('hidden');
+    }
+
+    // Utility
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hideAddTaskModal();
+        hideActivityLog();
+      }
+    });
+  </script>
+</body>
+</html>

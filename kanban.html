@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Export Desi - Website Kanban</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .draggable { cursor: grab; }
+    .draggable:active { cursor: grabbing; }
+    .drop-zone { min-height: 250px; }
+    .drop-zone.drag-over { background-color: rgba(59, 130, 246, 0.1); }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- Top Control Bar -->
+  <div class="bg-white shadow-md p-4 sticky top-0 z-10">
+    <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-3">
+      <div>
+        <h1 class="text-xl font-bold text-gray-800">Export Desi Website v2</h1>
+        <p class="text-sm text-gray-600">Sprint 1 - Core Marketing Assets</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <button onclick="loadWebsiteTasks()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+          📦 Load Website Tasks
+        </button>
+        <button onclick="showAddTaskModal()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+          + Add Task
+        </button>
+        <button onclick="exportToJSON()" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded text-sm">
+          📥 Export
+        </button>
+        <label class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-2 rounded text-sm cursor-pointer">
+          📂 Import
+          <input type="file" onchange="importFromJSON(event)" class="hidden" accept=".json">
+        </label>
+        <button onclick="clearAll()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm">
+          Clear
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kanban Board -->
+  <div class="max-w-7xl mx-auto p-4 grid grid-cols-5 gap-3">
+    <!-- Backlog -->
+    <div class="bg-gray-200 rounded-lg p-3 drop-zone" data-column="backlog"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-gray-700 mb-3 flex items-center justify-between text-sm">
+        <span>📋 Backlog</span>
+        <span class="text-xs bg-gray-300 px-2 py-1 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- To Do -->
+    <div class="bg-blue-100 rounded-lg p-3 drop-zone" data-column="todo"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-blue-800 mb-3 flex items-center justify-between text-sm">
+        <span>📝 To Do</span>
+        <span class="text-xs bg-blue-200 px-2 py-1 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- In Progress -->
+    <div class="bg-yellow-100 rounded-lg p-3 drop-zone" data-column="inprogress"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-yellow-800 mb-3 flex items-center justify-between text-sm">
+        <span>🔨 In Progress</span>
+        <span class="text-xs bg-yellow-200 px-2 py-1 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- Review -->
+    <div class="bg-purple-100 rounded-lg p-3 drop-zone" data-column="review"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-purple-800 mb-3 flex items-center justify-between text-sm">
+        <span>👀 Review</span>
+        <span class="text-xs bg-purple-200 px-2 py-1 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+
+    <!-- Done -->
+    <div class="bg-green-100 rounded-lg p-3 drop-zone" data-column="done"
+         ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
+      <h2 class="font-semibold text-green-800 mb-3 flex items-center justify-between text-sm">
+        <span>✅ Done</span>
+        <span class="text-xs bg-green-200 px-2 py-1 rounded-full count">0</span>
+      </h2>
+      <div class="space-y-2 tasks-container"></div>
+    </div>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div id="addTaskModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 w-96">
+      <h3 class="text-lg font-semibold mb-4">Add New Task</h3>
+      <input type="text" id="taskTitle" placeholder="Task title"
+             class="w-full border rounded px-3 py-2 mb-3" onkeypress="if(event.key==='Enter')addTask()">
+      <textarea id="taskDescription" placeholder="Description (optional)"
+                class="w-full border rounded px-3 py-2 mb-3" rows="2"></textarea>
+      <select id="taskColumn" class="w-full border rounded px-3 py-2 mb-4">
+        <option value="backlog">Backlog</option>
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="review">Review</option>
+        <option value="done">Done</option>
+      </select>
+      <div class="flex gap-2 justify-end">
+        <button onclick="hideAddTaskModal()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded">Cancel</button>
+        <button onclick="addTask()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'exportdesi-website-kanban';
+    let draggedTask = null;
+
+    // Load tasks from localStorage
+    function loadTasks() {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : {
+        backlog: [],
+        todo: [],
+        inprogress: [],
+        review: [],
+        done: []
+      };
+    }
+
+    // Save tasks to localStorage
+    function saveTasks(tasks) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      renderTasks();
+    }
+
+    // Generate unique ID
+    function generateId() {
+      return 'task-' + Date.now().toString(36) + Math.random().toString(36).substr(2);
+    }
+
+    // Render all tasks
+    function renderTasks() {
+      Object.keys(tasks).forEach(column => {
+        const container = document.querySelector(`[data-column="${column}"] .tasks-container`);
+        const countEl = document.querySelector(`[data-column="${column}"] .count`);
+
+        if (!container) return;
+        container.innerHTML = '';
+        countEl.textContent = tasks[column].length;
+
+        tasks[column].forEach(task => {
+          const taskEl = createTaskElement(task, column);
+          container.appendChild(taskEl);
+        });
+      });
+    }
+
+    // Create task DOM element
+    function createTaskElement(task, column) {
+      const div = document.createElement('div');
+      div.className = 'bg-white rounded p-3 shadow draggable hover:shadow-md transition-shadow';
+      div.draggable = true;
+      div.dataset.taskId = task.id;
+      div.dataset.column = column;
+      div.innerHTML = `
+        <div class="flex justify-between items-start">
+          <p class="font-medium text-gray-800 text-sm">${escapeHtml(task.title)}</p>
+          <button onclick="deleteTask('${task.id}', '${column}')" class="text-gray-400 hover:text-red-500 text-lg leading-none">&times;</button>
+        </div>
+        ${task.description ? `<p class="text-gray-600 text-xs mt-1">${escapeHtml(task.description)}</p>` : ''}
+        <p class="text-gray-400 text-xs mt-2">${new Date(task.createdAt).toLocaleDateString()}</p>
+      `;
+      div.addEventListener('dragstart', handleDragStart);
+      return div;
+    }
+
+    // Drag & Drop handlers
+    function handleDragStart(e) {
+      draggedTask = {
+        id: e.target.dataset.taskId,
+        column: e.target.dataset.column
+      };
+      e.dataTransfer.effectAllowed = 'move';
+    }
+
+    function handleDragOver(e) {
+      e.preventDefault();
+      e.currentTarget.classList.add('drag-over');
+    }
+
+    function handleDragLeave(e) {
+      e.currentTarget.classList.remove('drag-over');
+    }
+
+    function handleDrop(e) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('drag-over');
+
+      const newColumn = e.currentTarget.dataset.column;
+      if (!draggedTask) return;
+
+      const tasks = loadTasks();
+      const task = tasks[draggedTask.column].find(t => t.id === draggedTask.id);
+
+      if (task) {
+        tasks[draggedTask.column] = tasks[draggedTask.column].filter(t => t.id !== draggedTask.id);
+        task.column = newColumn;
+        if (newColumn === 'done') task.completedAt = new Date().toISOString();
+        tasks[newColumn].push(task);
+        saveTasks(tasks);
+      }
+
+      draggedTask = null;
+    }
+
+    // Load Website Tasks (Sprint 1 - Website Dev Agent Recommendations)
+    function loadWebsiteTasks() {
+      if (!confirm('Load website development tasks? This will add Sprint 1 tasks to your board.')) return;
+
+      const websiteTasks = {
+        backlog: [
+          { title: 'Add responsive mobile styles', description: 'Tailwind mobile-first breakpoints' },
+          { title: 'Add meta tags for SEO', description: 'Title, description, OG tags' },
+          { title: 'Setup Google Analytics', description: 'GA4 tracking code' }
+        ],
+        todo: [
+          { title: 'Company Profile - Fix PDF Export', description: 'Export clean A4 PDF, test print layout' },
+          { title: 'Company Profile - Contact Links', description: 'tel:, whatsapp:, mailto: working' },
+          { title: 'Company Profile - Certifications', description: 'Click-to-copy GST, IEC, APEDA, FSSAI, Spice Board, FIEO' },
+          { title: 'Deploy Company Profile', description: 'Live at exportdesi.com/profile' },
+          { title: 'Product Catalog Page', description: '4 categories: Makhana, Turmeric, Dehydrated Onion/Garlic, Food Powders' },
+          { title: 'Product Catalog - Specs & HS Codes', description: 'Add product specifications and HS codes' },
+          { title: 'Quote Request Form', description: 'Formspree integration, tested' },
+          { title: 'Deploy Catalog & Quote Pages', description: 'Live URLs' }
+        ],
+        inprogress: [],
+        review: [
+          { title: '🔍 Website Review - Rajiv', description: 'Review all pages and list change requests' }
+        ],
+        done: []
+      };
+
+      const tasks = loadTasks();
+
+      // Merge without duplicates
+      Object.keys(websiteTasks).forEach(column => {
+        websiteTasks[column].forEach(webTask => {
+          const exists = tasks[column].some(t => t.title === webTask.title);
+          if (!exists) {
+            tasks[column].push({
+              id: generateId(),
+              ...webTask,
+              column,
+              createdAt: new Date().toISOString()
+            });
+          }
+        });
+      });
+
+      saveTasks(tasks);
+    }
+
+    // Add new task
+    function addTask() {
+      const title = document.getElementById('taskTitle').value.trim();
+      const description = document.getElementById('taskDescription').value.trim();
+      const column = document.getElementById('taskColumn').value;
+
+      if (!title) return;
+
+      const tasks = loadTasks();
+      tasks[column].push({
+        id: generateId(),
+        title,
+        description,
+        column,
+        createdAt: new Date().toISOString()
+      });
+
+      saveTasks(tasks);
+      hideAddTaskModal();
+      document.getElementById('taskTitle').value = '';
+      document.getElementById('taskDescription').value = '';
+    }
+
+    // Delete task
+    function deleteTask(taskId, column) {
+      const tasks = loadTasks();
+      tasks[column] = tasks[column].filter(t => t.id !== taskId);
+      saveTasks(tasks);
+    }
+
+    // Clear all tasks
+    function clearAll() {
+      if (confirm('Delete all tasks? This cannot be undone.')) {
+        localStorage.removeItem(STORAGE_KEY);
+        renderTasks();
+      }
+    }
+
+    // Export to JSON
+    function exportToJSON() {
+      const tasks = loadTasks();
+      const blob = new Blob([JSON.stringify(tasks, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `website-kanban-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Import from JSON
+    function importFromJSON(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const tasks = JSON.parse(event.target.result);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+          renderTasks();
+        } catch (err) {
+          alert('Invalid JSON file');
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+
+    // Modal functions
+    function showAddTaskModal() {
+      document.getElementById('addTaskModal').classList.remove('hidden');
+      document.getElementById('taskTitle').focus();
+    }
+
+    function hideAddTaskModal() {
+      document.getElementById('addTaskModal').classList.add('hidden');
+    }
+
+    // Utility
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Initialize
+    let tasks = loadTasks();
+    renderTasks();
+  </script>
+</body>
+</html>

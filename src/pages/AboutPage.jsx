@@ -3,29 +3,69 @@ import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import ImageGrid from '../components/ImageGrid';
+import FloatingProductNav from '../components/FloatingProductNav';
+import { MotionSection, MotionCard, staggerContainer } from '../components/MotionWrapper';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { Helmet } from 'react-helmet-async';
+
+const INFO_PAGES = [
+    { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
+    { label: 'How We Work', name: 'Our Process', href: '/how-we-work' },
+    { label: 'About', name: 'About Us', href: '/about' },
+];
 
 const ABOUT_IMAGES = [
-    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Makhana+Processing+(Bihar)', alt: 'Makhana processing facility in Bihar', caption: 'Bihar Sourcing', subcaption: 'Mithila region processor network' },
-    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Dehydration+Plant+(Gujarat)', alt: 'Dehydration plant in Gujarat', caption: 'Gujarat Sourcing', subcaption: 'Mahuva dehydration cluster' },
-    { src: 'https://placehold.co/800x600/f3f4f6/6b7280/png?text=Export+Dispatch+(Nhava+Sheva)', alt: 'Container loading for export', caption: 'Export Dispatch', subcaption: 'Pre-dispatch verification complete' },
+    { src: '/images/products/makhana/makhna-field.webp', alt: 'Indian spices and ingredients', caption: 'Bihar Sourcing', subcaption: 'Mithila region processor network' },
+    { src: '/images/products/dehydrated/white-onion-flakes.jpg', alt: 'Food processing facility', caption: 'Gujarat Sourcing', subcaption: 'Mahuva dehydration cluster' },
+    { src: '/images/products/makhana/makhana-packing.png', alt: 'Container shipping for export', caption: 'Export Dispatch', subcaption: 'Pre-dispatch verification complete' },
 ];
+
+const PERSON_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Rajiv Dudeja',
+    jobTitle: 'Founder & Principal',
+    worksFor: {
+        '@type': 'Organization',
+        name: 'Export Desi',
+    },
+    email: 'mailto:rajiv@exportdesi.com',
+    telephone: '+91-9289790283',
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Gurgaon',
+        addressRegion: 'Haryana',
+        addressCountry: 'IN',
+    },
+};
 
 export default function AboutPage() {
     return (
         <>
             <SEOMeta
-                title="About Export Desi"
-                description="Export Desi coordinates the Indian side of the export process for global buyers: processor qualification, documentation, and shipment management from Gurgaon, Haryana."
+                title="About Export Desi | Indian Food Ingredients Exporter Since 2013"
+                description="Export Desi coordinates processor qualification, documentation, and shipment for Indian food ingredients. 10+ years, 50+ countries served. Response within 48 hours."
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(PERSON_SCHEMA)}
+                </script>
+            </Helmet>
 
-            <HeroSection
-                label="About"
-                title="Export Desi."
-                subtitle="We coordinate the Indian side of the export process for international buyers sourcing food ingredients. Processor qualification, documentation preparation, pre-dispatch verification, and port coordination, managed from Gurgaon, Haryana."
-                background="surface"
-            />
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+                <HeroSection
+                    label="About"
+                    title="Your Partner for Indian Food Ingredient Exports Since 2013."
+                    subtitle="We coordinate the Indian side of the export process for international buyers sourcing food ingredients. Processor qualification, documentation preparation, pre-dispatch verification, and port coordination, managed from Gurgaon, Haryana. 50+ countries served."
+                    background="white"
+                />
+            </motion.div>
 
-            <section className="bg-white border-b border-border">
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={200}>
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
@@ -46,69 +86,87 @@ export default function AboutPage() {
                         />
                     </div>
                 </div>
-            </section>
+            </MotionSection>
 
-            {/* Geographic Anchoring */}
-            <ImageGrid
-                images={ABOUT_IMAGES}
-                columns={3}
-            />
+            {/* Founder */}
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={400}>
+                <div className="page-container section-pad">
+                    <p className="section-label mb-8">Founder</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <div className="md:col-span-1">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="aspect-square bg-surface border border-border flex items-center justify-center overflow-hidden"
+                            >
+                                <img
+                                    src="/rajiv-dudeja-founder.png"
+                                    alt="Rajiv Dudeja - Founder"
+                                    className="w-full h-full object-cover"
+                                />
+                            </motion.div>
+                        </div>
+                        <div className="md:col-span-2">
+                            <h3 className="text-xl font-bold mb-4">Rajiv Dudeja</h3>
+                            <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">Founder & Principal</p>
+                            <div className="space-y-4 text-muted text-sm leading-relaxed">
+                                <p>
+                                    Established Export Desi in 2013 with a focus on helping Indian manufacturers and processors reach international buyers in a structured and scalable way.
+                                </p>
+                                <p>
+                                    His background spans product design and development, working with international businesses to bring consumer products from concept to market. This experience shaped a buyer-first approach to export management — understanding specification requirements, packaging expectations, and quality standards that international markets demand.
+                                </p>
+                                <p>
+                                    Based in Gurgaon, Haryana, he oversees processor qualification, buyer relationship management, and the overall export coordination framework. He is the primary contact for commercial discussions and partnership enquiries.
+                                </p>
+                            </div>
+                            <div className="mt-6 flex gap-4">
+                                <a href="mailto:rajiv@exportdesi.com" className="text-brand font-medium text-sm hover:underline underline-offset-2">
+                                    rajiv@exportdesi.com
+                                </a>
+                                <a href="https://in.linkedin.com/in/rajeev-dudeja" target="_blank" rel="noopener noreferrer" className="text-brand font-medium text-sm hover:underline underline-offset-2 flex items-center gap-1">
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </MotionSection>
 
             {/* Team */}
-            <section className="bg-surface border-b border-border">
+            <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={500}>
                 <div className="page-container section-pad">
-                    <p className="section-label mb-12">The Team</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border">
-                        {[
-                            {
-                                name: 'Hemant Kumar',
-                                role: 'Sourcing and Processor Relations',
-                                note: 'Oversees processor identification, qualification, and ongoing supply relationships.',
-                                linkedin: null, // Add LinkedIn URL here when available
-                            },
-                            {
-                                name: 'Nishant Chaudhary',
-                                role: 'Risk and Operations',
-                                note: 'Oversees order execution, pre-dispatch verification, and documentation accuracy for every consignment.',
-                                linkedin: null,
-                            },
-                            {
-                                name: 'Sahil Dudeja',
-                                role: 'Business Development',
-                                note: 'Handles buyer requirement qualification, feasibility assessment, and commercial terms. First point of contact for new enquiries.',
-                                linkedin: null,
-                            },
-                        ].map((member) => (
-                            <div key={member.name} className="bg-surface p-8">
-                                <div className="w-2 h-2 bg-brand mb-5" />
-                                <div className="flex items-start justify-between gap-3 mb-1">
-                                    <p className="text-base font-bold">{member.name}</p>
-                                    {member.linkedin && (
-                                        <a
-                                            href={member.linkedin}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            aria-label={`${member.name} on LinkedIn`}
-                                            className="text-muted hover:text-brand transition-colors mt-0.5 flex-shrink-0"
-                                        >
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                            </svg>
-                                        </a>
-                                    )}
-                                </div>
-                                <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">{member.role}</p>
-                                <p className="text-sm text-muted leading-relaxed">{member.note}</p>
+                    <p className="section-label mb-8">The Team</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
+                        <div className="bg-white p-6 border border-border rounded-xl">
+                            <div className="w-2 h-2 bg-brand mb-4" />
+                            <p className="text-base font-bold text-brand mb-1">Hemant Kumar</p>
+                            <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">Sourcing and Processor Relations</p>
+                            <p className="text-sm text-muted leading-relaxed mb-4">Oversees processor identification, qualification, and ongoing supply relationships.</p>
+                            <div className="flex items-center gap-4 text-xs">
+                                <a href="mailto:hemant@exportdesi.com" className="text-brand hover:underline">
+                                    hemant@exportdesi.com
+                                </a>
+                                <a href="https://in.linkedin.com/in/hemant-kumar-470a203b8" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-brand hover:underline">
+                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                    LinkedIn
+                                </a>
                             </div>
-                        ))}
+                        </div>
+                        <div className="bg-white p-6 border border-border rounded-xl">
+                            <div className="w-2 h-2 bg-brand mb-4" />
+                            <p className="text-base font-bold text-brand mb-1">Nishant Chaudhary</p>
+                            <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">Risk & Strategy Relations</p>
+                            <p className="text-sm text-muted leading-relaxed">Oversees order execution, pre-dispatch verification, and documentation accuracy for every consignment.</p>
+                        </div>
                     </div>
-                    <p className="text-xs text-muted mt-6">
-                        LinkedIn profiles will be linked here shortly.
-                    </p>
                 </div>
-            </section>
+            </MotionSection>
 
-            <section className="bg-white border-b border-border">
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={600}>
                 <div className="page-container section-pad">
                     <ContentBlock
                         label="Location"
@@ -130,14 +188,21 @@ export default function AboutPage() {
                         </p>
                     </div>
                 </div>
-            </section>
+            </MotionSection>
 
             <CTASection
-                heading="Want to discuss a sourcing requirement?"
-                subtext="Share your product specification, destination, and volume. We assess feasibility and respond within 48 business hours."
-                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
+                heading="Ready to Source from India? Get a Quote in 48 Hours."
+                subtext="Share your product specification, destination, and volume. We assess processor availability and respond with indicative pricing within 48 business hours."
+                primaryCTA={{ label: 'Get a Sourcing Quote', href: '/contact' }}
                 secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
                 background="dark"
+            />
+
+            {/* Floating Navigation */}
+            <FloatingProductNav
+                items={INFO_PAGES}
+                currentPath="/about"
+                categoryLabel="Quick Links"
             />
         </>
     );

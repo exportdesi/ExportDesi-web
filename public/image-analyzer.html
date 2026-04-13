@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Desi - Image Analysis Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #475569;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            background: #1e293b;
+        }
+        
+        .upload-area:hover, .upload-area.dragover {
+            border-color: #38bdf8;
+            background: #1e293b;
+        }
+        
+        .upload-area input {
+            display: none;
+        }
+        
+        .upload-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #38bdf8;
+            color: #0f172a;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .upload-btn:hover {
+            background: #7dd3fc;
+        }
+        
+        .results {
+            display: none;
+        }
+        
+        .results.active {
+            display: block;
+        }
+        
+        .preview-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .preview-section h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #38bdf8;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+        
+        .recommendations {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .recommendations h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+        
+        .rec-item {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            background: #0f172a;
+            border-left: 3px solid;
+        }
+        
+        .rec-item.critical {
+            border-left-color: #ef4444;
+            color: #fca5a5;
+        }
+        
+        .rec-item.warning {
+            border-left-color: #f59e0b;
+            color: #fcd34d;
+        }
+        
+        .rec-item.good {
+            border-left-color: #22c55e;
+            color: #86efac;
+        }
+        
+        .rec-item.info {
+            border-left-color: #3b82f6;
+            color: #93c5fd;
+        }
+        
+        .usage-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .usage-section h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+        
+        .usage-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .usage-item:last-child {
+            border-bottom: none;
+        }
+        
+        .usage-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .preview-sizes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .size-box {
+            text-align: center;
+        }
+        
+        .size-box h4 {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .size-preview {
+            background: #0f172a;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .size-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .size-label {
+            font-size: 10px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #1e293b;
+            border-top-color: #38bdf8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #7f1d1d;
+            color: #fecaca;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .error.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Export Desi Image Analyzer</h1>
+    <p class="subtitle">Upload an image to analyze its suitability for web use</p>
+    
+    <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*">
+        <label for="fileInput" class="upload-btn">Choose Image File</label>
+        <p style="margin-top: 15px; color: #94a3b8;">or drag and drop here</p>
+        <p style="margin-top: 5px; font-size: 12px; color: #64748b;">Supports: JPG, PNG, GIF, WebP</p>
+    </div>
+    
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Analyzing image...</p>
+    </div>
+    
+    <div class="error" id="error"></div>
+    
+    <div class="results" id="results">
+        <!-- Image Preview -->
+        <div class="preview-section">
+            <h2>📷 Original Image</h2>
+            <img id="previewImage" class="image-preview" alt="Preview">
+            <div class="stats-grid" id="statsGrid">
+                <!-- Stats will be inserted here -->
+            </div>
+        </div>
+        
+        <!-- Recommendations -->
+        <div class="recommendations">
+            <h2>💡 Recommendations</h2>
+            <div id="recommendationsList">
+                <!-- Recommendations will be inserted here -->
+            </div>
+        </div>
+        
+        <!-- Preview Sizes -->
+        <div class="preview-section">
+            <h2>📐 Size Previews</h2>
+            <div class="preview-sizes">
+                <div class="size-box">
+                    <h4>Hero Banner (1920×1080)</h4>
+                    <div class="size-preview" style="height: 120px;">
+                        <img id="previewHero" alt="Hero preview">
+                    </div>
+                    <p class="size-label">Full-width hero</p>
+                </div>
+                
+                <div class="size-box">
+                    <h4>Product Card (800×600)</h4>
+                    <div class="size-preview" style="height: 120px;">
+                        <img id="previewCard" alt="Card preview">
+                    </div>
+                    <p class="size-label">Grid display</p>
+                </div>
+                
+                <div class="size-box">
+                    <h4>Thumbnail (400×300)</h4>
+                    <div class="size-preview" style="height: 120px;">
+                        <img id="previewThumb" alt="Thumb preview">
+                    </div>
+                    <p class="size-label">Small preview</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Suitable For -->
+        <div class="usage-section">
+            <h2>🎯 Suitable For</h2>
+            <div id="usageList">
+                <!-- Usage items will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const error = document.getElementById('error');
+        
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                analyzeImage(files[0]);
+            }
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                analyzeImage(e.target.files[0]);
+            }
+        });
+        
+        function analyzeImage(file) {
+            // Show loading
+            loading.classList.add('active');
+            results.classList.remove('active');
+            error.classList.remove('active');
+            
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Hide loading
+                    loading.classList.remove('active');
+                    results.classList.add('active');
+                    
+                    // Set images
+                    document.getElementById('previewImage').src = e.target.result;
+                    document.getElementById('previewHero').src = e.target.result;
+                    document.getElementById('previewCard').src = e.target.result;
+                    document.getElementById('previewThumb').src = e.target.result;
+                    
+                    // Calculate stats
+                    const width = img.width;
+                    const height = img.height;
+                    const aspectRatio = (width / height).toFixed(2);
+                    const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                    const format = file.name.split('.').pop().toUpperCase();
+                    
+                    // Display stats
+                    const statsHTML = `
+                        <div class="stat-card">
+                            <div class="stat-label">Dimensions</div>
+                            <div class="stat-value">${width} × ${height}px</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Aspect Ratio</div>
+                            <div class="stat-value">${aspectRatio}</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">File Size</div>
+                            <div class="stat-value">${fileSizeMB} MB</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Format</div>
+                            <div class="stat-value">${format}</div>
+                        </div>
+                    `;
+                    document.getElementById('statsGrid').innerHTML = statsHTML;
+                    
+                    // Generate recommendations
+                    const recommendations = [];
+                    
+                    if (fileSizeMB > 5) {
+                        recommendations.push({
+                            type: 'critical',
+                            text: `⚠️ CRITICAL: File is ${fileSizeMB}MB. This will load very slowly. Compress to under 500KB for web use.`
+                        });
+                    } else if (fileSizeMB > 1) {
+                        recommendations.push({
+                            type: 'warning',
+                            text: `⚡ Large file (${fileSizeMB}MB). Consider compressing for faster loading.`
+                        });
+                    } else {
+                        recommendations.push({
+                            type: 'good',
+                            text: `✅ Good file size for web.`
+                        });
+                    }
+                    
+                    if (width < 800) {
+                        recommendations.push({
+                            type: 'warning',
+                            text: `📏 Image is small (${width}px). May look blurry on large screens.`
+                        });
+                    } else if (width > 3000) {
+                        recommendations.push({
+                            type: 'info',
+                            text: `📐 Very large image (${width}px). Good for flexibility, but resize to 1920px for web.`
+                        });
+                    } else {
+                        recommendations.push({
+                            type: 'good',
+                            text: `✅ Good dimensions for web use.`
+                        });
+                    }
+                    
+                    if (format === 'PNG' && fileSizeMB > 1) {
+                        recommendations.push({
+                            type: 'warning',
+                            text: `🔄 PNG files over 1MB are usually too large. Convert to JPG for photos (unless you need transparency).`
+                        });
+                    }
+                    
+                    if (aspectRatio > 1.8 && aspectRatio < 2.2) {
+                        recommendations.push({
+                            type: 'good',
+                            text: `✅ Good aspect ratio (~16:9) for hero banners and widescreen displays.`
+                        });
+                    } else if (aspectRatio > 1.2 && aspectRatio < 1.5) {
+                        recommendations.push({
+                            type: 'good',
+                            text: `✅ Good aspect ratio (~4:3) for product cards and galleries.`
+                        });
+                    }
+                    
+                    // Display recommendations
+                    const recHTML = recommendations.map(rec => 
+                        `<div class="rec-item ${rec.type}">${rec.text}</div>`
+                    ).join('');
+                    document.getElementById('recommendationsList').innerHTML = recHTML;
+                    
+                    // Generate usage recommendations
+                    const usage = [];
+                    
+                    if (width >= 1920 && height >= 1080 && fileSizeMB < 1) {
+                        usage.push({ icon: '🎯', text: 'Homepage Hero Banner' });
+                    }
+                    
+                    if (width >= 800 && height >= 600) {
+                        usage.push({ icon: '📦', text: 'Product Page Hero' });
+                    }
+                    
+                    if (width >= 400 && height >= 300) {
+                        usage.push({ icon: '🖼️', text: 'Product Gallery Thumbnail' });
+                    }
+                    
+                    if (width >= 1200) {
+                        usage.push({ icon: '🔍', text: 'High-Res Zoom View' });
+                    }
+                    
+                    if (fileSizeMB > 2) {
+                        usage.push({ icon: '❌', text: 'NOT suitable for web (too large)' });
+                        usage.push({ icon: '✅', text: 'Use for: Print materials, internal docs' });
+                    }
+                    
+                    if (usage.length === 0) {
+                        usage.push({ icon: '⚠️', text: 'Image needs optimization before web use' });
+                    }
+                    
+                    const usageHTML = usage.map(u => 
+                        `<div class="usage-item">
+                            <span class="usage-icon">${u.icon}</span>
+                            <span>${u.text}</span>
+                        </div>`
+                    ).join('');
+                    document.getElementById('usageList').innerHTML = usageHTML;
+                };
+                img.src = e.target.result;
+            };
+            
+            reader.onerror = function() {
+                loading.classList.remove('active');
+                error.classList.add('active');
+                error.textContent = 'Error reading file. Please try a different image.';
+            };
+            
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>

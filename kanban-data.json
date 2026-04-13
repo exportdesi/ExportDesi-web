@@ -1,0 +1,261 @@
+{
+  "backlog": [
+    {
+      "id": "s2-1",
+      "title": "Build /certs landing page",
+      "description": "Single PDF, all 6 certifications",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:00:00.000Z"
+    },
+    {
+      "id": "s2-2",
+      "title": "Add UTM tracking",
+      "description": "Google Analytics ready",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:01:00.000Z"
+    },
+    {
+      "id": "s2-3",
+      "title": "Test on mobile",
+      "description": "iOS + Android working",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:02:00.000Z"
+    },
+    {
+      "id": "s2-4",
+      "title": "Create business.facebook.com",
+      "description": "Account verified",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:03:00.000Z"
+    },
+    {
+      "id": "s2-5",
+      "title": "Verify phone (+91 9289790283)",
+      "description": "OTP complete",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:04:00.000Z"
+    },
+    {
+      "id": "s2-6",
+      "title": "Create WhatsApp app",
+      "description": "App ID, API keys",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:05:00.000Z"
+    },
+    {
+      "id": "s2-7",
+      "title": "Configure Cloud API",
+      "description": "Test message sent",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:06:00.000Z"
+    },
+    {
+      "id": "s2-8",
+      "title": "Write 5 message templates",
+      "description": "Initial + 4 follow-ups",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:07:00.000Z"
+    },
+    {
+      "id": "s2-9",
+      "title": "Submit templates for approval",
+      "description": "Meta dashboard submitted",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:08:00.000Z"
+    },
+    {
+      "id": "s2-10",
+      "title": "Build template library",
+      "description": "JSON/store for reuse",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:09:00.000Z"
+    },
+    {
+      "id": "s3-1",
+      "title": "Parse embassy-data.json",
+      "description": "Extract companies, emails, phones",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:10:00.000Z"
+    },
+    {
+      "id": "s3-2",
+      "title": "Classify by country and product",
+      "description": "Food vs utensils tagged",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:11:00.000Z"
+    },
+    {
+      "id": "s3-3",
+      "title": "Priority scoring (1-100)",
+      "description": "France/Kuwait/Iran = high",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:12:00.000Z"
+    },
+    {
+      "id": "s3-4",
+      "title": "Import into 04_Buyers_CRM",
+      "description": "All fields mapped",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:13:00.000Z"
+    },
+    {
+      "id": "s3-5",
+      "title": "Build CRM dashboard",
+      "description": "Top countries, priority leads",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:14:00.000Z"
+    },
+    {
+      "id": "s3-6",
+      "title": "Segment leads (Tier 1/2/3)",
+      "description": "USA/UK vs UAE vs Africa",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:15:00.000Z"
+    },
+    {
+      "id": "s3-7",
+      "title": "Write outreach sequences per segment",
+      "description": "Email + WhatsApp per tier",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:16:00.000Z"
+    },
+    {
+      "id": "s3-8",
+      "title": "Add pricing by country to CRM",
+      "description": "USA $6.68 vs UAE $1.20",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:17:00.000Z"
+    },
+    {
+      "id": "s3-9",
+      "title": "Build pricing calculator",
+      "description": "EXW→FOB→CIF working",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:18:00.000Z"
+    },
+    {
+      "id": "s4-1",
+      "title": "Write 9 email templates",
+      "description": "Intro, follow-up, quote, case, close",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:19:00.000Z"
+    },
+    {
+      "id": "s4-2",
+      "title": "Personalize templates by product",
+      "description": "Makhana vs Turmeric variants",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:20:00.000Z"
+    },
+    {
+      "id": "s4-3",
+      "title": "Write Makhana sales script",
+      "description": "Objections, closers",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:21:00.000Z"
+    },
+    {
+      "id": "s4-4",
+      "title": "Write Turmeric sales script",
+      "description": "Differentiation vs 2,395 exporters",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:22:00.000Z"
+    },
+    {
+      "id": "s4-5",
+      "title": "Build 30-day LinkedIn calendar",
+      "description": "Daily posts planned",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:23:00.000Z"
+    },
+    {
+      "id": "s4-6",
+      "title": "Create first 10 LinkedIn posts",
+      "description": "Scheduled/published",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:24:00.000Z"
+    },
+    {
+      "id": "s4-7",
+      "title": "Build competitor battle cards",
+      "description": "Mrs Bectors, Ravi, Arjuna",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:25:00.000Z"
+    },
+    {
+      "id": "s4-8",
+      "title": "Positioning vs each competitor",
+      "description": "Your edge clear",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:26:00.000Z"
+    },
+    {
+      "id": "s4-9",
+      "title": "Test full funnel",
+      "description": "Lead → CRM → email → WhatsApp → close",
+      "column": "backlog",
+      "createdAt": "2026-04-04T10:27:00.000Z"
+    }
+  ],
+  "todo": [
+    {
+      "id": "s1-1",
+      "title": "Company Profile PDF fix",
+      "description": "Export clean A4 PDF",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:00:00.000Z"
+    },
+    {
+      "id": "s1-2",
+      "title": "Test all contact links",
+      "description": "tel:, whatsapp:, mailto: work",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:01:00.000Z"
+    },
+    {
+      "id": "s1-3",
+      "title": "Enhance certifications display",
+      "description": "Click-to-copy GST, IEC, etc.",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:02:00.000Z"
+    },
+    {
+      "id": "s1-4",
+      "title": "Deploy to exportdesi.com/profile",
+      "description": "Live, accessible URL",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:03:00.000Z"
+    },
+    {
+      "id": "s1-5",
+      "title": "Build Product Catalog page",
+      "description": "4 categories, specs, HS codes",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:04:00.000Z"
+    },
+    {
+      "id": "s1-6",
+      "title": "Build Quote Form",
+      "description": "Formspree or custom, tested",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:05:00.000Z"
+    },
+    {
+      "id": "s1-7",
+      "title": "Deploy catalog and quote pages",
+      "description": "Live URLs",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:06:00.000Z"
+    },
+    {
+      "id": "s1-8",
+      "title": "Create PDF versions",
+      "description": "Downloadable from pages",
+      "column": "todo",
+      "createdAt": "2026-04-04T09:07:00.000Z"
+    }
+  ],
+  "inprogress": [],
+  "review": [],
+  "done": []
+}

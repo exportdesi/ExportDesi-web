@@ -7,9 +7,7 @@ const CERTIFICATES = [
     { src: '/APEDA-Certificate.webp', label: 'APEDA' },
     { src: '/FIEO-Certificate.webp', label: 'FIEO' },
     { src: '/fssai-Certificate.webp', label: 'FSSAI' },
-    { src: '/ICE-Certificate.webp', label: 'IEC' },
     { src: '/Spice-Board-Certificate.webp', label: 'Spice Board' },
-    { src: '/Udyog-Aadhar-Certificate.webp', label: 'Udyog Aadhar' },
 ];
 
 export default function CertificateStrip() {

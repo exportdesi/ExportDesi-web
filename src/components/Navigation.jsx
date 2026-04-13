@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const NAV_LINKS = [
-    { label: 'Food & Ingredients', href: '/industries/food-ingredients', isActive: (p) => p.startsWith('/industries') && p !== '/industries' },
-    { label: 'Industries', href: '/industries', isActive: (p) => p === '/industries' },
+    { label: 'Food & Ingredients', href: '/industries/food-ingredients', isActive: (p) => p.startsWith('/industries/food-ingredients') },
+    { label: 'Bags & Packaging', href: '/industries/bags', isActive: (p) => p.startsWith('/industries/bags') },
     { label: 'How We Work', href: '/how-we-work' },
     { label: 'Compliance', href: '/compliance' },
     { label: 'About', href: '/about' },
@@ -13,7 +13,7 @@ export default function Navigation() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
-        <nav className="bg-white border-b border-border sticky top-0 z-40">
+        <nav className="bg-white border-b border-border sticky top-0 z-40" aria-label="Main navigation">
             <div className="page-container">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo + Wordmark */}
@@ -45,10 +45,11 @@ export default function Navigation() {
                                     const resolved = link.isActive
                                         ? link.isActive(window.location.pathname)
                                         : defaultActive;
-                                    return `text-sm font-medium transition-all duration-150 border-b-2 pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${resolved
-                                        ? 'text-brand border-brand'
-                                        : 'text-muted border-transparent hover:text-brand hover:border-brand/40'
-                                        }`;
+                                    return `text-sm font-medium transition-all duration-150 border-b-2 pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${
+                                        resolved
+                                            ? 'text-brand border-brand'
+                                            : 'text-muted border-transparent hover:text-brand hover:border-brand/40 focus-visible:text-brand'
+                                    }`;
                                 }}
                             >
                                 {link.label}
@@ -67,6 +68,7 @@ export default function Navigation() {
                         className="md:hidden p-2 text-brand"
                         onClick={() => setMobileOpen(!mobileOpen)}
                         aria-label="Toggle navigation"
+                        aria-expanded={mobileOpen}
                     >
                         {mobileOpen ? <XIcon /> : <MenuIcon />}
                     </button>
@@ -87,7 +89,11 @@ export default function Navigation() {
                                     const resolved = link.isActive
                                         ? link.isActive(window.location.pathname)
                                         : defaultActive;
-                                    return `block px-3 py-2.5 text-sm font-medium rounded transition-colors ${resolved ? 'bg-surface text-brand' : 'text-muted hover:text-brand'}`;
+                                    return `block px-3 py-2.5 text-sm font-medium rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${
+                                        resolved
+                                            ? 'bg-surface text-brand'
+                                            : 'text-muted hover:text-brand focus-visible:text-brand'
+                                    }`;
                                 }}
                             >
                                 {link.label}

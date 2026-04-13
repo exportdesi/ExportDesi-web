@@ -41,6 +41,13 @@ function PreviewNoIndex() {
 export default function RootLayout() {
     return (
         <div className="flex flex-col min-h-screen bg-white text-brand antialiased">
+            {/* Skip Link for keyboard users */}
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-brand px-4 py-2 z-[60] shadow-md rounded font-semibold"
+            >
+                Skip to main content
+            </a>
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(ORG_SCHEMA)}
@@ -50,7 +57,7 @@ export default function RootLayout() {
             <ScrollToTop />
             <Navigation />
             <Breadcrumb />
-            <main className="flex-1">
+            <main className="flex-1" id="main-content">
                 <Outlet />
             </main>
             <Footer />

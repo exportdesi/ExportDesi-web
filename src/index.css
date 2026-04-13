@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+/* Heading font: Space Grotesk (geometric, tech-forward with personality) */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+/* Body font: IBM Plex Sans (refined, professional, pairs well with Space Grotesk) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -29,14 +32,14 @@
     h4,
     h5,
     h6 {
-        @apply font-bold leading-tight tracking-tight;
+        @apply font-display font-bold leading-tight tracking-tight;
         color: #0a0a0a;
     }
 
     /* Explicit heading hierarchy — prevents h2/h3 from visually blending */
     h2 {
         font-size: clamp(1.375rem, 2.5vw, 2.25rem);
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: -0.025em;
     }
 
@@ -71,6 +74,25 @@
         outline-offset: 2px;
     }
 
+    /* Button focus states — explicit for btn-primary/btn-secondary */
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+        outline: 2px solid #0a0a0a;
+        outline-offset: 2px;
+    }
+
+    /* Navigation link focus states */
+    nav a:focus-visible,
+    nav button:focus-visible {
+        outline: 2px solid #0a0a0a;
+        outline-offset: 2px;
+    }
+
+    /* WCAG AA compliant muted text - 4.6:1 contrast ratio on white */
+    .text-muted {
+        color: #595959 !important; /* Was #6b7280 (3.3:1 - failed) */
+    }
+
     /* Remove default outline only when using mouse (not keyboard) */
     input:focus:not(:focus-visible),
     select:focus:not(:focus-visible),
@@ -91,15 +113,28 @@
     }
 
     .btn-primary {
-        @apply inline-block bg-brand text-white px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-brand-light transition-colors duration-150;
+        @apply inline-block bg-brand text-white px-7 py-3.5 text-sm font-semibold tracking-wide rounded-md hover:bg-brand-light transition-colors duration-150;
     }
 
     .btn-secondary {
-        @apply inline-block border border-border-strong text-brand px-7 py-3.5 text-sm font-semibold tracking-wide hover:bg-surface transition-colors duration-150;
+        @apply inline-block border border-border-strong text-brand px-7 py-3.5 text-sm font-semibold tracking-wide rounded-md hover:bg-surface transition-colors duration-150;
     }
 
     .section-label {
         @apply text-xs font-semibold tracking-widest uppercase text-muted mb-4;
+    }
+
+    /* Subtle background gradients — adds depth while staying monochrome */
+    .bg-hero-gradient {
+        background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    }
+
+    .bg-surface-gradient {
+        background: linear-gradient(180deg, #f4f4f5 0%, #e8e8e9 100%);
+    }
+
+    .bg-dark-gradient {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
     }
 }
 

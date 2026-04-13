@@ -4,29 +4,147 @@ import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import StructuredList from '../components/StructuredList';
 import CertificateMarquee from '../components/CertificateMarquee';
+import { MotionSection, MotionCard, staggerContainer } from '../components/MotionWrapper';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+
+const ORGANIZATION_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Export Desi',
+    url: 'https://exportdesi.com',
+    logo: 'https://exportdesi.com/logo.png',
+    description: 'Merchant export management for Indian food ingredients - Makhana, Dehydrated Onion, Garlic, Banana Powder, Moringa',
+    foundingDate: '2013',
+    founder: {
+        '@type': 'Person',
+        name: 'Rajiv Dudeja',
+    },
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Gurgaon',
+        addressRegion: 'Haryana',
+        addressCountry: 'IN',
+    },
+    contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+91-9289790283',
+        email: 'contact@exportdesi.com',
+        contactType: 'customer service',
+        availableLanguage: 'English',
+    },
+    sameAs: [
+        'https://www.linkedin.com/company/exportdesi',
+    ],
+};
+
+const WEBSITE_SCHEMA = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Export Desi',
+    url: 'https://exportdesi.com',
+    potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://exportdesi.com/contact',
+        'query-input': 'required name=search_term_string',
+    },
+};
 
 export default function HomePage() {
     return (
         <>
             <SEOMeta
-                title="Structured Export Execution from India"
-                description="Export Desi manages processor qualification, pre-dispatch verification, documentation, and port coordination for international buyers sourcing Indian food ingredients."
+                title="Indian Food Ingredients & Packaging Exporter | Makhana, Moringa, Bags | Export Desi"
+                description="Export Desi manages processor qualification, documentation, and shipment for Indian food ingredients and eco-friendly packaging. FSSAI, APEDA certified. Get a quote within 48 hours."
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(ORGANIZATION_SCHEMA)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(WEBSITE_SCHEMA)}
+                </script>
+            </Helmet>
 
-            <HeroSection
-                label="Export Execution"
-                title="Structured Export Execution from India."
-                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
-                secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
-                imageUrl="/hero-home.jpg"
-            />
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+                <HeroSection
+                    label="Export Partner for Indian Food Ingredients"
+                    title="From Processor to Port: Single-Point Export Management."
+                    subtitle="We qualify processors, manage documentation, and coordinate shipments for international buyers sourcing Indian food ingredients. FSSAI, APEDA, Spice Board certified."
+                    primaryCTA={{ label: 'Get a Sourcing Quote', href: '/contact' }}
+                    secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
+                    imageUrl="/home-hero-3.jpg"
+                />
+            </motion.div>
 
-            {/* Certificate marquee */}
-            <CertificateMarquee />
+            {/* Active Products - moved up below hero */}
+            <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={150}>
+                <div className="page-container section-pad">
+                    <div className="mb-14">
+                        <p className="section-label">Active Products</p>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-2xl">
+                            Product Categories
+                        </h2>
+                        <p className="text-muted mt-4 max-w-xl">
+                            We source within categories where we have active processor relationships, prior shipment history, and a documented compliance pathway for the product. We do not list products we have not shipped.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-border">
+                        <a href="/industries/food-ingredients/makhana" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                            <p className="section-label">Fox Nuts</p>
+                            <h3 className="text-xl font-bold mb-3">Makhana</h3>
+                            <p className="text-muted text-sm mb-6">
+                                Four size grades from 12mm to 18mm+, sourced from processing units in Bihar's Mithila cluster. Each shipment includes Certificate of Origin, phytosanitary certificate, grade-specific third-party lab report, and packing list.
+                            </p>
+                            <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
+                                View Grades and Specifications
+                            </span>
+                        </a>
+
+                        <a href="/industries/food-ingredients/dehydrated-ingredients" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                            <p className="section-label">Dehydrated</p>
+                            <h3 className="text-xl font-bold mb-3">Onion & Garlic</h3>
+                            <p className="text-muted text-sm mb-6">
+                                Flakes, minced, granules, and powder forms from Gujarat. Moisture ≤6%, third-party lab reports per lot. Trial orders welcome.
+                            </p>
+                            <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
+                                View Product Range
+                            </span>
+                        </a>
+
+                        <a href="/industries/food-ingredients/moringa" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                            <p className="section-label">Ayurvedic & Wellness</p>
+                            <h3 className="text-xl font-bold mb-3">Moringa Products</h3>
+                            <p className="text-muted text-sm mb-6">
+                                Moringa leaf powder, capsules, and tablets. Sourced from certified organic farms. Rich in vitamins, minerals, and antioxidants. USDA/EU Organic available.
+                            </p>
+                            <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
+                                View Specifications
+                            </span>
+                        </a>
+
+                        <a href="/industries/bags" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                            <p className="section-label">Eco-Friendly Packaging</p>
+                            <h3 className="text-xl font-bold mb-3">Jute & Non-Woven Bags</h3>
+                            <p className="text-muted text-sm mb-6">
+                                Custom-sized jute bags and non-woven D-cut bags. Biodegradable, reusable, print-ready. Ideal for retail, promotional, and industrial use.
+                            </p>
+                            <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
+                                View Bag Options
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </MotionSection>
 
             {/* Definition block */}
-            <section className="bg-surface border-b border-border">
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={300}>
                 <div className="page-container section-pad">
                     <div className="max-w-2xl">
                         <p className="section-label">What We Are</p>
@@ -38,11 +156,16 @@ export default function HomePage() {
                         </p>
                     </div>
                 </div>
-            </section>
+            </MotionSection>
+
+            {/* Certificate marquee - moved below "What We Are" */}
+            <MotionSection variant="fadeIn" delay={350}>
+                <CertificateMarquee />
+            </MotionSection>
 
 
             {/* Execution Model */}
-            <section className="bg-white border-b border-border">
+            <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={400}>
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
@@ -67,60 +190,17 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </MotionSection>
 
-            {/* Food & Ingredients */}
-            <section className="bg-surface border-b border-border">
-                <div className="page-container section-pad">
-                    <div className="mb-14">
-                        <p className="section-label">Current Sourcing Scope</p>
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold max-w-2xl">
-                            Food and Ingredients
-                        </h2>
-                        <p className="text-muted mt-4 max-w-xl">
-                            We source within categories where we have active processor relationships, prior shipment history, and a documented compliance pathway for the product. We do not list products we have not shipped.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
-                        <div className="bg-surface p-8">
-                            <p className="section-label">Fox Nuts</p>
-                            <h3 className="text-xl font-bold mb-3">Makhana</h3>
-                            <p className="text-muted text-sm mb-6">
-                                Four size grades from 12mm to 18mm+, sourced from processing units in Bihar's Mithila cluster. Each shipment includes Certificate of Origin, phytosanitary certificate, grade-specific third-party lab report, and packing list.
-                            </p>
-                            <Link
-                                to="/industries/food-ingredients/makhana"
-                                className="text-sm font-semibold text-brand border-b border-brand pb-0.5 hover:opacity-70 transition-opacity"
-                            >
-                                View Grades and Specifications
-                            </Link>
-                        </div>
-
-                        <div className="bg-surface p-8">
-                            <p className="section-label">Dehydrated Ingredients</p>
-                            <h3 className="text-xl font-bold mb-3">Dehydrated and Dried Ingredients</h3>
-                            <p className="text-muted text-sm mb-6">
-                                Onion and garlic in flakes, minced, chopped, granule, and powder forms. Banana powder. Moringa leaf powder. Process-grade and food-grade supply available. Third-party lab reports covering moisture, pesticide residue, and microbiology are included per lot.
-                            </p>
-                            <Link
-                                to="/industries/food-ingredients/dehydrated-ingredients"
-                                className="text-sm font-semibold text-brand border-b border-brand pb-0.5 hover:opacity-70 transition-opacity"
-                            >
-                                View Product Range
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <CTASection
-                heading="Have a supply requirement?"
-                subtext="Send us the product, grade or specification, destination market, and target volume. We assess processor availability and respond with indicative pricing within 48 business hours."
-                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
-                secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
-                background="dark"
-            />
+            <MotionSection variant="fadeUp" delay={500}>
+                <CTASection
+                    heading="Have a supply requirement?"
+                    subtext="Send us the product, grade or specification, destination market, and target volume. We assess processor availability and respond with indicative pricing within 48 business hours."
+                    primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
+                    secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
+                    background="dark"
+                />
+            </MotionSection>
         </>
     );
 }

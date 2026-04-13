@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Desi - Image Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .image-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .image-header {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .image-header h2 {
+            color: #1a1a1a;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .image-header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .image-preview {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .usage-sizes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .size-box {
+            text-align: center;
+        }
+        
+        .size-box h3 {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .size-preview {
+            background: #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 12px;
+            overflow: hidden;
+        }
+        
+        .hero-size {
+            width: 192px;
+            height: 108px;
+        }
+        
+        .product-size {
+            width: 120px;
+            height: 80px;
+        }
+        
+        .thumb-size {
+            width: 80px;
+            height: 60px;
+        }
+        
+        .size-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .recommendations {
+            padding: 20px;
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            margin-top: 10px;
+        }
+        
+        .recommendations h4 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+        
+        .recommendations ul {
+            color: #92400e;
+            margin-left: 20px;
+        }
+        
+        .recommendations li {
+            margin-bottom: 5px;
+        }
+        
+        .actions {
+            padding: 20px;
+            background: #f0fdf4;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .actions h4 {
+            color: #166534;
+            margin-bottom: 10px;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 5px 0;
+            color: #166534;
+        }
+        
+        .checklist li:before {
+            content: "☐ ";
+            margin-right: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Export Desi Website Image Preview</h1>
+    <p class="subtitle">Review your AI-generated images before deployment</p>
+    
+    <!-- Image A Preview -->
+    <div class="image-container">
+        <div class="image-header">
+            <h2>Image A: Prompt-image-A.png</h2>
+            <p>Uploaded: 28-03-2026 18:20:45 | Size: 6.8 MB</p>
+        </div>
+        
+        <div class="image-preview">
+            <img src="Prompt-image-A.png" alt="AI Generated Image A" id="imageA">
+        </div>
+        
+        <div class="usage-sizes">
+            <div class="size-box">
+                <h3>Hero Banner (1920×1080)</h3>
+                <div class="size-preview hero-size">
+                    <img src="Prompt-image-A.png" alt="Hero preview">
+                </div>
+            </div>
+            <div class="size-box">
+                <h3>Product Card (1200×800)</h3>
+                <div class="size-preview product-size">
+                    <img src="Prompt-image-A.png" alt="Product preview">
+                </div>
+            </div>
+            <div class="size-box">
+                <h3>Thumbnail (800×600)</h3>
+                <div class="size-preview thumb-size">
+                    <img src="Prompt-image-A.png" alt="Thumb preview">
+                </div>
+            </div>
+        </div>
+        
+        <div class="recommendations">
+            <h4>Recommendations</h4>
+            <ul>
+                <li>Check if product is clearly visible at all sizes</li>
+                <li>Verify colors match your brand palette</li>
+                <li>Ensure text is readable if overlaid</li>
+                <li>Compress if file size > 2MB for web use</li>
+            </ul>
+        </div>
+        
+        <div class="actions">
+            <h4>Deployment Checklist</h4>
+            <ul class="checklist">
+                <li>Move to correct folder: public/images/products/[product-name]/</li>
+                <li>Rename to match products.json reference</li>
+                <li>Optimize/compress if needed</li>
+                <li>Update products.json if this is a new product image</li>
+                <li>Test on mobile view</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Image B Preview -->
+    <div class="image-container">
+        <div class="image-header">
+            <h2>Image B: Prompt-image-B.png</h2>
+            <p>Uploaded: 28-03-2026 18:47:38 | Size: 8.2 MB</p>
+        </div>
+        
+        <div class="image-preview">
+            <img src="Prompt-image-B.png" alt="AI Generated Image B" id="imageB">
+        </div>
+        
+        <div class="usage-sizes">
+            <div class="size-box">
+                <h3>Hero Banner (1920×1080)</h3>
+                <div class="size-preview hero-size">
+                    <img src="Prompt-image-B.png" alt="Hero preview">
+                </div>
+            </div>
+            <div class="size-box">
+                <h3>Product Card (1200×800)</h3>
+                <div class="size-preview product-size">
+                    <img src="Prompt-image-B.png" alt="Product preview">
+                </div>
+            </div>
+            <div class="size-box">
+                <h3>Thumbnail (800×600)</h3>
+                <div class="size-preview thumb-size">
+                    <img src="Prompt-image-B.png" alt="Thumb preview">
+                </div>
+            </div>
+        </div>
+        
+        <div class="recommendations">
+            <h4>Recommendations</h4>
+            <ul>
+                <li>Check if product is clearly visible at all sizes</li>
+                <li>Verify colors match your brand palette</li>
+                <li>Ensure text is readable if overlaid</li>
+                <li>Compress if file size > 2MB for web use</li>
+            </ul>
+        </div>
+        
+        <div class="actions">
+            <h4>Deployment Checklist</h4>
+            <ul class="checklist">
+                <li>Move to correct folder: public/images/products/[product-name]/</li>
+                <li>Rename to match products.json reference</li>
+                <li>Optimize/compress if needed</li>
+                <li>Update products.json if this is a new product image</li>
+                <li>Test on mobile view</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Export Desi Image Preview Tool</p>
+        <p>Open this file in browser: file:///C:/Users/dudej/Projects/website-v2/public/image-preview.html</p>
+    </div>
+</body>
+</html>

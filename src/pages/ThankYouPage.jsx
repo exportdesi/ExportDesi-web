@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEOMeta from '../components/SEOMeta';
+import { MotionSection } from '../components/MotionWrapper';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 
 export default function ThankYouPage() {
     // Fire tracking event on mount
@@ -19,10 +21,15 @@ export default function ThankYouPage() {
                 description="Your export requirement has been submitted. Export Desi will respond within 48 business hours."
             />
 
-            <section className="bg-white border-b border-border min-h-[60vh] flex items-center">
+            <MotionSection className="bg-white border-b border-border min-h-[60vh] flex items-center" variant="fadeUp" delay={100}>
                 <div className="page-container section-pad">
                     <div className="max-w-xl">
-                        <div className="w-8 h-1 bg-brand mb-8" />
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                            className="w-8 h-1 bg-brand mb-8"
+                        />
                         <p className="section-label">Enquiry Submitted</p>
                         <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
                             Your requirement has been received.
@@ -43,7 +50,7 @@ export default function ThankYouPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </MotionSection>
         </>
     );
 }

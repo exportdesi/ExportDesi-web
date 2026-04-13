@@ -2,6 +2,8 @@ import SEOMeta from '../components/SEOMeta';
 import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
+import { MotionSection, MotionCard } from '../components/MotionWrapper';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 
 const PRODUCTS = [
@@ -14,8 +16,14 @@ const PRODUCTS = [
     {
         label: 'Dehydrated Ingredients',
         name: 'Dehydrated and Dried Ingredients',
-        summary: 'Onion and garlic in flakes, minced, chopped, granule, and powder forms. Banana powder. Moringa leaf powder. Process-grade and food-grade supply. Third-party lab reports per lot.',
+        summary: 'Onion and garlic in flakes, minced, chopped, granule, and powder forms. Banana powder. Process-grade and food-grade supply. Third-party lab reports per lot.',
         href: '/industries/food-ingredients/dehydrated-ingredients',
+    },
+    {
+        label: 'Ayurvedic & Wellness',
+        name: 'Moringa Products',
+        summary: 'Moringa leaf powder, capsules, and tablets. Sourced from certified organic farms. Rich in vitamins, minerals, and antioxidants. USDA Organic, EU Organic available.',
+        href: '/industries/food-ingredients/moringa',
     },
 ];
 
@@ -27,32 +35,41 @@ export default function FoodIngredientsPage() {
                 description="Export Desi's food and ingredients sourcing cluster. Makhana in four grades plus dehydrated onion, garlic, banana powder, and moringa from pre-qualified Indian processors."
             />
 
-            <HeroSection
-                label="Food and Ingredients"
-                title="Indian Food Ingredients for Global Supply Chains."
-                subtitle="We work directly with verified processors. We do not operate through catalogue-based sourcing. Each product ships with pre-dispatch lot verification and a complete export documentation package."
-                background="surface"
-            />
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+                <HeroSection
+                    label="Food and Ingredients"
+                    title="Indian Food Ingredients for Global Supply Chains."
+                    subtitle="We work directly with verified processors. We do not operate through catalogue-based sourcing. Each product ships with pre-dispatch lot verification and a complete export documentation package."
+                    background="white"
+                    imageUrl="/food-ingredients-hero.png"
+                    imageSize="50%"
+                    imagePosition="right bottom"
+                />
+            </motion.div>
 
-            <section className="bg-white border-b border-border">
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={200}>
                 <div className="page-container section-pad">
                     <p className="section-label mb-12">Active Products</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
                         {PRODUCTS.map((product) => (
-                            <div key={product.name} className="bg-white p-10">
+                            <a key={product.name} href={product.href} className="bg-white p-10 hover:bg-white/5 transition-colors block">
                                 <p className="section-label">{product.label}</p>
                                 <h2 className="text-xl md:text-2xl font-bold mb-4">{product.name}</h2>
                                 <p className="text-muted text-sm leading-relaxed mb-8">{product.summary}</p>
-                                <Link to={product.href} className="btn-primary text-xs">
+                                <span className="btn-primary text-xs">
                                     View Specifications
-                                </Link>
-                            </div>
+                                </span>
+                            </a>
                         ))}
                     </div>
                 </div>
-            </section>
+            </MotionSection>
 
-            <section className="bg-surface border-b border-border">
+            <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={300}>
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
@@ -87,14 +104,16 @@ export default function FoodIngredientsPage() {
                         </Link>
                     </div>
                 </div>
-            </section>
+            </MotionSection>
 
-            <CTASection
-                heading="Have a food ingredient sourcing requirement?"
-                subtext="Send us the product, grade, volume, and destination. We confirm processor availability and indicative pricing within 48 business hours."
-                primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
-                background="dark"
-            />
+            <MotionSection variant="fadeUp" delay={400}>
+                <CTASection
+                    heading="Have a food ingredient sourcing requirement?"
+                    subtext="Send us the product, grade, volume, and destination. We confirm processor availability and indicative pricing within 48 business hours."
+                    primaryCTA={{ label: 'Request Export Details', href: '/contact' }}
+                    background="dark"
+                />
+            </MotionSection>
         </>
     );
 }

@@ -4,6 +4,15 @@ import ProcessSteps from '../components/ProcessSteps';
 import CTASection from '../components/CTASection';
 import ContentBlock from '../components/ContentBlock';
 import StructuredList from '../components/StructuredList';
+import FloatingProductNav from '../components/FloatingProductNav';
+import { MotionSection } from '../components/MotionWrapper';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+
+const INFO_PAGES = [
+    { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
+    { label: 'How We Work', name: 'Our Process', href: '/how-we-work' },
+    { label: 'About', name: 'About Us', href: '/about' },
+];
 
 const STEPS = [
     {
@@ -41,20 +50,28 @@ export default function HowWeWorkPage() {
                 description="Export Desi's five-step export execution process: requirement qualification, processor verification, order confirmation, pre-dispatch inspection, and post-shipment documentation."
             />
 
-            <HeroSection
-                label="Export Execution Model"
-                title="How We Work."
-                subtitle="Five sequential steps. Each has a defined output. The next step does not begin until the current one is complete."
-                background="surface"
-            />
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+                <HeroSection
+                    label="Export Execution Model"
+                    title="How We Work."
+                    subtitle="Five sequential steps. Each has a defined output. The next step does not begin until the current one is complete."
+                    background="white"
+                />
+            </motion.div>
 
-            <ProcessSteps
-                label="The Process"
-                heading="Five steps. One contact throughout."
-                steps={STEPS}
-            />
+            <MotionSection variant="fadeUp" delay={200}>
+                <ProcessSteps
+                    label="The Process"
+                    heading="Five steps. One contact throughout."
+                    steps={STEPS}
+                />
+            </MotionSection>
 
-            <section className="bg-surface border-b border-border">
+            <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={300}>
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
@@ -75,9 +92,9 @@ export default function HowWeWorkPage() {
                         />
                     </div>
                 </div>
-            </section>
+            </MotionSection>
 
-            <section className="bg-white border-b border-border">
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={400}>
                 <div className="page-container section-pad">
                     <ContentBlock
                         label="First Shipment"
@@ -88,14 +105,23 @@ export default function HowWeWorkPage() {
                         ]}
                     />
                 </div>
-            </section>
+            </MotionSection>
 
-            <CTASection
-                heading="Ready to submit a requirement?"
-                subtext="Share your specification, destination, and volume. We assess feasibility and respond within 48 business hours."
-                primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
-                secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
-                background="dark"
+            <MotionSection variant="fadeUp" delay={450}>
+                <CTASection
+                    heading="Ready to submit a requirement?"
+                    subtext="Share your specification, destination, and volume. We assess feasibility and respond within 48 business hours."
+                    primaryCTA={{ label: 'Submit Your Requirement', href: '/contact' }}
+                    secondaryCTA={{ label: 'View Compliance Framework', href: '/compliance' }}
+                    background="dark"
+                />
+            </MotionSection>
+
+            {/* Floating Navigation */}
+            <FloatingProductNav
+                items={INFO_PAGES}
+                currentPath="/how-we-work"
+                categoryLabel="Quick Links"
             />
         </>
     );

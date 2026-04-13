@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ScrollIndicator from './ScrollIndicator';
 
 /**
  * HeroSection — institutional page hero.
@@ -19,35 +20,35 @@ export default function HeroSection({
     secondaryCTA,
     background = 'white',
     imageUrl,
+    imageWidth = 600,
+    imageHeight = 400,
+    imageSize = '50%',
+    imagePosition = 'right center',
 }) {
     const bg = background === 'surface' ? 'bg-surface' : 'bg-white';
 
     return (
-        <section className={`${bg} border-b border-border overflow-hidden relative ${imageUrl ? 'min-h-[420px] lg:min-h-[520px]' : ''}`}>
-            {/* Hero image — absolutely positioned to fill the right half, edge-to-edge */}
+        <section
+            className={`${bg} border-b border-border overflow-hidden relative ${imageUrl ? 'min-h-[380px] lg:min-h-[420px]' : ''}`}
+            style={imageUrl ? {
+                backgroundImage: `url(${imageUrl})`,
+                backgroundPosition: imagePosition,
+                backgroundSize: imageSize,
+                backgroundRepeat: 'no-repeat',
+            } : {}}
+        >
+            {/* Mobile background overlay to ensure text readability */}
             {imageUrl && (
-                <div
-                    className="absolute top-0 bottom-0 right-0 hidden lg:flex items-center justify-end"
-                    style={{ width: '52%' }}
-                    aria-hidden="true"
-                >
-                    <img
-                        src={imageUrl}
-                        alt=""
-                        className="w-full h-full object-cover object-right select-none"
-                        loading="eager"
-                    />
-                </div>
+                <div className="absolute inset-0 bg-white/80 lg:bg-transparent z-0" />
             )}
-
             <div className="page-container section-pad relative z-10">
-                <div className={imageUrl ? 'max-w-[50%]' : 'max-w-2xl'}>
+                <div className={imageUrl ? 'max-w-full lg:max-w-[48%]' : 'max-w-2xl'}>
                     {label && <p className="section-label">{label}</p>}
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] mb-6">
                         {title}
                     </h1>
                     {subtitle && (
-                        <p className="text-lg md:text-xl text-muted leading-relaxed mb-10 max-w-xl">
+                        <p className="text-base md:text-lg text-muted leading-relaxed mb-8 max-w-xl">
                             {subtitle}
                         </p>
                     )}
@@ -67,6 +68,7 @@ export default function HeroSection({
                     )}
                 </div>
             </div>
+            <ScrollIndicator />
         </section>
     );
 }

@@ -25,7 +25,7 @@ export default function CTASection({
     const subtextColor = background === 'dark' ? 'text-gray-400' : 'text-muted';
 
     return (
-        <section className={`${bgMap[background]}`}>
+        <section className={`${bgMap[background]} ${background === 'dark' ? 'bg-dark-gradient' : background === 'surface' ? 'bg-surface-gradient' : 'bg-hero-gradient'}`}>
             <div className="page-container section-pad">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
                     <div className="max-w-xl">
@@ -54,8 +54,8 @@ function NavLink({ href, variant, children }) {
     const variantMap = {
         primary: 'btn-primary',
         secondary: 'btn-secondary',
-        white: 'inline-block bg-white text-brand px-7 py-3.5 text-sm font-semibold hover:bg-gray-100 transition-colors',
-        'outline-white': 'inline-block border border-white text-white px-7 py-3.5 text-sm font-semibold hover:bg-white hover:text-brand transition-colors',
+        white: 'btn-primary bg-white text-brand hover:bg-gray-100 border-0',
+        'outline-white': 'btn-secondary border-white text-white hover:bg-white hover:text-brand',
     };
     const cls = variantMap[variant] || 'btn-primary';
     const isExternal = href?.startsWith('http') || href?.startsWith('mailto');

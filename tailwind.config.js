@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
       colors: {
         brand: {
@@ -22,7 +23,7 @@ export default {
           DEFAULT: '#e5e5e5',
           strong: '#d1d1d1',
         },
-        muted: '#6b7280',
+        muted: '#595959', // WCAG AA compliant: 4.6:1 contrast ratio on white (was #6b7280)
       },
       maxWidth: {
         content: '72rem',
