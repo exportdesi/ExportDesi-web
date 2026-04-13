@@ -177,8 +177,8 @@ export default function AboutPage() {
                     />
                     <div className="mt-8 space-y-1.5 text-sm text-muted">
                         <p>
-                            <a href="mailto:contact@exportdesi.com" className="hover:text-brand transition-colors">
-                                contact@exportdesi.com
+                            <a href="mailto:inquiry@exportdesi.com" className="hover:text-brand transition-colors">
+                                inquiry@exportdesi.com
                             </a>
                         </p>
                         <p>

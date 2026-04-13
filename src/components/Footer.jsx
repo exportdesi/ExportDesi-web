@@ -49,8 +49,8 @@ export default function Footer() {
                         {/* Contact */}
                         <div className="space-y-2 text-sm text-white/70">
                             <p>Gurgaon, Haryana, India</p>
-                            <a href="mailto:contact@exportdesi.com" className="hover:text-white transition-colors">
-                                contact@exportdesi.com
+                            <a href="mailto:inquiry@exportdesi.com" className="hover:text-white transition-colors">
+                                inquiry@exportdesi.com
                             </a>
                             <p>
                                 <a href="tel:+919289790283" className="hover:text-white transition-colors">

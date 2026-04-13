@@ -13,7 +13,7 @@ const ORG_SCHEMA = {
     legalName: 'Export Desi',
     url: 'https://exportdesi.com',
     logo: 'https://exportdesi.com/ExportDesi-logo.png',
-    email: 'contact@exportdesi.com',
+    email: 'inquiry@exportdesi.com',
     telephone: '+919289790283',
     address: {
         '@type': 'PostalAddress',

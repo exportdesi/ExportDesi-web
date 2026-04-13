@@ -209,8 +209,8 @@ export default function CompanyProfilePage() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             }
-                            label="Email"
-                            href="mailto:contact@exportdesi.com"
+                            label="Email Inquiry"
+                            href="mailto:inquiry@exportdesi.com"
                         />
                     </div>
                 </div>
@@ -413,7 +413,7 @@ export default function CompanyProfilePage() {
                                     <svg className="w-4 h-4 text-muted group-hover:text-brand transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <a href="mailto:contact@exportdesi.com" className="hover:text-brand transition-colors">contact@exportdesi.com</a>
+                                    <a href="mailto:inquiry@exportdesi.com" className="hover:text-brand transition-colors">inquiry@exportdesi.com</a>
                                 </p>
                                 <p className="flex items-center gap-2 group">
                                     <svg className="w-4 h-4 text-muted group-hover:text-brand transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
