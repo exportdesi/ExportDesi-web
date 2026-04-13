@@ -217,7 +217,7 @@ export default function ContactPage() {
             />
 
             <div className="bg-surface border-b border-border">
-                <div className="page-container py-12 md:py-16">
+                <div className="page-container py-8 md:py-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -235,7 +235,7 @@ export default function ContactPage() {
             </div>
 
             <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={100}>
-                <div className="page-container section-pad">
+                <div className="page-container py-8 md:py-16">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 lg:gap-16 items-start">
 
                         <div>
@@ -355,21 +355,13 @@ export default function ContactPage() {
                                 <p className="section-label mb-3">Direct Contact</p>
                                 <div className="space-y-3 text-sm">
                                     <div>
-                                        <p className="font-semibold text-brand mb-1">Business Enquiries</p>
                                         <a href="mailto:inquiry@exportdesi.com" className="text-muted hover:text-brand transition-colors block leading-loose">
                                             inquiry@exportdesi.com
                                         </a>
-                                        <p className="font-semibold text-brand mb-1 mt-4">Direct / General</p>
-                                        <a href="mailto:contact@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
-                                            contact@exportdesi.com
-                                        </a>
-                                        <a href="mailto:rajiv@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
-                                            rajiv@exportdesi.com
-                                        </a>
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-brand mb-1">Phone / WhatsApp</p>
-                                        <a href="tel:+919289790283" className="text-muted hover:text-brand transition-colors block">
+                                        <p className="font-semibold text-brand mb-1">WhatsApp</p>
+                                        <a href="https://wa.me/919289790283" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-brand transition-colors block">
                                             +91 928 979 0283
                                         </a>
                                     </div>

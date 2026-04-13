@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const FOOTER_NAV = [
@@ -24,6 +24,9 @@ const FOOTER_NAV = [
 ];
 
 export default function Footer() {
+    const location = useLocation();
+    const isContactPage = location.pathname === '/contact';
+
     return (
         <footer className="bg-brand text-white">
             <div className="page-container pt-16 pb-10">
@@ -103,11 +106,13 @@ export default function Footer() {
             </div>
 
             {/* Floating action buttons - vertical column */}
-            <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 flex flex-col gap-3 z-50">
-                <ContactButton />
-                <WhatsAppButton />
-                <ScrollToTopButton />
-            </div>
+            {!isContactPage && (
+                <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 flex flex-col gap-3 z-50">
+                    <ContactButton />
+                    <WhatsAppButton />
+                    <ScrollToTopButton />
+                </div>
+            )}
         </footer>
     );
 }
