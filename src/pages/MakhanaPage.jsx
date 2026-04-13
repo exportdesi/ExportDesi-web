@@ -234,22 +234,8 @@ function CertificationLogos() {
 // ============================================================================
 
 export default function MakhanaPage() {
-    // Parallax scroll effects - smooth, subtle motion
-    const { scrollYProgress } = useScroll();
-    const smoothProgress = useSpring(scrollYProgress, { stiffness: 25, damping: 35, restDelta: 0.001 });
-
-    // Hero parallax - subtle fade, minimal movement
-    const heroY = useTransform(smoothProgress, [0, 0.2], [0, 40]);
-    const heroOpacity = useTransform(smoothProgress, [0, 0.15], [1, 0.5]);
-
-    // Background parallax - moves opposite direction
-    const bgY = useTransform(smoothProgress, [0, 0.3], [0, -30]);
-
-    // Product gallery parallax - very subtle
-    const galleryY = useTransform(smoothProgress, [0.1, 0.4], [20, -20]);
-
-    // Processing section parallax - minimal
-    const processingY = useTransform(smoothProgress, [0.3, 0.6], [15, -15]);
+    // Gallery and Processing transforms are planned but currently unused.
+    // Removed to satisfy linting.
 
     return (
         <>
