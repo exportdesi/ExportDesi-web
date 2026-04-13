@@ -216,20 +216,25 @@ export default function ContactPage() {
                 description="Contact Export Desi for Indian food ingredient sourcing. Makhana, turmeric, dehydrated onion & garlic. Response within 48 business hours."
             />
 
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-                <HeroSection
-                    label="Contact"
-                    title="Get a Sourcing Quote."
-                    subtitle="Share your product specification, destination, and volume. We assess processor availability and respond with indicative pricing within 48 business hours."
-                    background="white"
-                />
-            </motion.div>
+            <div className="bg-surface border-b border-border">
+                <div className="page-container py-12 md:py-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="max-w-3xl"
+                    >
+                        <p className="section-label mb-4">Contact us</p>
+                        <h1 className="text-3xl md:text-4xl font-bold mb-6">Submit Your Requirement</h1>
+                        <p className="text-muted leading-relaxed">
+                            For any queries or product requirements, please fill the form below. 
+                            Our team assesses processor availability and responds with indicative pricing within 48 business hours.
+                        </p>
+                    </motion.div>
+                </div>
+            </div>
 
-            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={200}>
+            <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={100}>
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 lg:gap-16 items-start">
 
