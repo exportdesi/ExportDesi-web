@@ -176,16 +176,7 @@ export default function AboutPage() {
                         ]}
                     />
                     <div className="mt-8 space-y-1.5 text-sm text-muted">
-                        <p>
-                            <a href="mailto:inquiry@exportdesi.com" className="hover:text-brand transition-colors">
-                                inquiry@exportdesi.com
-                            </a>
-                        </p>
-                        <p>
-                            <a href="tel:+919289790283" className="hover:text-brand transition-colors">
-                                +91 928 979 0283
-                            </a>
-                        </p>
+                        {/* Contact details removed from location section as per feedback */}
                     </div>
                 </div>
             </MotionSection>

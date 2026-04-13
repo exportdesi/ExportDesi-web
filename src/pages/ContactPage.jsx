@@ -368,9 +368,13 @@ export default function ContactPage() {
                                 <p className="section-label mb-3">Direct Contact</p>
                                 <div className="space-y-3 text-sm">
                                     <div>
-                                        <p className="font-semibold text-brand mb-1">Business Inquiries</p>
-                                        <a href="mailto:inquiry@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
+                                        <p className="font-semibold text-brand mb-1">Business Enquiries</p>
+                                        <a href="mailto:inquiry@exportdesi.com" className="text-muted hover:text-brand transition-colors block leading-loose">
                                             inquiry@exportdesi.com
+                                        </a>
+                                        <p className="font-semibold text-brand mb-1 mt-4">Direct / General</p>
+                                        <a href="mailto:contact@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
+                                            contact@exportdesi.com
                                         </a>
                                         <a href="mailto:rajiv@exportdesi.com" className="text-muted hover:text-brand transition-colors block">
                                             rajiv@exportdesi.com
