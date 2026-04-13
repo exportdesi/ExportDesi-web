@@ -129,14 +129,14 @@ export default function HomePage() {
                             </span>
                         </Link>
 
-                        <Link to="/industries/food-ingredients/turmeric" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
-                            <p className="section-label">Spices</p>
-                            <h3 className="text-xl font-bold mb-3">Turmeric</h3>
+                        <Link to="/industries/bags" className="bg-surface p-8 hover:bg-white/5 transition-colors block">
+                            <p className="section-label">Eco-Friendly Packaging</p>
+                            <h3 className="text-xl font-bold mb-3">Jute & Non-Woven Bags</h3>
                             <p className="text-muted text-sm mb-6">
-                                Alleppey and Lakadong turmeric with 5-9% curcumin. Sourced from Kerala and Meghalaya. FSSAI, APEDA, and Organic certified lots.
+                                Custom-sized jute bags and non-woven D-cut bags. Biodegradable, reusable, print-ready. Ideal for retail, promotional, and industrial use.
                             </p>
                             <span className="text-sm font-semibold text-brand border-b border-brand pb-0.5">
-                                View Turmeric Grades
+                                View Bag Options
                             </span>
                         </Link>
                     </div>

@@ -182,7 +182,17 @@ export default function BagsPage() {
                 </div>
             </MotionSection>
 
-            {/* Jute Bags */}
+            {/* Jute Bags Image Grid - Moved up */}
+            <MotionSection variant="fadeUp" delay={180}>
+                <ImageGrid
+                    label="Jute Bags"
+                    heading="Traditional Craftsmanship"
+                    images={JUTE_IMAGES}
+                    columns={3}
+                />
+            </MotionSection>
+
+            {/* Jute Bags Details */}
             <MotionSection className="bg-white border-b border-border" variant="fadeUp" delay={200}>
                 <div className="page-container section-pad">
                     <p className="section-label mb-6">Jute Bags</p>
@@ -213,7 +223,17 @@ export default function BagsPage() {
                 </div>
             </MotionSection>
 
-            {/* Non-Woven Bags */}
+            {/* Non-Woven Bags Image Grid - Moved up */}
+            <MotionSection variant="fadeUp" delay={280}>
+                <ImageGrid
+                    label="Non-Woven Bags"
+                    heading="Modern Manufacturing"
+                    images={NON_WOVEN_IMAGES}
+                    columns={2}
+                />
+            </MotionSection>
+
+            {/* Non-Woven Bags Details */}
             <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={300}>
                 <div className="page-container section-pad">
                     <p className="section-label mb-6">Non-Woven Bags</p>
@@ -363,25 +383,6 @@ export default function BagsPage() {
                 />
             </MotionSection>
 
-            {/* Product Images - Jute */}
-            <MotionSection variant="fadeUp" delay={450}>
-                <ImageGrid
-                    label="Jute Bags"
-                    heading="Traditional Craftsmanship from West Bengal"
-                    images={JUTE_IMAGES}
-                    columns={3}
-                />
-            </MotionSection>
-
-            {/* Product Images - Non-Woven */}
-            <MotionSection variant="fadeUp" delay={500}>
-                <ImageGrid
-                    label="Non-Woven Bags"
-                    heading="Modern Manufacturing from Gujarat"
-                    images={NON_WOVEN_IMAGES}
-                    columns={2}
-                />
-            </MotionSection>
 
             {/* Final CTA */}
             <MotionSection variant="fadeUp" delay={600}>

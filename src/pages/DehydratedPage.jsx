@@ -22,7 +22,6 @@ const FOOD_INGREDIENTS_PRODUCTS = [
     { label: 'Fox Nuts', name: 'Makhana', href: '/industries/food-ingredients/makhana' },
     { label: 'Dehydrated', name: 'Onion & Garlic', href: '/industries/food-ingredients/dehydrated-ingredients' },
     { label: 'Ayurvedic', name: 'Moringa', href: '/industries/food-ingredients/moringa' },
-    { label: 'Spices', name: 'Turmeric', href: '/industries/food-ingredients/turmeric' },
 ];
 
 const PRODUCT_SCHEMA = {

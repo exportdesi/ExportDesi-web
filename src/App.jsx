@@ -8,7 +8,6 @@ const FoodIngredientsPage = lazy(() => import('./pages/FoodIngredientsPage'));
 const MakhanaPage = lazy(() => import('./pages/MakhanaPage'));
 const DehydratedPage = lazy(() => import('./pages/DehydratedPage'));
 const MoringaPage = lazy(() => import('./pages/MoringaPage'));
-const TurmericPage = lazy(() => import('./pages/TurmericPage'));
 const BagsPage = lazy(() => import('./pages/BagsPage'));
 const HowWeWorkPage = lazy(() => import('./pages/HowWeWorkPage'));
 const CompliancePage = lazy(() => import('./pages/CompliancePage'));
@@ -38,7 +37,6 @@ export default function App() {
           <Route path="industries/food-ingredients/makhana" element={<MakhanaPage />} />
           <Route path="industries/food-ingredients/dehydrated-ingredients" element={<DehydratedPage />} />
           <Route path="industries/food-ingredients/moringa" element={<MoringaPage />} />
-          <Route path="industries/food-ingredients/turmeric" element={<TurmericPage />} />
           <Route path="industries/bags" element={<BagsPage />} />
           <Route path="how-we-work" element={<HowWeWorkPage />} />
           <Route path="compliance" element={<CompliancePage />} />
