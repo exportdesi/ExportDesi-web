@@ -45,9 +45,9 @@ const Analytics = () => {
 
     // Track page views on route change
     useEffect(() => {
-        if (GA_ID && window.gtag) {
+        if (typeof window !== 'undefined' && window.gtag && location?.pathname) {
             window.gtag('config', GA_ID, {
-                page_path: location.pathname + location.search,
+                page_path: location.pathname + (location.search || ''),
             });
         }
     }, [location, GA_ID]);

@@ -19,44 +19,33 @@ import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
 import TurmericPage from './pages/TurmericPage';
 
-// Loading fallback component
-function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-brand text-sm font-semibold">Loading...</div>
-    </div>
-  );
-}
-
 export default function App() {
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route element={<RootLayout />}>
-          <Route index element={<HomePage />} />
-          
-          {/* Industries Hierarchy */}
-          <Route path="industries">
-            <Route path="food-ingredients">
-              <Route index element={<FoodIngredientsPage />} />
-              <Route path="makhana" element={<MakhanaPage />} />
-              <Route path="dehydrated-ingredients" element={<DehydratedPage />} />
-              <Route path="moringa" element={<MoringaPage />} />
-              <Route path="turmeric" element={<TurmericPage />} />
-            </Route>
-            <Route path="bags" element={<BagsPage />} />
+    <Routes>
+      <Route element={<RootLayout />}>
+        <Route index element={<HomePage />} />
+        
+        {/* Industries Hierarchy */}
+        <Route path="industries">
+          <Route path="food-ingredients">
+            <Route index element={<FoodIngredientsPage />} />
+            <Route path="makhana" element={<MakhanaPage />} />
+            <Route path="dehydrated-ingredients" element={<DehydratedPage />} />
+            <Route path="moringa" element={<MoringaPage />} />
+            <Route path="turmeric" element={<TurmericPage />} />
           </Route>
-          <Route path="about" element={<AboutPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="thank-you" element={<ThankYouPage />} />
-          <Route path="company-profile" element={<CompanyProfilePage />} />
-          <Route path="profile" element={<CompanyProfilePage />} />
-          <Route path="blog" element={<BlogIndex />} />
-          <Route path="blog/:slug" element={<BlogPost />} />
-          {/* Catch-all: redirect to home */}
-          <Route path="*" element={<HomePage />} />
+          <Route path="bags" element={<BagsPage />} />
         </Route>
-      </Routes>
-    </Suspense>
+        <Route path="about" element={<AboutPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="thank-you" element={<ThankYouPage />} />
+        <Route path="company-profile" element={<CompanyProfilePage />} />
+        <Route path="profile" element={<CompanyProfilePage />} />
+        <Route path="blog" element={<BlogIndex />} />
+        <Route path="blog/:slug" element={<BlogPost />} />
+        {/* Catch-all: redirect to home */}
+        <Route path="*" element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 }

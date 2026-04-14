@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const NAV_LINKS = [
     { label: 'Food & Ingredients', href: '/industries/food-ingredients', isActive: (p) => p.startsWith('/industries/food-ingredients') },
@@ -11,6 +11,7 @@ const NAV_LINKS = [
 
 export default function Navigation() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const location = useLocation();
 
     return (
         <nav className="bg-white border-b border-border sticky top-0 z-40" aria-label="Main navigation">
@@ -43,7 +44,7 @@ export default function Navigation() {
                                 end
                                 className={({ isActive: defaultActive }) => {
                                     const resolved = link.isActive
-                                        ? link.isActive(window.location.pathname)
+                                        ? link.isActive(location.pathname)
                                         : defaultActive;
                                     return `text-sm font-medium transition-all duration-150 border-b-2 pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${
                                         resolved
@@ -87,7 +88,7 @@ export default function Navigation() {
                                 onClick={() => setMobileOpen(false)}
                                 className={({ isActive: defaultActive }) => {
                                     const resolved = link.isActive
-                                        ? link.isActive(window.location.pathname)
+                                        ? link.isActive(location.pathname)
                                         : defaultActive;
                                     return `block px-3 py-2.5 text-sm font-medium rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 ${
                                         resolved
