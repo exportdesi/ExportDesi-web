@@ -8,7 +8,7 @@ import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useRef } from 'react';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';

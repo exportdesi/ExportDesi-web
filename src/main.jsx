@@ -4,16 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import App from './App.jsx';
-import GlobalErrorBoundary from './components/ErrorBoundary';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
-      <GlobalErrorBoundary>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </GlobalErrorBoundary>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </HelmetProvider>
   </StrictMode>,
 );

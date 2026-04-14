@@ -7,8 +7,8 @@ import FAQAccordion from '../components/FAQAccordion';
 import ContentAccordion from '../components/ContentAccordion';
 import ImageGrid from '../components/ImageGrid';
 import FloatingProductNav from '../components/FloatingProductNav';
+import { motion } from 'framer-motion';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
-
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 

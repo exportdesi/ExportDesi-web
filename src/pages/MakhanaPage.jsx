@@ -8,7 +8,7 @@ import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
 import { makhanaSpecs } from '../data/makhana';
 import { Helmet } from 'react-helmet-async';
 import { useRef } from 'react';
@@ -247,10 +247,10 @@ export default function MakhanaPage() {
 
     return (
         <>
-            <SEOMeta
-                title="Makhana Exporter from India | GI-Tagged Fox Nuts | Export Desi"
-                description="Export Desi supplies GI-tagged Makhana (fox nuts) from Bihar in 5/6/7 Suta grades. FSSAI, APEDA certified. Size-graded, lab-tested. Quote in 48 hours."
-            />
+                <SEOMeta
+                    title="Makhana Exporter from India | GI-Tagged Fox Nuts | Export Desi"
+                    description="Export Desi supplies GI-tagged Makhana (fox nuts) from Bihar in 5/6/7 Suta grades. FSSAI, APEDA certified. Size-graded, lab-tested. Quote in 48 hours."
+                />
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(PRODUCT_SCHEMA)}

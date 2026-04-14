@@ -225,9 +225,9 @@ export default function CompliancePage() {
                     <p className="section-label mb-6">Product-Specific Documentation</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {/* Makhana */}
-                        <div className="border border-border p-6">
+                        <div className="border border-border p-6 hover:border-brand/40 transition-colors">
                             <p className="font-semibold text-sm mb-2">Makhana (Fox Nuts)</p>
-                            <p className="text-xs text-muted mb-4">
+                            <p className="text-xs text-muted mb-4 leading-relaxed">
                                 Certificate of Origin, phytosanitary certificate, grade-specific lab report, and packing list. Destination-specific coordination at enquiry stage.
                             </p>
                             <Link to="/industries/food-ingredients/makhana" className="text-xs text-brand font-medium underline underline-offset-2">
@@ -235,9 +235,9 @@ export default function CompliancePage() {
                             </Link>
                         </div>
                         {/* Dehydrated Ingredients */}
-                        <div className="border border-border p-6">
+                        <div className="border border-border p-6 hover:border-brand/40 transition-colors">
                             <p className="font-semibold text-sm mb-2">Dehydrated Onion & Garlic</p>
-                            <p className="text-xs text-muted mb-4">
+                            <p className="text-xs text-muted mb-4 leading-relaxed">
                                 Per-product lab reports, line-by-line packing list, and consolidated documentation for multi-SKU consignments.
                             </p>
                             <Link to="/industries/food-ingredients/dehydrated-ingredients" className="text-xs text-brand font-medium underline underline-offset-2">
@@ -245,9 +245,9 @@ export default function CompliancePage() {
                             </Link>
                         </div>
                         {/* Moringa */}
-                        <div className="border border-border p-6">
+                        <div className="border border-border p-6 hover:border-brand/40 transition-colors">
                             <p className="font-semibold text-sm mb-2">Moringa Products</p>
-                            <p className="text-xs text-muted mb-4">
+                            <p className="text-xs text-muted mb-4 leading-relaxed">
                                 USDA Organic, EU Organic certificates. Third-party lab reports for heavy metals, pesticides, and microbiology.
                             </p>
                             <Link to="/industries/food-ingredients/moringa" className="text-xs text-brand font-medium underline underline-offset-2">
@@ -255,33 +255,23 @@ export default function CompliancePage() {
                             </Link>
                         </div>
                         {/* Jute Bags */}
-                        <div className="border border-border p-6">
-                            <p className="font-semibold text-sm mb-2">Jute Bags</p>
-                            <p className="text-xs text-muted mb-4">
-                                Certificate of Origin, fumigation certificate for natural fibers, custom packaging documentation.
+                        <div className="border border-border p-6 hover:border-brand/40 transition-colors">
+                            <p className="font-semibold text-sm mb-2">Jute Bags & Packaging</p>
+                            <p className="text-xs text-muted mb-4 leading-relaxed">
+                                Certificate of Origin, fumigation certificate for natural fibers, material composition reports and custom packing documentation.
                             </p>
-                            <Link to="/products/jute-bags" className="text-xs text-brand font-medium underline underline-offset-2">
+                            <Link to="/industries/bags" className="text-xs text-brand font-medium underline underline-offset-2">
                                 View Jute Bags specifications
                             </Link>
                         </div>
                         {/* Non-Woven Bags */}
-                        <div className="border border-border p-6">
+                        <div className="border border-border p-6 hover:border-brand/40 transition-colors">
                             <p className="font-semibold text-sm mb-2">Non-Woven Bags</p>
-                            <p className="text-xs text-muted mb-4">
-                                Material safety data sheets, REACH compliance (EU), phthalate-free certification.
+                            <p className="text-xs text-muted mb-4 leading-relaxed">
+                                Material safety data sheets (MSDS), REACH compliance (EU), and phthalate-free certification for retail use.
                             </p>
-                            <Link to="/products/non-woven-bags" className="text-xs text-brand font-medium underline underline-offset-2">
+                            <Link to="/industries/bags" className="text-xs text-brand font-medium underline underline-offset-2">
                                 View Non-Woven Bags specifications
-                            </Link>
-                        </div>
-                        {/* Other Shopping Bags */}
-                        <div className="border border-border p-6">
-                            <p className="font-semibold text-sm mb-2">Other Shopping Bags</p>
-                            <p className="text-xs text-muted mb-4">
-                                Custom product documentation based on material composition and destination requirements.
-                            </p>
-                            <Link to="/products/other-shopping-bags" className="text-xs text-brand font-medium underline underline-offset-2">
-                                View Other Bags specifications
                             </Link>
                         </div>
                     </div>

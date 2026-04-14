@@ -1,4 +1,3 @@
-import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 import ContactPage from './pages/ContactPage';
@@ -25,17 +24,20 @@ export default function App() {
       <Route element={<RootLayout />}>
         <Route index element={<HomePage />} />
         
-        {/* Industries Hierarchy */}
-        <Route path="industries">
-          <Route path="food-ingredients">
+          {/* Industries Hierarchy (Nested) */}
+          <Route path="industries">
             <Route index element={<FoodIngredientsPage />} />
-            <Route path="makhana" element={<MakhanaPage />} />
-            <Route path="dehydrated-ingredients" element={<DehydratedPage />} />
-            <Route path="moringa" element={<MoringaPage />} />
-            <Route path="turmeric" element={<TurmericPage />} />
+            <Route path="food-ingredients">
+              <Route index element={<FoodIngredientsPage />} />
+              <Route path="makhana" element={<MakhanaPage />} />
+              <Route path="dehydrated-ingredients" element={<DehydratedPage />} />
+              <Route path="moringa" element={<MoringaPage />} />
+              <Route path="turmeric" element={<TurmericPage />} />
+            </Route>
+            <Route path="bags" element={<BagsPage />} />
           </Route>
-          <Route path="bags" element={<BagsPage />} />
-        </Route>
+        <Route path="how-we-work" element={<HowWeWorkPage />} />
+        <Route path="compliance" element={<CompliancePage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="thank-you" element={<ThankYouPage />} />
