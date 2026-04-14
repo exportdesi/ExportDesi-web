@@ -108,17 +108,17 @@ const JUTE_PRODUCTS = [
 const NON_WOVEN_PRODUCTS = [
     {
         name: 'Non-Woven D-Cut Bags',
-        specs: ['70-120 GSM options', 'Die-cut handles for easy carrying', 'Heat-sealed seams', 'Water-resistant coating available'],
+        specs: ['70-155 GSM options', 'Die-cut handles for easy carrying', 'Heat-sealed seams', 'Water-resistant coating available'],
         applications: ['Retail shopping', 'Pharmacy bags', 'Food delivery', 'Promotional distribution'],
     },
     {
         name: 'Non-Woven Box Bags',
-        specs: ['Gusseted bottom for stability', '80-150 GSM fabric', 'Reinforced base', 'Custom printing available'],
+        specs: ['Gusseted bottom for stability', '70-155 GSM fabric', 'Reinforced base', 'Custom printing available'],
         applications: ['Premium retail', 'Shoe bags', 'Electronics packaging', 'Trade show materials'],
     },
     {
         name: 'Non-Woven Roll Bags',
-        specs: ['Continuous roll format', 'Perforated for easy tearing', '70-100 GSM', 'Dispenser-compatible'],
+        specs: ['Continuous roll format', 'Perforated for easy tearing', '70-155 GSM', 'Dispenser-compatible'],
         applications: ['Supermarket checkout', 'Food service', 'Pharmacy dispensing', 'Hospitality'],
     },
 ];
@@ -295,7 +295,7 @@ export default function BagsPage() {
                             <div className="space-y-0 divide-y divide-border border-t border-border">
                                 {[
                                     { label: 'Jute GSM', detail: '300-400 GSM (shopping), 400+ GSM (bulk bags)' },
-                                    { label: 'Non-Woven GSM', detail: '70-120 GSM (D-cut), 80-150 GSM (box bags)' },
+                                    { label: 'Non-Woven GSM', detail: '70-155 GSM (standard range for retail & industrial)' },
                                     { label: 'Handle Types', detail: 'Die-cut, stitched, loop, satin ribbon, reinforced' },
                                     { label: 'Printing', detail: 'Screen, offset, digital, heat transfer, laminated finish' },
                                     { label: 'Closure', detail: 'Open-top, drawstring, flap with snap/button, zipper' },
