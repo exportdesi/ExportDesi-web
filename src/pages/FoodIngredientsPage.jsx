@@ -3,6 +3,7 @@ import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
+import FloatingProductNav from '../components/FloatingProductNav';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 
@@ -25,6 +26,12 @@ const PRODUCTS = [
         summary: 'Moringa leaf powder, capsules, and tablets. Sourced from certified organic farms. Rich in vitamins, minerals, and antioxidants. USDA Organic, EU Organic available.',
         href: '/industries/food-ingredients/moringa',
     },
+];
+
+const RELATED_PRODUCTS = [
+    { label: 'Makhana', name: 'Fox Nuts', href: '/industries/food-ingredients/makhana' },
+    { label: 'Dehydrated', name: 'Onion & Garlic', href: '/industries/food-ingredients/dehydrated-ingredients' },
+    { label: 'Wellness', name: 'Moringa Products', href: '/industries/food-ingredients/moringa' },
 ];
 
 export default function FoodIngredientsPage() {
@@ -114,6 +121,12 @@ export default function FoodIngredientsPage() {
                     background="dark"
                 />
             </MotionSection>
+
+            <FloatingProductNav
+                items={RELATED_PRODUCTS}
+                currentPath="/industries/food-ingredients"
+                categoryLabel="Product Range"
+            />
         </>
     );
 }

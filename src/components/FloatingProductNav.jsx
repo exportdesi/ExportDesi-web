@@ -54,7 +54,7 @@ export default function FloatingProductNav({ items, products, currentPath, categ
 
             {/* Mobile - Fixed bottom navigation */}
             <motion.div
-                className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-border shadow-lg"
+                className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-surface border-t border-border shadow-lg"
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.3, duration: 0.4 }}
@@ -78,9 +78,9 @@ export default function FloatingProductNav({ items, products, currentPath, categ
                     <div className="flex gap-2 justify-center pt-1 border-t border-border mt-1">
                         <a
                             href="mailto:inquiry@exportdesi.com"
-                            className="flex-1 max-w-[140px] flex items-center justify-center gap-2 bg-surface border border-border rounded-lg px-3 py-2 active:bg-brand active:text-white transition-all"
+                            className="flex-1 max-w-[140px] flex items-center justify-center gap-2 bg-brand text-white border border-brand rounded-lg px-3 py-2 active:opacity-90 transition-all font-semibold"
                         >
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             <span className="text-[10px] font-bold uppercase tracking-wider">Email</span>

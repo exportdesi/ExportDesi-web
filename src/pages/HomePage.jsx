@@ -4,10 +4,17 @@ import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import StructuredList from '../components/StructuredList';
 import CertificateMarquee from '../components/CertificateMarquee';
+import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard, staggerContainer } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+
+const INFO_PAGES = [
+    { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
+    { label: 'How We Work', name: 'Our Process', href: '/how-we-work' },
+    { label: 'About', name: 'About Us', href: '/about' },
+];
 
 const ORGANIZATION_SCHEMA = {
     '@context': 'https://schema.org',
@@ -201,6 +208,12 @@ export default function HomePage() {
                     background="dark"
                 />
             </MotionSection>
+
+            <FloatingProductNav
+                items={INFO_PAGES}
+                currentPath="/"
+                categoryLabel="Quick Links"
+            />
         </>
     );
 }
