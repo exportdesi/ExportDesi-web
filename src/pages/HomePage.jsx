@@ -210,7 +210,7 @@ export default function HomePage() {
             </MotionSection>
 
             <FloatingProductNav
-                items={INFO_PAGES}
+                items={[]}
                 currentPath="/"
                 categoryLabel="Quick Links"
             />
