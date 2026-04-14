@@ -8,9 +8,9 @@ import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 import {
     dehydratedSpecTable,
@@ -188,28 +188,7 @@ function BuyerPersonaCard({ icon, type, description, example, delay }) {
     );
 }
 
-// ============================================================================
-// MAIN PAGE COMPONENT
-// ============================================================================
-
 export default function DehydratedPage() {
-    // Parallax scroll effects
-    const { scrollYProgress } = useScroll();
-    const smoothProgress = useSpring(scrollYProgress, { stiffness: 25, damping: 35, restDelta: 0.001 });
-
-    // Hero parallax
-    const heroY = useTransform(smoothProgress, [0, 0.2], [0, 40]);
-    const heroOpacity = useTransform(smoothProgress, [0, 0.15], [1, 0.5]);
-
-    // Background parallax
-    const bgY = useTransform(smoothProgress, [0, 0.3], [0, -30]);
-
-    // Product gallery parallax
-    const galleryY = useTransform(smoothProgress, [0.1, 0.4], [20, -20]);
-
-    // Processing section parallax
-    const processingY = useTransform(smoothProgress, [0.3, 0.6], [15, -15]);
-
     return (
         <>
             <SEOMeta

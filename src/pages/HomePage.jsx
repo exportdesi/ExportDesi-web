@@ -5,7 +5,7 @@ import CTASection from '../components/CTASection';
 import StructuredList from '../components/StructuredList';
 import CertificateMarquee from '../components/CertificateMarquee';
 import FloatingProductNav from '../components/FloatingProductNav';
-import { MotionSection, MotionCard, staggerContainer } from '../components/MotionWrapper';
+import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';

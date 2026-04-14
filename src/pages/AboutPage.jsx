@@ -4,7 +4,7 @@ import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import ImageGrid from '../components/ImageGrid';
 import FloatingProductNav from '../components/FloatingProductNav';
-import { MotionSection, MotionCard, staggerContainer } from '../components/MotionWrapper';
+import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';

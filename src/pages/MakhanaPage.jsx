@@ -8,10 +8,10 @@ import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { useInView, useScroll, useTransform, useSpring } from 'framer-motion';
 import { makhanaSpecs } from '../data/makhana';
 import { Helmet } from 'react-helmet-async';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const FOOD_INGREDIENTS_PRODUCTS = [
@@ -64,7 +64,7 @@ const PROCESS_IMAGES = [
     { src: '/images/products/makhana/makhana-manual-grading.mp4', alt: 'Manual grading by size', label: 'Size Grading', isVideo: true, poster: '/images/products/makhana/makhana-Hand-Picked.webp' },
 
     { src: '/images/products/makhana/makhana-seeds.png', alt: 'Processed makhana seeds ready for packing', label: 'Processed Seeds' },
-    { src: '/images/products/makhana/makhana-packing.png', alt: 'Export packing cartons', label: 'Export Packaging' },
+    { src: '/images/products/makhana/makhana-retail-packaging.webp', alt: 'Export packing cartons', label: 'Export Packaging' },
 ];
 
 // Value-Added (3 images)
@@ -238,13 +238,6 @@ export default function MakhanaPage() {
     // Parallax scroll effects - smooth, subtle motion
     const { scrollYProgress } = useScroll();
     const smoothProgress = useSpring(scrollYProgress, { stiffness: 25, damping: 35, restDelta: 0.001 });
-
-    // Hero parallax - subtle fade, minimal movement
-    const heroY = useTransform(smoothProgress, [0, 0.2], [0, 40]);
-    const heroOpacity = useTransform(smoothProgress, [0, 0.15], [1, 0.5]);
-
-    // Background parallax - moves opposite direction
-    const bgY = useTransform(smoothProgress, [0, 0.3], [0, -30]);
 
     // Product gallery parallax - very subtle
     const galleryY = useTransform(smoothProgress, [0.1, 0.4], [20, -20]);

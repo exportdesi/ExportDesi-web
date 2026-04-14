@@ -8,7 +8,6 @@ import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
