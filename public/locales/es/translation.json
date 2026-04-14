@@ -1,0 +1,24 @@
+{
+    "nav": {
+        "foodIngredients": "Alimentos e Ingredientes",
+        "bags": "Bolsas y Embalaje",
+        "howWeWork": "Cómo Trabajamos",
+        "compliance": "Cumplimiento",
+        "about": "Sobre Nosotros",
+        "cta": "Solicitar Detalles de Exportación"
+    },
+    "common": {
+        "loading": "Cargando...",
+        "error": "Ha ocurrido un error",
+        "submit": "Enviar",
+        "back": "Volver",
+        "language": "Idioma"
+    },
+    "home": {
+        "hero": {
+            "label": "Socio de exportación de ingredientes alimentarios indios",
+            "title": "Del procesador al puerto: gestión de exportación en un solo punto.",
+            "subtitle": "Calificamos a los procesadores, gestionamos la documentación y coordinamos los envíos para compradores internacionales. Certificación FSSAI, APEDA."
+        }
+    }
+}

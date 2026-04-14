@@ -17,6 +17,7 @@ const ThankYouPage = lazy(() => import('./pages/ThankYouPage'));
 const CompanyProfilePage = lazy(() => import('./pages/CompanyProfilePage'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const TurmericPage = lazy(() => import('./pages/TurmericPage'));
 
 // Loading fallback component
 function PageLoader() {
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="industries/food-ingredients/makhana" element={<MakhanaPage />} />
           <Route path="industries/food-ingredients/dehydrated-ingredients" element={<DehydratedPage />} />
           <Route path="industries/food-ingredients/moringa" element={<MoringaPage />} />
+          <Route path="industries/food-ingredients/turmeric" element={<TurmericPage />} />
           <Route path="industries/bags" element={<BagsPage />} />
           <Route path="how-we-work" element={<HowWeWorkPage />} />
           <Route path="compliance" element={<CompliancePage />} />

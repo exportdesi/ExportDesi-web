@@ -12,6 +12,7 @@ import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const TURMERIC_SCHEMA = {
     '@context': 'https://schema.org',
@@ -26,7 +27,7 @@ const TURMERIC_SCHEMA = {
         priceCurrency: 'USD',
         offerCount: 2,
         availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'Export Desi', url: 'https://exportdesi.com' },
+        seller: { '@id': 'https://exportdesi.com/#organization' },
     },
 };
 
@@ -121,6 +122,16 @@ export default function TurmericPage() {
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(TURMERIC_SCHEMA)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'Food Ingredients', url: '/industries/food-ingredients' },
+                        { name: 'Turmeric', url: '/industries/food-ingredients/turmeric' }
+                    ]))}
                 </script>
             </Helmet>
 

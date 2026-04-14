@@ -10,6 +10,7 @@ import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const PRODUCT_SCHEMA = {
     '@context': 'https://schema.org',
@@ -24,7 +25,7 @@ const PRODUCT_SCHEMA = {
         priceCurrency: 'USD',
         offerCount: '100+',
         availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'Export Desi', url: 'https://exportdesi.com' },
+        seller: { '@id': 'https://exportdesi.com/#organization' },
     },
 };
 
@@ -155,6 +156,16 @@ export default function BagsPage() {
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(PRODUCT_SCHEMA)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'Industries', url: '/industries' },
+                        { name: 'Jute & Non-Woven Bags', url: '/industries/bags' }
+                    ]))}
                 </script>
             </Helmet>
 

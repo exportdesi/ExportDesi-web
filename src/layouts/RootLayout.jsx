@@ -5,6 +5,7 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import Breadcrumb from '../components/Breadcrumb';
 import ScrollToTop from '../components/ScrollToTop';
+import Analytics from '../components/Analytics';
 
 const ORG_SCHEMA = {
     '@context': 'https://schema.org',
@@ -54,6 +55,7 @@ export default function RootLayout() {
                 </script>
             </Helmet>
             <PreviewNoIndex />
+            <Analytics />
             <ScrollToTop />
             <Navigation />
             <Breadcrumb />

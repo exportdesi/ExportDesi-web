@@ -11,6 +11,7 @@ import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const FOOD_INGREDIENTS_PRODUCTS = [
     { label: 'Fox Nuts', name: 'Makhana', href: '/industries/food-ingredients/makhana' },
@@ -31,7 +32,7 @@ const PRODUCT_SCHEMA = {
         priceCurrency: 'USD',
         offerCount: 3,
         availability: 'https://schema.org/InStock',
-        seller: { '@type': 'Organization', name: 'Export Desi', url: 'https://exportdesi.com' },
+        seller: { '@id': 'https://exportdesi.com/#organization' },
     },
 };
 
@@ -89,6 +90,16 @@ export default function MoringaPage() {
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(PRODUCT_SCHEMA)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'Food Ingredients', url: '/industries/food-ingredients' },
+                        { name: 'Moringa', url: '/industries/food-ingredients/moringa' }
+                    ]))}
                 </script>
             </Helmet>
 

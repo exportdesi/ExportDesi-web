@@ -9,6 +9,8 @@ import { MotionSection } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -50,10 +52,21 @@ export default function CompliancePage() {
 
     return (
         <>
-            <SEOMeta
-                title="Export Compliance Framework"
-                description="Export Desi's compliance approach for Indian food ingredient exports: licencing, documentation preparation, and destination-specific requirements verified before dispatch."
-            />
+                <SEOMeta
+                    title="Export Compliance Framework"
+                    description="Export Desi's compliance approach for Indian food ingredient exports: licencing, documentation preparation, and destination-specific requirements verified before dispatch."
+                />
+                <Helmet>
+                    <script type="application/ld+json">
+                        {JSON.stringify(getOrganizationSchema())}
+                    </script>
+                    <script type="application/ld+json">
+                        {JSON.stringify(getBreadcrumbSchema([
+                            { name: 'Home', url: '/' },
+                            { name: 'Compliance', url: '/compliance' }
+                        ]))}
+                    </script>
+                </Helmet>
 
             <motion.div
                 initial={{ opacity: 0, y: 30 }}

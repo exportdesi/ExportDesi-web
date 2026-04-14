@@ -1,0 +1,24 @@
+{
+    "nav": {
+        "foodIngredients": "Lebensmittel & Zutaten",
+        "bags": "Taschen & Verpackung",
+        "howWeWork": "Wie wir arbeiten",
+        "compliance": "Konformität",
+        "about": "Über uns",
+        "cta": "Exportdetails anfragen"
+    },
+    "common": {
+        "loading": "Ladevorgang...",
+        "error": "Ein Fehler ist aufgetreten",
+        "submit": "Absenden",
+        "back": "Zurück",
+        "language": "Sprache"
+    },
+    "home": {
+        "hero": {
+            "label": "Exportpartner für indische Lebensmittelzutaten",
+            "title": "Vom Verarbeiter zum Hafen: Exportmanagement aus einer Hand.",
+            "subtitle": "Wir qualifizieren Verarbeiter, verwalten Dokumentationen und koordinieren Lieferungen für internationale Käufer. FSSAI, APEDA-zertifiziert."
+        }
+    }
+}

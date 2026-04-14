@@ -9,6 +9,7 @@ import { MotionSection, MotionCard, staggerContainer } from '../components/Motio
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getWebSiteSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -16,47 +17,6 @@ const INFO_PAGES = [
     { label: 'About', name: 'About Us', href: '/about' },
 ];
 
-const ORGANIZATION_SCHEMA = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Export Desi',
-    url: 'https://exportdesi.com',
-    logo: 'https://exportdesi.com/logo.png',
-    description: 'Merchant export management for Indian food ingredients - Makhana, Dehydrated Onion, Garlic, Banana Powder, Moringa',
-    foundingDate: '2013',
-    founder: {
-        '@type': 'Person',
-        name: 'Rajiv Dudeja',
-    },
-    address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Gurgaon',
-        addressRegion: 'Haryana',
-        addressCountry: 'IN',
-    },
-    contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+91-9289790283',
-        email: 'contact@exportdesi.com',
-        contactType: 'customer service',
-        availableLanguage: 'English',
-    },
-    sameAs: [
-        'https://www.linkedin.com/company/exportdesi',
-    ],
-};
-
-const WEBSITE_SCHEMA = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Export Desi',
-    url: 'https://exportdesi.com',
-    potentialAction: {
-        '@type': 'SearchAction',
-        target: 'https://exportdesi.com/contact',
-        'query-input': 'required name=search_term_string',
-    },
-};
 
 export default function HomePage() {
     return (
@@ -67,10 +27,10 @@ export default function HomePage() {
             />
             <Helmet>
                 <script type="application/ld+json">
-                    {JSON.stringify(ORGANIZATION_SCHEMA)}
+                    {JSON.stringify(getOrganizationSchema())}
                 </script>
                 <script type="application/ld+json">
-                    {JSON.stringify(WEBSITE_SCHEMA)}
+                    {JSON.stringify(getWebSiteSchema())}
                 </script>
             </Helmet>
 

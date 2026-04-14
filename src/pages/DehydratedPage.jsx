@@ -11,6 +11,7 @@ import { MotionSection } from '../components/MotionWrapper';
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useRef, useState } from 'react';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 import {
     dehydratedSpecTable,
     dehydratedFaqs,
@@ -38,8 +39,7 @@ const PRODUCT_SCHEMA = {
             offers: {
                 '@type': 'AggregateOffer',
                 priceCurrency: 'USD',
-                availability: 'https://schema.org/InStock',
-                seller: { '@type': 'Organization', name: 'Export Desi', url: 'https://exportdesi.com' },
+                seller: { '@id': 'https://exportdesi.com/#organization' },
             },
         },
         {
@@ -53,7 +53,7 @@ const PRODUCT_SCHEMA = {
                 '@type': 'AggregateOffer',
                 priceCurrency: 'USD',
                 availability: 'https://schema.org/InStock',
-                seller: { '@type': 'Organization', name: 'Export Desi', url: 'https://exportdesi.com' },
+                seller: { '@id': 'https://exportdesi.com/#organization' },
             },
         },
     ],
@@ -219,6 +219,16 @@ export default function DehydratedPage() {
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(PRODUCT_SCHEMA)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'Food Ingredients', url: '/industries/food-ingredients' },
+                        { name: 'Dehydrated Ingredients', url: '/industries/food-ingredients/dehydrated-ingredients' }
+                    ]))}
                 </script>
             </Helmet>
 

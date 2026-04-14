@@ -7,6 +7,8 @@ import StructuredList from '../components/StructuredList';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -49,6 +51,17 @@ export default function HowWeWorkPage() {
                 title="How We Work"
                 description="Export Desi's five-step export execution process: requirement qualification, processor verification, order confirmation, pre-dispatch inspection, and post-shipment documentation."
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'How We Work', url: '/how-we-work' }
+                    ]))}
+                </script>
+            </Helmet>
 
             <motion.div
                 initial={{ opacity: 0, y: 30 }}

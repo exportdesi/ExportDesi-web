@@ -8,6 +8,8 @@ import ContentBlock from '../components/ContentBlock';
 import { MotionSection } from '../components/MotionWrapper';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgolbwqy';
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -216,6 +218,27 @@ export default function ContactPage() {
                 title="Contact Export Desi | Get a Sourcing Quote | Indian Food Ingredients"
                 description="Contact Export Desi for Indian food ingredient sourcing. Makhana, turmeric, dehydrated onion & garlic. Response within 48 business hours."
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        ...getOrganizationSchema(),
+                        contactPoint: {
+                            '@type': 'ContactPoint',
+                            telephone: '+91-9289790283',
+                            contactType: 'sales',
+                            email: 'contact@exportdesi.com',
+                            availableLanguage: ['English', 'Hindi'],
+                            areaServed: 'Worldwide'
+                        }
+                    })}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'Contact', url: '/contact' }
+                    ]))}
+                </script>
+            </Helmet>
 
             <div className="bg-surface border-b border-border">
                 <div className="page-container py-8 md:py-10">

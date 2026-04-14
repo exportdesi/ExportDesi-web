@@ -7,6 +7,7 @@ import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard, staggerContainer } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -25,10 +26,7 @@ const PERSON_SCHEMA = {
     '@type': 'Person',
     name: 'Rajiv Dudeja',
     jobTitle: 'Founder & Principal',
-    worksFor: {
-        '@type': 'Organization',
-        name: 'Export Desi',
-    },
+    worksFor: { '@id': 'https://exportdesi.com/#organization' },
     email: 'mailto:rajiv@exportdesi.com',
     telephone: '+91-9289790283',
     address: {
@@ -49,6 +47,15 @@ export default function AboutPage() {
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(PERSON_SCHEMA)}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'About', url: '/about' }
+                    ]))}
                 </script>
             </Helmet>
 

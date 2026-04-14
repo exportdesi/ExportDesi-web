@@ -6,6 +6,8 @@ import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
 const PRODUCTS = [
     {
@@ -41,6 +43,17 @@ export default function FoodIngredientsPage() {
                 title="Food and Ingredients"
                 description="Export Desi's food and ingredients sourcing cluster. Makhana in four grades plus dehydrated onion, garlic, banana powder, and moringa from pre-qualified Indian processors."
             />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(getOrganizationSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getBreadcrumbSchema([
+                        { name: 'Home', url: '/' },
+                        { name: 'Food Ingredients', url: '/industries/food-ingredients' }
+                    ]))}
+                </script>
+            </Helmet>
 
             <motion.div
                 initial={{ opacity: 0, y: 30 }}

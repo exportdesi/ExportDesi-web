@@ -1,0 +1,24 @@
+{
+    "nav": {
+        "foodIngredients": "Food & Ingredients",
+        "bags": "Bags & Packaging",
+        "howWeWork": "How We Work",
+        "compliance": "Compliance",
+        "about": "About",
+        "cta": "Request Export Details"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "submit": "Submit",
+        "back": "Back",
+        "language": "Language"
+    },
+    "home": {
+        "hero": {
+            "label": "Export Partner for Indian Food Ingredients",
+            "title": "From Processor to Port: Single-Point Export Management.",
+            "subtitle": "We qualify processors, manage documentation, and coordinate shipments for international buyers sourcing Indian food ingredients. FSSAI, APEDA, Spice Board certified."
+        }
+    }
+}
