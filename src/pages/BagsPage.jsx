@@ -37,7 +37,7 @@ const INFO_PAGES = [
 
 // Product Images - Jute Bags
 const JUTE_IMAGES = [
-    { src: '/images/products/Jute-bags/Jute-hero.png', alt: 'Jute shopping bags', caption: 'Jute Shopping Bags', subcaption: '300-400 GSM, custom sizes' },
+    { src: '/images/products/Jute-bags/Jute-hero.webp', alt: 'Jute shopping bags', caption: 'Jute Shopping Bags', subcaption: '300-400 GSM, custom sizes' },
     { src: '/images/products/Jute-bags/Jute-bags-1.png', alt: 'Jute wine bags', caption: 'Jute Wine Bags', subcaption: 'Single and double bottle configurations' },
     { src: '/images/products/Jute-bags/Jute-bags-2.png', alt: 'Jute gift bags', caption: 'Jute Gift Bags', subcaption: 'Premium lamination, reinforced bottom' },
 ];
@@ -180,7 +180,7 @@ export default function BagsPage() {
                     subtitle="We connect you with established manufacturers across West Bengal's jute mills and Gujarat's non-woven units. Full customization — size, GSM, handle type, printing — with export-ready documentation and FOB pricing."
                     primaryCTA={{ label: 'Request a Quote', href: '/contact?product=bags&type=quote' }}
                     secondaryCTA={{ label: 'Request a Sample', href: '/contact?product=bags&type=sample' }}
-                    imageUrl="/images/products/Jute-bags/Jute-hero.png"
+                    imageUrl="/images/products/Jute-bags/Jute-hero.webp"
                     imageSize="45%"
                     imagePosition="right bottom"
                 />

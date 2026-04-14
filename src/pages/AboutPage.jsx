@@ -109,7 +109,7 @@ export default function AboutPage() {
                                 className="aspect-square bg-surface border border-border flex items-center justify-center overflow-hidden"
                             >
                                 <img
-                                    src="/rajiv-dudeja-founder.png"
+                                    src="/rajiv-dudeja-founder.webp"
                                     alt="Rajiv Dudeja - Founder"
                                     className="w-full h-full object-cover"
                                 />
