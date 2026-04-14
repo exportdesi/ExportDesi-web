@@ -4,20 +4,20 @@ import RootLayout from './layouts/RootLayout';
 import ContactPage from './pages/ContactPage';
 
 // Lazy load all pages for code splitting
-const HomePage = lazy(() => import('./pages/HomePage'));
+import HomePage from './pages/HomePage';
 import FoodIngredientsPage from './pages/FoodIngredientsPage';
 import MakhanaPage from './pages/MakhanaPage';
 import DehydratedPage from './pages/DehydratedPage';
-const MoringaPage = lazy(() => import('./pages/MoringaPage'));
-const BagsPage = lazy(() => import('./pages/BagsPage'));
-const HowWeWorkPage = lazy(() => import('./pages/HowWeWorkPage'));
-const CompliancePage = lazy(() => import('./pages/CompliancePage'));
-const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ThankYouPage = lazy(() => import('./pages/ThankYouPage'));
-const CompanyProfilePage = lazy(() => import('./pages/CompanyProfilePage'));
-const BlogIndex = lazy(() => import('./pages/BlogIndex'));
-const BlogPost = lazy(() => import('./pages/BlogPost'));
-const TurmericPage = lazy(() => import('./pages/TurmericPage'));
+import MoringaPage from './pages/MoringaPage';
+import BagsPage from './pages/BagsPage';
+import HowWeWorkPage from './pages/HowWeWorkPage';
+import CompliancePage from './pages/CompliancePage';
+import AboutPage from './pages/AboutPage';
+import ThankYouPage from './pages/ThankYouPage';
+import CompanyProfilePage from './pages/CompanyProfilePage';
+import BlogIndex from './pages/BlogIndex';
+import BlogPost from './pages/BlogPost';
+import TurmericPage from './pages/TurmericPage';
 
 // Loading fallback component
 function PageLoader() {
