@@ -6,6 +6,7 @@ import SEOMeta from '../components/SEOMeta';
 import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import { MotionSection } from '../components/MotionWrapper';
+import FloatingProductNav from '../components/FloatingProductNav';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xgolbwqy';
@@ -351,7 +352,7 @@ export default function ContactPage() {
 
                         {/* Side info - streamlined */}
                         <div className="space-y-6">
-                            <div className="border border-border bg-surface p-5 rounded-lg">
+                            <div id="direct-contact-block" className="border border-border bg-surface p-5 rounded-lg">
                                 <p className="section-label mb-3">Direct Contact</p>
                                 <div className="space-y-3 text-sm">
                                     <div>
@@ -398,6 +399,12 @@ export default function ContactPage() {
                     </div>
                 </div>
             </MotionSection>
+
+            <FloatingProductNav
+                items={[]}
+                currentPath="/contact"
+                hideOnId="direct-contact-block"
+            />
         </>
     );
 }

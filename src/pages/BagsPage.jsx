@@ -396,9 +396,8 @@ export default function BagsPage() {
 
             {/* Floating Navigation */}
             <FloatingProductNav
-                items={INFO_PAGES}
+                items={[]}
                 currentPath="/industries/bags"
-                categoryLabel="Quick Links"
             />
         </>
     );

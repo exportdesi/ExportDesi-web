@@ -1,18 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 /**
  * FloatingProductNav - Fixed navigation for related products/pages
  * Desktop: Right-side floating links
  * Mobile: Fixed bottom navigation bar
+ * 
+ * @param {string} hideOnId - If this element ID is in view, the mobile bar hides
+ * @param {boolean} simple - If true, shows only the label (primary text) for items
  */
-export default function FloatingProductNav({ items, products, currentPath, categoryLabel = 'Related' }) {
+export default function FloatingProductNav({ items, products, currentPath, categoryLabel = 'Related', hideOnId, simple = true }) {
     const [isHovered, setIsHovered] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     // Filter out the current page - handle both prop names for resilience
     const navItems = items || products || [];
     const relatedItems = navItems.filter(p => p.href !== currentPath);
+
+    // Scroll-aware visibility for mobile
+    useEffect(() => {
+        if (!hideOnId || typeof window === 'undefined') return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // If the target element is visible, hide the nav
+                setIsVisible(!entry.isIntersecting);
+            },
+            { threshold: 0.1 } // Trigger when 10% of the target is visible
+        );
+
+        const target = document.getElementById(hideOnId);
+        if (target) {
+            observer.observe(target);
+        }
+
+        return () => {
+            if (target) observer.unobserve(target);
+            observer.disconnect();
+        };
+    }, [hideOnId]);
 
     return (
         <>
@@ -53,31 +80,41 @@ export default function FloatingProductNav({ items, products, currentPath, categ
             )}
 
             {/* Mobile - Fixed bottom navigation (Always visible for contact buttons) */}
-            <motion.div
-                className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-surface border-t border-border shadow-lg"
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.3, duration: 0.4 }}
-            >
-                <div className="px-4 py-2">
-                    {/* Related items row - only if present */}
-                    {relatedItems.length > 0 && (
-                        <>
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-brand mb-2 text-center">{categoryLabel}</p>
-                            <div className="flex gap-2 justify-center pb-2">
-                                {relatedItems.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        to={item.href}
-                                        className="flex-1 max-w-[140px] flex flex-col items-center gap-1 bg-white border border-border rounded-lg px-2.5 py-2 active:bg-brand active:text-white transition-all overflow-hidden"
-                                    >
-                                        <p className="text-[8px] font-bold uppercase tracking-wider text-brand text-center truncate w-full">{item.label}</p>
-                                        <p className="text-[9px] font-semibold text-center leading-tight truncate w-full">{item.name}</p>
-                                    </Link>
-                                ))}
-                            </div>
-                        </>
-                    )}
+            <AnimatePresence>
+                {isVisible && (
+                    <motion.div
+                        className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-surface border-t border-border shadow-lg"
+                        initial={{ y: 100 }}
+                        animate={{ y: 0 }}
+                        exit={{ y: 100 }}
+                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                    >
+                        <div className="px-4 py-2">
+                            {/* Related items row - only if present */}
+                            {relatedItems.length > 0 && (
+                                <>
+                                    <p className="text-[9px] font-bold uppercase tracking-widest text-brand mb-2 text-center">{categoryLabel}</p>
+                                    <div className="flex gap-2 justify-center pb-2">
+                                        {relatedItems.map((item) => (
+                                            <Link
+                                                key={item.href}
+                                                to={item.href}
+                                                className="flex-1 max-w-[140px] flex flex-col items-center justify-center gap-1 bg-white border border-border rounded-lg px-2.5 py-2.5 active:bg-brand active:text-white transition-all overflow-hidden"
+                                                aria-label={`Go to ${item.name}`}
+                                            >
+                                                {simple ? (
+                                                    <p className="text-[9px] font-bold uppercase tracking-wider text-brand text-center leading-tight truncate w-full">{item.label}</p>
+                                                ) : (
+                                                    <>
+                                                        <p className="text-[8px] font-bold uppercase tracking-wider text-brand text-center truncate w-full">{item.label}</p>
+                                                        <p className="text-[9px] font-semibold text-center leading-tight truncate w-full">{item.name}</p>
+                                                    </>
+                                                )}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
 
                     {/* 3-Button Action Row */}
                     <div className={`grid grid-cols-3 gap-2 justify-center ${relatedItems.length > 0 ? 'pt-1 border-t border-border mt-1' : ''}`}>
@@ -115,6 +152,8 @@ export default function FloatingProductNav({ items, products, currentPath, categ
                     </div>
                 </div>
             </motion.div>
-        </>
-    );
+        )}
+    </AnimatePresence>
+</>
+);
 }
