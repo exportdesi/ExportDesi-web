@@ -404,6 +404,7 @@ export default function ContactPage() {
                 items={[]}
                 currentPath="/contact"
                 hideOnId="direct-contact-block"
+                showGetQuote={false}
             />
         </>
     );

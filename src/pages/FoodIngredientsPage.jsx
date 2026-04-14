@@ -76,7 +76,7 @@ export default function FoodIngredientsPage() {
                 </div>
             </MotionSection>
 
-            <MotionSection className="bg-surface border-b border-border" variant="fadeUp" delay={300}>
+            <MotionSection id="documentation-section" className="bg-surface border-b border-border" variant="fadeUp" delay={300}>
                 <div className="page-container section-pad">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                         <ContentBlock
@@ -126,6 +126,7 @@ export default function FoodIngredientsPage() {
                 items={RELATED_PRODUCTS}
                 currentPath="/industries/food-ingredients"
                 categoryLabel="Product Range"
+                showItemsOnId="documentation-section"
             />
         </>
     );
