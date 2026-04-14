@@ -5,9 +5,9 @@ import ContactPage from './pages/ContactPage';
 
 // Lazy load all pages for code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
-const FoodIngredientsPage = lazy(() => import('./pages/FoodIngredientsPage'));
-const MakhanaPage = lazy(() => import('./pages/MakhanaPage'));
-const DehydratedPage = lazy(() => import('./pages/DehydratedPage'));
+import FoodIngredientsPage from './pages/FoodIngredientsPage';
+import MakhanaPage from './pages/MakhanaPage';
+import DehydratedPage from './pages/DehydratedPage';
 const MoringaPage = lazy(() => import('./pages/MoringaPage'));
 const BagsPage = lazy(() => import('./pages/BagsPage'));
 const HowWeWorkPage = lazy(() => import('./pages/HowWeWorkPage'));

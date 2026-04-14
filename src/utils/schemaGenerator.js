@@ -33,7 +33,7 @@ export const getOrganizationSchema = () => ({
     telephone: '+91-9289790283',
     email: 'contact@exportdesi.com',
     priceRange: '$$',
-    foundingDate: '2013',
+    foundingDate: '2024',
     founder: {
         '@type': 'Person',
         name: 'Rajiv Dudeja',

@@ -239,7 +239,7 @@ export default function CompanyProfilePage() {
                         </h2>
                         <p className="text-muted leading-relaxed mb-4">
                             Export Desi is a merchant export management operation based in Gurgaon, Haryana, India.
-                            Established in 2013, we specialize in international B2B supply of Indian food ingredients.
+                            Established in 2024, we specialize in international B2B supply of Indian food ingredients.
                         </p>
                         <p className="text-muted leading-relaxed mb-4">
                             We work directly with processing units across India, qualifying processors on FSSAI compliance,
