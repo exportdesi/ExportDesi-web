@@ -34,14 +34,18 @@ export default function App() {
       <Routes>
         <Route element={<RootLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="industries/food-ingredients" element={<FoodIngredientsPage />} />
-          <Route path="industries/food-ingredients/makhana" element={<MakhanaPage />} />
-          <Route path="industries/food-ingredients/dehydrated-ingredients" element={<DehydratedPage />} />
-          <Route path="industries/food-ingredients/moringa" element={<MoringaPage />} />
-          <Route path="industries/food-ingredients/turmeric" element={<TurmericPage />} />
-          <Route path="industries/bags" element={<BagsPage />} />
-          <Route path="how-we-work" element={<HowWeWorkPage />} />
-          <Route path="compliance" element={<CompliancePage />} />
+          
+          {/* Industries Hierarchy */}
+          <Route path="industries">
+            <Route path="food-ingredients">
+              <Route index element={<FoodIngredientsPage />} />
+              <Route path="makhana" element={<MakhanaPage />} />
+              <Route path="dehydrated-ingredients" element={<DehydratedPage />} />
+              <Route path="moringa" element={<MoringaPage />} />
+              <Route path="turmeric" element={<TurmericPage />} />
+            </Route>
+            <Route path="bags" element={<BagsPage />} />
+          </Route>
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="thank-you" element={<ThankYouPage />} />
