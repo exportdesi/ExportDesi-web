@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
+import ContactPage from './pages/ContactPage';
 
 // Lazy load all pages for code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -12,7 +13,6 @@ const BagsPage = lazy(() => import('./pages/BagsPage'));
 const HowWeWorkPage = lazy(() => import('./pages/HowWeWorkPage'));
 const CompliancePage = lazy(() => import('./pages/CompliancePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
-const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ThankYouPage = lazy(() => import('./pages/ThankYouPage'));
 const CompanyProfilePage = lazy(() => import('./pages/CompanyProfilePage'));
 const BlogIndex = lazy(() => import('./pages/BlogIndex'));

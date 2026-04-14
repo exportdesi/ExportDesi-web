@@ -15,7 +15,7 @@ export default function CertificateStrip() {
         <section className="bg-white border-b border-border">
             <div className="page-container py-8 md:py-10">
                 <p className="section-label mb-4">Certifications &amp; Registrations</p>
-                <div className="flex items-center justify-between">
+                <div className="grid grid-cols-2 lg:flex lg:items-center lg:justify-between gap-8 lg:gap-0">
                     {CERTIFICATES.map((cert) => (
                         <div key={cert.label} className="flex flex-col items-center gap-1.5" title={cert.label}>
                             <img

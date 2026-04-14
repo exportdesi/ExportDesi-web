@@ -63,7 +63,7 @@ export function MotionSection({ children, className = '', variant = 'fadeUp', de
         <motion.section
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={variantMap[variant] || fadeInUp}
             className={className}
             style={{ transitionDelay: `${delay}ms` }}

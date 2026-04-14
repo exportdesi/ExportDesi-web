@@ -107,7 +107,7 @@ export default function Footer() {
 
             {/* Floating action buttons - vertical column */}
             {!isContactPage && (
-                <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 flex flex-col gap-3 z-50">
+                <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 hidden lg:flex flex-col gap-3 z-50">
                     <ContactButton />
                     <WhatsAppButton />
                     <ScrollToTopButton />
