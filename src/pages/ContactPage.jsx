@@ -180,6 +180,9 @@ export default function ContactPage() {
         // Add reply-to for direct responses
         formData.append('_replyto', data.email);
 
+        // Include the reCAPTCHA token for Formspree validation
+        formData.append('g-recaptcha-response', recaptchaResponse.value);
+
         try {
             const res = await fetch(FORMSPREE_ENDPOINT, {
                 method: 'POST',
