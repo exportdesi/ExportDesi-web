@@ -21,6 +21,14 @@ const FOOTER_NAV = [
             { label: 'Contact', href: '/contact' },
         ],
     },
+    {
+        heading: 'Legal',
+        links: [
+            { label: 'Privacy Policy', href: '/privacy-policy' },
+            { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+            { label: 'Disclaimer', href: '/disclaimer' },
+        ],
+    },
 ];
 
 export default function Footer() {
@@ -100,8 +108,8 @@ export default function Footer() {
                 </div>
 
                 {/* Image Disclaimer */}
-                <p className="text-[10px] text-white/30 mt-4">
-                    Images © respective owners. Sourced from vendors & Unsplash. Contact us to report copyright issues.
+                <p className="text-[10px] text-white/30 mt-4 max-w-2xl">
+                    Images sourced from verified vendors, AI-generated tools, and publicly available sources. Used for informational and promotional purposes. Contact us regarding copyright concerns.
                 </p>
             </div>
 

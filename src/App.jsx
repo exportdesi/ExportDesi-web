@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 import ContactPage from './pages/ContactPage';
 
@@ -17,6 +17,10 @@ import CompanyProfilePage from './pages/CompanyProfilePage';
 import BlogIndex from './pages/BlogIndex';
 import BlogPost from './pages/BlogPost';
 import TurmericPage from './pages/TurmericPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
+import DisclaimerPage from './pages/DisclaimerPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -45,8 +49,21 @@ export default function App() {
         <Route path="profile" element={<CompanyProfilePage />} />
         <Route path="blog" element={<BlogIndex />} />
         <Route path="blog/:slug" element={<BlogPost />} />
-        {/* Catch-all: redirect to home */}
-        <Route path="*" element={<HomePage />} />
+
+        {/* Legal Pages */}
+        <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="terms-and-conditions" element={<TermsAndConditionsPage />} />
+        <Route path="disclaimer" element={<DisclaimerPage />} />
+
+        {/* 404 Page */}
+        <Route path="404" element={<NotFoundPage />} />
+
+        {/* Legacy URL Redirects (SEO Preservation) */}
+        <Route path="info" element={<Navigate to="/about" replace />} />
+        <Route path="export-desi-sharing-the-best-of-india-with-the-world" element={<Navigate to="/about" replace />} />
+
+        {/* Catch-all: 404 for unknown routes */}
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
