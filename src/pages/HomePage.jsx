@@ -9,7 +9,7 @@ import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { getOrganizationSchema, getWebSiteSchema } from '../utils/schemaGenerator';
+import { getOrganizationSchema, getWebSiteSchema, getImageObjectSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -24,6 +24,7 @@ export default function HomePage() {
             <SEOMeta
                 title="Indian Food Ingredients & Packaging Exporter | Makhana, Moringa, Bags | Export Desi"
                 description="Export Desi manages processor qualification, documentation, and shipment for Indian food ingredients and eco-friendly packaging. FSSAI, APEDA certified. Get a quote within 48 hours."
+                image="/new-hero-Export-Desi.webp"
             />
             <Helmet>
                 <script type="application/ld+json">
@@ -31,6 +32,9 @@ export default function HomePage() {
                 </script>
                 <script type="application/ld+json">
                     {JSON.stringify(getWebSiteSchema())}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getImageObjectSchema('/new-hero-Export-Desi.webp'))}
                 </script>
             </Helmet>
 

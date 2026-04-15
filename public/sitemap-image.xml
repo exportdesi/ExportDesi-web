@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage with Hero Image -->
+  <url>
+    <loc>https://exportdesi.com/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://exportdesi.com/new-hero-Export-Desi.webp</image:loc>
+      <image:title>Export Desi - Indian Food Ingredients Export Partner</image:title>
+      <image:caption>Export Desi hero image representing Indian food ingredient exports including Makhana, Dehydrated Onion, Garlic, and Moringa products</image:caption>
+    </image:image>
+  </url>
+  <!-- Product Pages -->
+  <url>
+    <loc>https://exportdesi.com/industries/food-ingredients/makhana</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://exportdesi.com/industries/food-ingredients/dehydrated-ingredients</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://exportdesi.com/industries/food-ingredients/moringa</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://exportdesi.com/industries/bags</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Compliance Page -->
+  <url>
+    <loc>https://exportdesi.com/compliance</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- About Page -->
+  <url>
+    <loc>https://exportdesi.com/about</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- How We Work Page -->
+  <url>
+    <loc>https://exportdesi.com/how-we-work</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Contact Page -->
+  <url>
+    <loc>https://exportdesi.com/contact</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

@@ -60,6 +60,22 @@ export const getWebSiteSchema = () => ({
     },
 });
 
+/**
+ * ImageObject schema for hero/main images
+ * Helps Google Images understand and index your key images
+ */
+export const getImageObjectSchema = (image) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    '@id': `${BASE_URL}/#hero-image`,
+    contentUrl: `${BASE_URL}${image}`,
+    url: `${BASE_URL}${image}`,
+    caption: 'Export Desi - Indian food ingredients export partner managing processor qualification and shipment coordination',
+    description: 'Export Desi hero image representing Indian food ingredient exports including Makhana, Dehydrated Onion, Garlic, and Moringa products',
+    representativeOfPage: true,
+    inLanguage: 'en',
+});
+
 export const getBreadcrumbSchema = (items) => ({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
