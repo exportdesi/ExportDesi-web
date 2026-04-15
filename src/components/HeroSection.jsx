@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import ScrollIndicator from './ScrollIndicator';
+import { useEffect, useState } from 'react';
 
 /**
  * HeroSection — institutional page hero.
@@ -27,13 +28,33 @@ export default function HeroSection({
 }) {
     const bg = background === 'surface' ? 'bg-surface' : 'bg-white';
 
+    // Responsive image size: 85% for 1024 < width < 1440, otherwise use imageSize prop
+    const [resolvedImageSize, setResolvedImageSize] = useState(imageSize);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            if (width > 1024 && width < 1440) {
+                setResolvedImageSize('65%');
+            } else {
+                setResolvedImageSize(imageSize);
+            }
+        };
+
+        // Set initial value
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [imageSize]);
+
     return (
         <section
             className={`${bg} border-b border-border overflow-hidden relative ${imageUrl ? 'min-h-[380px] lg:min-h-[420px]' : ''}`}
             style={imageUrl ? {
                 backgroundImage: `url(${imageUrl})`,
                 backgroundPosition: imagePosition,
-                backgroundSize: imageSize,
+                backgroundSize: resolvedImageSize,
                 backgroundRepeat: 'no-repeat',
             } : {}}
         >
