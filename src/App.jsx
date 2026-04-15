@@ -21,6 +21,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import NotFoundPage from './pages/NotFoundPage';
+import InfoPage from './pages/InfoPage';
 
 export default function App() {
   return (
@@ -58,8 +59,10 @@ export default function App() {
         {/* 404 Page */}
         <Route path="404" element={<NotFoundPage />} />
 
+        {/* Info Page (Visiting Card QR Landing) */}
+        <Route path="info" element={<InfoPage />} />
+
         {/* Legacy URL Redirects (SEO Preservation) */}
-        <Route path="info" element={<Navigate to="/about" replace />} />
         <Route path="export-desi-sharing-the-best-of-india-with-the-world" element={<Navigate to="/about" replace />} />
 
         {/* Catch-all: 404 for unknown routes */}
