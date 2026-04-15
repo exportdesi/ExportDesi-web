@@ -45,7 +45,7 @@ export default function HomePage() {
                     subtitle="We qualify processors, manage documentation, and coordinate shipments for international buyers sourcing Indian food ingredients. FSSAI, APEDA, Spice Board certified."
                     primaryCTA={{ label: 'Get a Sourcing Quote', href: '/contact' }}
                     secondaryCTA={{ label: 'How We Work', href: '/how-we-work' }}
-                    imageUrl="/new-hero-Export-Desi.png"
+                    imageUrl="/new-hero-Export-Desi.webp"
                     imageWidth={850}
                     imageHeight={500}
                     imageSize="contain"
