@@ -21,9 +21,7 @@ const PRODUCT_SCHEMA = {
     category: 'Eco-Friendly Packaging',
     countryOfOrigin: 'IN',
     offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        offerCount: '100+',
+        '@type': 'Offer',
         availability: 'https://schema.org/InStock',
         seller: { '@id': 'https://exportdesi.com/#organization' },
     },

@@ -28,9 +28,7 @@ const PRODUCT_SCHEMA = {
     category: 'Ayurvedic & Wellness',
     countryOfOrigin: 'IN',
     offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        offerCount: 3,
+        '@type': 'Offer',
         availability: 'https://schema.org/InStock',
         seller: { '@id': 'https://exportdesi.com/#organization' },
     },

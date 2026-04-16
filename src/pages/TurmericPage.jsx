@@ -23,9 +23,7 @@ const TURMERIC_SCHEMA = {
     category: 'Spices & Condiments',
     countryOfOrigin: 'IN',
     offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        offerCount: 2,
+        '@type': 'Offer',
         availability: 'https://schema.org/InStock',
         seller: { '@id': 'https://exportdesi.com/#organization' },
     },

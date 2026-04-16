@@ -37,8 +37,8 @@ const PRODUCT_SCHEMA = {
             category: 'Food Ingredients',
             countryOfOrigin: 'IN',
             offers: {
-                '@type': 'AggregateOffer',
-                priceCurrency: 'USD',
+                '@type': 'Offer',
+                availability: 'https://schema.org/InStock',
                 seller: { '@id': 'https://exportdesi.com/#organization' },
             },
         },
@@ -50,8 +50,7 @@ const PRODUCT_SCHEMA = {
             category: 'Food Ingredients',
             countryOfOrigin: 'IN',
             offers: {
-                '@type': 'AggregateOffer',
-                priceCurrency: 'USD',
+                '@type': 'Offer',
                 availability: 'https://schema.org/InStock',
                 seller: { '@id': 'https://exportdesi.com/#organization' },
             },
