@@ -165,9 +165,9 @@ export default function AboutPage() {
                         </div>
                         <div className="bg-white p-6 border border-border rounded-xl">
                             <div className="w-2 h-2 bg-brand mb-4" />
-                            <p className="text-base font-bold text-brand mb-1">Nishant Chaudhary</p>
+                            <p className="text-base font-bold text-brand mb-1">Nishant Kumar</p>
                             <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">Risk & Strategy Relations</p>
-                            <p className="text-sm text-muted leading-relaxed">Oversees order execution, pre-dispatch verification, and documentation accuracy for every consignment.</p>
+                            <p className="text-sm text-muted leading-relaxed">Manages risk assessment, strategic planning, and ensures compliance with international trade regulations.</p>
                         </div>
                     </div>
                 </div>

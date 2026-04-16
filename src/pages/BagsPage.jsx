@@ -51,7 +51,7 @@ const NON_WOVEN_IMAGES = [
 const BAGS_SNAPSHOT = [
     { label: 'Products', value: 'Jute · Non-Woven', sub: 'Custom sizes & printing' },
     { label: 'Origin', value: 'West Bengal · Gujarat', sub: 'Traditional mills, modern units' },
-    { label: 'MOQ', value: '500 pieces', sub: 'Sample orders available' },
+    { label: 'MOQ', value: 'Jute: 10000 | Non-Woven: 500-5000', sub: 'Varies by printing method' },
     { label: 'Customization', value: 'Size · GSM · Handle · Print', sub: 'Full bespoke manufacturing' },
 ];
 
@@ -66,7 +66,7 @@ const BAGS_FAQS = [
     },
     {
         question: 'What is the MOQ for custom-printed bags?',
-        answer: 'The standard MOQ for custom-printed jute and non-woven bags is 500 pieces per design. For plain bags without printing, MOQs start at 200 pieces. Sample orders (50-100 pieces) are available for quality evaluation before bulk orders.',
+        answer: 'MOQ varies by material and printing method. For jute bags: 10000 pieces per design. For non-woven bags: Screen printing 500-1000 pieces, Offset printing 3000-5000 pieces. For plain bags without printing, MOQs start at 200 pieces. Sample orders (50-100 pieces) are available for quality evaluation before bulk orders.',
     },
     {
         question: 'Are jute bags eco-friendly and biodegradable?',
@@ -151,7 +151,7 @@ export default function BagsPage() {
         <>
             <SEOMeta
                 title="Jute Bags & Non-Woven Bags Manufacturer | Custom Eco-Friendly Packaging | Export Desi"
-                description="Export Desi connects you with Indian manufacturers of jute and non-woven bags. Custom sizes, GSM, handles, and printing. MOQ 500 pieces. FOB pricing. Get a quote within 48 hours."
+                description="Export Desi connects you with Indian manufacturers of jute and non-woven bags. Custom sizes, GSM, handles, and printing. MOQ from 500 pieces (non-woven screen print). FOB pricing. Get a quote within 48 hours."
             />
             <Helmet>
                 <script type="application/ld+json">
