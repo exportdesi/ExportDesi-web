@@ -167,7 +167,7 @@ export default function AboutPage() {
                             <div className="w-2 h-2 bg-brand mb-4" />
                             <p className="text-base font-bold text-brand mb-1">Nishant Kumar</p>
                             <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">Risk & Strategy Relations</p>
-                            <p className="text-sm text-muted leading-relaxed">Manages risk assessment, strategic planning, and ensures compliance with international trade regulations.</p>
+                            <p className="text-sm text-muted leading-relaxed mb-4">Manages risk assessment, strategic planning, and ensures compliance with international trade regulations.</p>
                             <div className="flex items-center gap-4 text-xs">
                                 <a href="mailto:nishant@exportdesi.com" className="text-brand hover:underline">
                                     nishant@exportdesi.com
