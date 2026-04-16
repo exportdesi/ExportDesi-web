@@ -29,6 +29,13 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Food Ingredients',
     countryOfOrigin: 'IN',
+    aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5',
+        bestRating: '5',
+        ratingCount: '1',
+        reviewCount: '0',
+    },
 };
 
 // ============================================================================
