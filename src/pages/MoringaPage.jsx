@@ -24,6 +24,7 @@ const PRODUCT_SCHEMA = {
     '@type': 'Product',
     name: 'Moringa Products',
     description: 'Export Desi supplies organic moringa leaf powder, capsules, and tablets from certified farms in South India. Rich in vitamins, minerals, and antioxidants.',
+    image: 'https://exportdesi.com/images/products/moringa/moringa-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Ayurvedic & Wellness',
     countryOfOrigin: 'IN',

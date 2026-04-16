@@ -25,6 +25,7 @@ const PRODUCT_SCHEMA = {
     '@type': 'Product',
     name: 'Makhana (Fox Nuts)',
     description: 'Export Desi supplies 6 & 7 Suta export-grade makhana (phool makhana / fox nuts) from Bihar, India. FSSAI, APEDA, GI-tagged. COA available. Bulk & retail-ready.',
+    image: 'https://exportdesi.com/images/products/makhana/makhana-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Food Ingredients',
     countryOfOrigin: 'IN',

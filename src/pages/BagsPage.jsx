@@ -17,6 +17,7 @@ const PRODUCT_SCHEMA = {
     '@type': 'Product',
     name: 'Jute and Non-Woven Bags',
     description: 'Custom-manufactured jute and non-woven bags for retail, promotional, and industrial applications. Eco-friendly, biodegradable, print-ready.',
+    image: 'https://exportdesi.com/images/products/Jute-bags/Jute-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Eco-Friendly Packaging',
     countryOfOrigin: 'IN',

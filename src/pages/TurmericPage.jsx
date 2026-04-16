@@ -19,6 +19,7 @@ const TURMERIC_SCHEMA = {
     '@type': 'Product',
     name: 'Turmeric Powder & Finger',
     description: 'Export Desi supplies Alleppey and Lakadong turmeric with 5-9% curcumin. FSSAI, APEDA certified. Bulk export from India.',
+    image: 'https://exportdesi.com/images/products/turmeric/turmeric-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Spices & Condiments',
     countryOfOrigin: 'IN',
