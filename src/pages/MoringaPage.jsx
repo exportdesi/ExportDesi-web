@@ -28,11 +28,6 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Ayurvedic & Wellness',
     countryOfOrigin: 'IN',
-    offers: {
-        '@type': 'Offer',
-        availability: 'https://schema.org/InStock',
-        seller: { '@id': 'https://exportdesi.com/#organization' },
-    },
 };
 
 const MORINGA_SNAPSHOT = [

@@ -29,11 +29,6 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Food Ingredients',
     countryOfOrigin: 'IN',
-    offers: {
-        '@type': 'Offer',
-        availability: 'https://schema.org/InStock',
-        seller: { '@id': 'https://exportdesi.com/#organization' },
-    },
 };
 
 // ============================================================================

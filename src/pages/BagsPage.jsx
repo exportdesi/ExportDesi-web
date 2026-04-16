@@ -21,11 +21,6 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Eco-Friendly Packaging',
     countryOfOrigin: 'IN',
-    offers: {
-        '@type': 'Offer',
-        availability: 'https://schema.org/InStock',
-        seller: { '@id': 'https://exportdesi.com/#organization' },
-    },
 };
 
 const INFO_PAGES = [
