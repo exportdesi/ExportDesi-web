@@ -42,7 +42,7 @@ export default function AboutPage() {
         <>
             <SEOMeta
                 title="About Export Desi | Indian Food Ingredients Exporter Since 2024"
-                description="Export Desi coordinates processor qualification, documentation, and shipment for Indian food ingredients. 10+ years, 50+ countries served. Response within 48 hours."
+                description="Export Desi coordinates processor qualification, documentation, and shipment for Indian food ingredients. 20+ years experience with international corporates. Response within 48 business hours."
             />
             <Helmet>
                 <script type="application/ld+json">
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 <HeroSection
                     label="About"
                     title="Your Partner for Indian Food Ingredient Exports Since 2024."
-                    subtitle="We coordinate the Indian side of the export process for international buyers sourcing food ingredients. Processor qualification, documentation preparation, pre-dispatch verification, and port coordination, managed from Gurgaon, Haryana. 50+ countries served."
+                    subtitle="We coordinate the Indian side of the export process for international buyers sourcing food ingredients. Processor qualification, documentation preparation, pre-dispatch verification, and port coordination, managed from Gurgaon, Haryana."
                     background="white"
                 />
             </motion.div>
@@ -120,10 +120,10 @@ export default function AboutPage() {
                             <p className="text-xs font-semibold text-muted mb-4 uppercase tracking-wide">Founder & Principal</p>
                             <div className="space-y-4 text-muted text-sm leading-relaxed">
                                 <p>
-                                    Established Export Desi in 2024 with a focus on helping Indian manufacturers and processors reach international buyers in a structured and scalable way.
+                                    Established Export Desi in 2024, bringing 20+ years of experience working with international clients across the global product ecosystem.
                                 </p>
                                 <p>
-                                    His background spans product design and development, working with international businesses to bring consumer products from concept to market. This experience shaped a buyer-first approach to export management — understanding specification requirements, packaging expectations, and quality standards that international markets demand.
+                                    His career spans multinational corporations where he led product design and technology initiatives for global markets. This experience built deep expertise in understanding user experience, building solutions that deliver value, and improving product journeys for international clients. Having worked with diverse global cultures and teams, he brings a buyer-first approach to export management.
                                 </p>
                                 <p>
                                     Based in Gurgaon, Haryana, he oversees processor qualification, buyer relationship management, and the overall export coordination framework. He is the primary contact for commercial discussions and partnership enquiries.
