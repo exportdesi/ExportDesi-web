@@ -12,9 +12,11 @@ import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getWebSiteSchema, getImageObjectSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
-    { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
-    { label: 'How We Work', name: 'Our Process', href: '/how-we-work' },
+    { label: 'Makhana', name: 'Makhana (Fox Nuts)', href: '/industries/food-ingredients/makhana' },
+    { label: 'Turmeric', name: 'Turmeric Powder & Finger', href: '/industries/food-ingredients/turmeric' },
+    { label: 'Dehydrated', name: 'Dehydrated Onion & Garlic', href: '/industries/food-ingredients/dehydrated-ingredients' },
     { label: 'About', name: 'About Us', href: '/about' },
+    { label: 'Contact', name: 'Contact', href: '/contact' },
 ];
 
 

@@ -16,7 +16,7 @@ export const getOrganizationSchema = () => ({
         '@type': 'ImageObject',
         'url': `${BASE_URL}/ExportDesi-logo.png`,
     },
-    image: `${BASE_URL}/home-hero.png`,
+    image: `${BASE_URL}/new-hero-Export-Desi.webp`,
     description: 'Merchant export management for Indian food ingredients - Makhana, Dehydrated Onion, Garlic, Moringa, and Eco-friendly packaging.',
     address: {
         '@type': 'PostalAddress',
