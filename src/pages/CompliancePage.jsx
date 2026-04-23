@@ -6,11 +6,11 @@ import CTASection from '../components/CTASection';
 import StructuredList from '../components/StructuredList';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
+import { getOrganizationSchema, getBreadcrumbSchema, getFAQSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -55,6 +55,7 @@ export default function CompliancePage() {
                 <SEOMeta
                     title="Export Compliance Framework"
                     description="Export Desi's compliance approach for Indian food ingredient exports: licencing, documentation preparation, and destination-specific requirements verified before dispatch."
+                    keywords="India food export certifications, APEDA registration exporter, FSSAI export licence, phytosanitary certificate India, export documentation India food, Certificate of Origin India, Spice Board registration"
                 />
                 <Helmet>
                     <script type="application/ld+json">
@@ -64,6 +65,30 @@ export default function CompliancePage() {
                         {JSON.stringify(getBreadcrumbSchema([
                             { name: 'Home', url: '/' },
                             { name: 'Compliance', url: '/compliance' }
+                        ]))}
+                    </script>
+                    <script type="application/ld+json">
+                        {JSON.stringify(getFAQSchema([
+                            {
+                                question: 'What certifications does Export Desi hold for food ingredient exports from India?',
+                                answer: 'Export Desi holds: FSSAI food safety licence (No. 10824999000454), APEDA RCMC (No. 06757/2024-2025) covering all food ingredients, Spice Board RCMC (No. CRES/SBCB/23080/2024-2025) for turmeric and dehydrated spices, FIEO Registration (No. 13083/2025-2026) for Certificate of Origin issuance, IEC (Import Export Code: ALYPD9414C) required for all export transactions, and GST Registration (GSTIN: 06ALYPD9414C1Z1). All registrations are current and verified.',
+                            },
+                            {
+                                question: 'What export documents does Export Desi provide with each shipment?',
+                                answer: 'Export Desi provides the following per-shipment documents: Certificate of Origin (issued by FIEO or Chamber of Commerce), Phytosanitary Certificate (issued by NPPO India), Commercial Invoice (aligned to LC terms and Incoterm), Packing List (item-level with carton count and batch reference), Bill of Lading or Airway Bill, Third-Party Lab Report (moisture, purity, microbiology, pesticide residue — per lot), Pre-Shipment Inspection Certificate where required, and Health or Sanitary Certificate as required by the destination authority.',
+                            },
+                            {
+                                question: 'Does Export Desi handle customs clearance at the destination?',
+                                answer: 'No. Customs clearance at the destination port is the buyer\'s responsibility and must be arranged with their freight forwarder or customs broker. Export Desi manages all origin-side documentation, processor compliance verification, pre-dispatch inspection, and port coordination up to vessel departure.',
+                            },
+                            {
+                                question: 'How does Export Desi verify that processors meet export compliance standards?',
+                                answer: 'Processor pre-qualification includes verification of current FSSAI licence validity, APEDA or relevant EPC registration status, and prior export documentation history. Processors with lapsed licences or unresolved compliance issues are not used for orders until those are resolved. Export Desi does not route consignments through processors who cannot produce valid, current documentation for the product category being exported.',
+                            },
+                            {
+                                question: 'Can Export Desi prepare documentation for specific destination markets such as the EU or USA?',
+                                answer: 'Yes. Export Desi reviews destination-specific requirements at enquiry stage — including EU SPS requirements, US FDA FSMA compliance, UAE certificate formats, and Southeast Asian labelling specifications. Additional documents that can be coordinated include: Import Health Certificates, Fumigation Certificates, Halal Certification, Organic Transaction Certificates, and Country-of-Origin Documents for preferential duty regimes.',
+                            },
                         ]))}
                     </script>
                 </Helmet>

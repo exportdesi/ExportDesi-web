@@ -21,8 +21,6 @@ export default function HeroSection({
     secondaryCTA,
     background = 'white',
     imageUrl,
-    imageWidth = 600,
-    imageHeight = 400,
     imageSize = '50%',
     imagePosition = 'right center',
 }) {

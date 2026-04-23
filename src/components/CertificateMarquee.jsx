@@ -23,6 +23,8 @@ export default function CertificateStrip() {
                                 alt={cert.label}
                                 className="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                                 loading="lazy"
+                                width="120"
+                                height="48"
                             />
                             <span className="text-[9px] font-semibold tracking-wide text-muted uppercase text-center leading-tight">
                                 {cert.label}

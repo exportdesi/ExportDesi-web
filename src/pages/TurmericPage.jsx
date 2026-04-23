@@ -9,7 +9,7 @@ import ImageGrid from '../components/ImageGrid';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion, useScroll, useSpring } from 'framer-motion';  
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
@@ -18,25 +18,18 @@ const TURMERIC_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'Turmeric Powder & Finger',
-    description: 'Export Desi supplies Alleppey and Lakadong turmeric with 5-9% curcumin. FSSAI, APEDA certified. Bulk export from India.',
+    description: 'Export Desi is a bulk turmeric supplier in India, exporting Lakadong and Alleppey turmeric (finger and powder) with 5-9% curcumin. FSSAI, APEDA, Spice Board certified. Organic options available. FOB/CIF quotes.',
     image: 'https://exportdesi.com/images/products/turmeric/turmeric-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Spices & Condiments',
     countryOfOrigin: 'IN',
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        bestRating: '5',
-        ratingCount: '1',
-        reviewCount: '0',
-    },
 };
 
 const TURMERIC_IMAGES = [
-    { src: 'https://images.unsplash.com/photo-1615485925763-867862780c32?w=800&h=600&fit=crop&q=80', alt: 'Turmeric fingers and powder', caption: 'Product Forms', subcaption: 'Turmeric Finger vs Powder' },
-    { src: 'https://images.unsplash.com/photo-1596040033229-a9821eb5d91b?w=800&h=600&fit=crop&q=80', alt: 'Turmeric powder close-up', caption: 'Color Reference', subcaption: 'Deep orange-yellow indicates high curcumin' },
-    { src: 'https://images.unsplash.com/photo-1596040033229-a9821eb5d91b?w=800&h=600&fit=crop&q=80', alt: 'Spice sorting', caption: 'Quality Control', subcaption: 'Hand sorting at Kerala processing unit' },
-    { src: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop&q=80', alt: 'Export packaging', caption: 'Packaging Format', subcaption: '25kg bags for bulk export' },
+    { src: '/images/products/turmeric/turmeric-collage.jpg', alt: 'Turmeric field, roots and powder', caption: 'Product Forms', subcaption: 'Turmeric Finger vs Powder' },
+    { src: '/images/products/turmeric/turmeric-powder.jpg', alt: 'Turmeric powder close-up', caption: 'Color Reference', subcaption: 'Deep orange-yellow indicates high curcumin' },
+    { src: '/images/products/turmeric/turmeric-collage.jpg', alt: 'Turmeric cultivation and processing', caption: 'Quality Control', subcaption: 'Farm to export quality assurance' },
+    { src: '/images/export-packaging.jpg', alt: 'Export packaging', caption: 'Packaging Format', subcaption: '25kg bags for bulk export' },
 ];
 
 const TURMERIC_SNAPSHOT = [
@@ -47,8 +40,8 @@ const TURMERIC_SNAPSHOT = [
 ];
 
 const TURMERIC_PROCESS_IMAGES = [
-    { src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aeece3?w=800&h=600&fit=crop&q=80', alt: 'Turmeric processing facility', caption: 'Processing Infrastructure', subcaption: 'Boiling, drying, and polishing at Kerala unit' },
-    { src: 'https://images.unsplash.com/photo-1578575437130-527eed58ec44?w=800&h=600&fit=crop&q=80', alt: 'Container loading', caption: 'Export Dispatch', subcaption: 'Container stuffing from Indian ports' },
+    { src: '/images/products/turmeric/turmeric-collage.jpg', alt: 'Turmeric processing — boiling, drying and polishing', caption: 'Processing Infrastructure', subcaption: 'Boiling, drying, and polishing at processing unit' },
+    { src: '/images/products/dehydrated/garlic-in-bag.jpg', alt: 'Container loading and export dispatch', caption: 'Export Dispatch', subcaption: 'Container stuffing from Indian ports' },
 ];
 
 const JUMP_LINKS = [
@@ -114,11 +107,15 @@ const TURMERIC_FAQS = [
 ];
 
 export default function TurmericPage() {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
     return (
         <>
+            <motion.div className="fixed top-0 left-0 right-0 h-1 bg-brand origin-left z-50" style={{ scaleX }} />
             <SEOMeta
-                title="Turmeric Powder & Finger Exporter from India | Export Desi"
-                description="Export Desi supplies Alleppey and Lakadong turmeric with 5-9% curcumin. FSSAI, APEDA, Organic certified. Bulk export from Kerala and Meghalaya. Request a quote."
+                title="Bulk Turmeric Supplier India | Lakadong & Alleppey | High Curcumin"
+                description="Export Desi supplies bulk Lakadong turmeric (7-9% curcumin) and Alleppey turmeric from India. FSSAI, APEDA, Spice Board certified. Organic options. FOB/CIF quotes in 48 hours."
+                keywords="turmeric exporter India, Lakadong turmeric supplier, Alleppey turmeric exporter, high curcumin turmeric India, bulk turmeric powder supplier, turmeric finger exporter, APEDA turmeric exporter, organic turmeric India"
             />
             <Helmet>
                 <script type="application/ld+json">

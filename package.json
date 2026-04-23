@@ -6,10 +6,44 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node node_modules/react-snap/run.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "reactSnap": {
+    "source": "dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "skipThirdPartyRequests": true,
+    "crawl": true,
+    "include": [
+      "/",
+      "/industries/food-ingredients",
+      "/industries/food-ingredients/makhana",
+      "/industries/food-ingredients/dehydrated-ingredients",
+      "/industries/food-ingredients/moringa",
+      "/industries/food-ingredients/turmeric",
+      "/industries/bags",
+      "/how-we-work",
+      "/compliance",
+      "/about",
+      "/contact",
+      "/blog",
+      "/blog/how-to-import-makhana-from-india",
+      "/blog/makhana-grades-5-6-7-suta-explained",
+      "/blog/makhana-export-price-guide",
+      "/blog/lakadong-turmeric-what-buyers-need-to-know",
+      "/blog/dehydrated-onion-garlic-buyer-guide",
+      "/blog/indian-food-export-documentation-checklist",
+      "/blog/how-to-import-moringa-from-india",
+      "/blog/india-fta-food-ingredient-importers",
+      "/company-profile"
+    ]
+  },
   "dependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.60.2",
     "framer-motion": "^12.38.0",
     "i18next": "^26.0.4",
     "i18next-browser-languagedetector": "^8.2.1",
@@ -27,10 +61,12 @@
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.24",
     "eslint": "^9.39.1",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
+    "react-snap": "^1.23.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
     "vite": "^7.3.1"

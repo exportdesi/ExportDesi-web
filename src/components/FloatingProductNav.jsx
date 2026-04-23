@@ -146,7 +146,7 @@ export default function FloatingProductNav({ items, products, currentPath, categ
                             {/* Action Row */}
                             <div className={`grid ${showGetQuote ? 'grid-cols-3' : 'grid-cols-2'} gap-2 justify-center ${relatedItems.length > 0 && isItemsVisible ? 'pt-1 border-t border-border mt-1' : ''}`}>
                                 <a
-                                    href="mailto:inquiry@exportdesi.com"
+                                    href="mailto:contact@exportdesi.com"
                                     className="flex items-center justify-center gap-2 bg-brand text-white border border-brand rounded-lg px-2 py-2.5 active:opacity-90 transition-all font-semibold"
                                 >
                                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

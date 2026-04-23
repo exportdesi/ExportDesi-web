@@ -24,18 +24,11 @@ const PRODUCT_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'Makhana (Fox Nuts)',
-    description: 'Export Desi supplies 6 & 7 Suta export-grade makhana (phool makhana / fox nuts) from Bihar, India. FSSAI, APEDA, GI-tagged. COA available. Bulk & retail-ready.',
+    description: 'Export Desi is a bulk makhana supplier in India, exporting phool makhana (fox nuts) in 5/6/7 Suta grades from Bihar\'s Mithila region. FSSAI, APEDA, GI-tagged certified. COA available. Private label OEM available.',
     image: 'https://exportdesi.com/images/products/makhana/makhana-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Food Ingredients',
     countryOfOrigin: 'IN',
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        bestRating: '5',
-        ratingCount: '1',
-        reviewCount: '0',
-    },
 };
 
 // ============================================================================
@@ -248,9 +241,11 @@ export default function MakhanaPage() {
 
     return (
         <>
+            <motion.div className="fixed top-0 left-0 right-0 h-1 bg-brand origin-left z-50" style={{ scaleX: smoothProgress }} />
                 <SEOMeta
-                    title="Makhana Exporter from India | GI-Tagged Fox Nuts | Export Desi"
-                    description="Export Desi supplies GI-tagged Makhana (fox nuts) from Bihar in 5/6/7 Suta grades. FSSAI, APEDA certified. Size-graded, lab-tested. Quote in 48 hours."
+                    title="Bulk Makhana Supplier India | Phool Makhana Exporter (5-6-7 Suta) | Fox Nuts Wholesale"
+                    description="Export Desi supplies bulk makhana (phool makhana/fox nuts) from Bihar's Mithila region. 5-6-7 Suta grades, FSSAI, APEDA, GI-tagged. COA available. Private label OEM. Get quote in 48 hours."
+                    keywords="makhana exporter India, phool makhana supplier, fox nuts bulk wholesale, Bihar makhana exporter, 5 suta makhana, 6 suta makhana, 7 suta makhana, makhana GI tag, fox nuts APEDA certified, buy makhana wholesale India"
                 />
             <Helmet>
                 <script type="application/ld+json">
@@ -430,6 +425,8 @@ export default function MakhanaPage() {
                                             alt={img.alt}
                                             className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
                                             loading="lazy"
+                                            width="800"
+                                            height="192"
                                         />
                                     </div>
                                     <div className="p-6">

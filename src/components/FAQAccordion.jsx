@@ -39,30 +39,35 @@ export default function FAQAccordion({ items = [], label, heading }) {
                     </div>
                 )}
 
-                <div className="max-w-3xl divide-y divide-border border-t border-border">
+                <div className="max-w-3xl space-y-3">
                     {items.map((item, i) => {
                         const isOpen = openIndex === i;
                         return (
-                            <div key={i}>
+                            <div key={i} className={`border rounded-lg transition-colors ${isOpen ? 'border-brand' : 'border-border hover:border-brand/40'}`}>
                                 <button
                                     onClick={() => toggle(i)}
-                                    className="w-full flex justify-between items-start gap-6 py-5 text-left"
+                                    className="w-full flex justify-between items-start gap-4 px-5 py-4 text-left"
                                     aria-expanded={isOpen}
                                 >
-                                    <span className="font-semibold text-sm md:text-base text-brand">
-                                        {item.question}
-                                    </span>
+                                    <div className="flex items-start gap-3">
+                                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center mt-0.5">Q</span>
+                                        <span className="font-semibold text-sm md:text-base text-brand leading-snug">
+                                            {item.question}
+                                        </span>
+                                    </div>
                                     <span className="flex-shrink-0 mt-0.5 text-muted">
                                         {isOpen ? <MinusIcon /> : <PlusIcon />}
                                     </span>
                                 </button>
                                 <div
-                                    className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'}`}
+                                    className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                                     aria-hidden={!isOpen}
                                 >
-                                    <p className="text-muted text-sm md:text-base leading-relaxed">
-                                        {item.answer}
-                                    </p>
+                                    <div className="px-5 pb-5 pl-14">
+                                        <p className="text-muted text-sm md:text-base leading-relaxed">
+                                            {item.answer}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         );

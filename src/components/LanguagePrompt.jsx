@@ -15,7 +15,7 @@ const COUNTRY_LANG_MAP = {
 };
 
 export default function LanguagePrompt() {
-    const { i18n, t } = useTranslation();
+    const { i18n } = useTranslation();
     const [suggestion, setSuggestion] = useState(null);
     const [isVisible, setIsVisible] = useState(false);
 

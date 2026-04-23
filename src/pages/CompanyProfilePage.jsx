@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';  
 import SEOMeta from '../components/SEOMeta';
 import HeroSection from '../components/HeroSection';
 
@@ -18,28 +18,28 @@ const products = [
         origin: 'Bihar, India',
         grades: '4-7 Suta (12mm to 18mm+)',
         description: 'Premium quality fox nuts sourced from processing units in Bihar\'s Mithila cluster.',
-        image: 'https://images.unsplash.com/photo-1621255554851-9a254f0e3e93?w=400&h=250&fit=crop&auto=format',
+        image: '/images/products/makhana/makhana-hero.webp',
     },
     {
         category: 'Turmeric',
         origin: 'Andhra Pradesh / Tamil Nadu',
         grades: 'Finger, Powder, Lakadong',
         description: 'High-curcumin turmeric from certified farms in Southern India.',
-        image: 'https://images.unsplash.com/photo-1615485500704-8e99099928b3?w=400&h=250&fit=crop&auto=format',
+        image: '/images/products/turmeric/turmeric-powder.jpg',
     },
     {
         category: 'Dehydrated Onion & Garlic',
         origin: 'Gujarat (Mahuva)',
         grades: 'Flakes, Minced, Chopped, Granule, Powder',
         description: 'Process-grade dehydrated ingredients with third-party lab reports.',
-        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=250&fit=crop&auto=format',
+        image: '/images/products/dehydrated/onion-garlic.jpg',
     },
     {
         category: 'Food Powders',
         origin: 'Pan India',
         grades: 'Moringa Leaf Powder, Banana Powder',
         description: 'Nutrient-rich food powders for health and wellness applications.',
-        image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=250&fit=crop&auto=format',
+        image: '/images/company-profile-2.jpg',
     },
 ];
 
@@ -137,7 +137,7 @@ export default function CompanyProfilePage() {
     return (
         <>
             <SEOMeta
-                title="Company Profile - Export Desi"
+                title="Company Profile | Indian Food Ingredient Merchant Exporter"
                 description="Export Desi is a merchant export management operation based in Gurgaon, India, specializing in Indian food ingredients."
             />
 

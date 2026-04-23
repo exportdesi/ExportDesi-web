@@ -6,7 +6,7 @@ import StructuredList from '../components/StructuredList';
 import CertificateMarquee from '../components/CertificateMarquee';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getWebSiteSchema, getImageObjectSchema } from '../utils/schemaGenerator';
@@ -24,9 +24,10 @@ export default function HomePage() {
     return (
         <>
             <SEOMeta
-                title="Indian Food Ingredients & Packaging Exporter | Makhana, Moringa, Bags | Export Desi"
-                description="Export Desi manages processor qualification, documentation, and shipment for Indian food ingredients and eco-friendly packaging. FSSAI, APEDA certified. Get a quote within 48 hours."
+                title="Bulk Indian Food Ingredient Exporter | Makhana, Turmeric, Dehydrated | APEDA Certified"
+                description="Export Desi is a bulk supplier of Indian food ingredients: makhana (fox nuts), turmeric, dehydrated onion/garlic, moringa powder. FSSAI, APEDA, Spice Board certified. FOB/CIF quotes in 48 hours."
                 image="/new-hero-Export-Desi.webp"
+                keywords="makhana exporter India, dehydrated onion exporter India, turmeric exporter India, moringa powder exporter India, Indian food ingredients B2B export, APEDA certified exporter, bulk food ingredient supplier India, merchant exporter India"
             />
             <Helmet>
                 <script type="application/ld+json">

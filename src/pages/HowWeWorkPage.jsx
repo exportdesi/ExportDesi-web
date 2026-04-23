@@ -6,9 +6,9 @@ import ContentBlock from '../components/ContentBlock';
 import StructuredList from '../components/StructuredList';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { Helmet } from 'react-helmet-async';
-import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
+import { getOrganizationSchema, getBreadcrumbSchema, getHowToSchema } from '../utils/schemaGenerator';
 
 const INFO_PAGES = [
     { label: 'Compliance', name: 'Export Compliance', href: '/compliance' },
@@ -50,6 +50,7 @@ export default function HowWeWorkPage() {
             <SEOMeta
                 title="How We Work"
                 description="Export Desi's five-step export execution process: requirement qualification, processor verification, order confirmation, pre-dispatch inspection, and post-shipment documentation."
+                keywords="how to import food from India, Indian food export process, export management company India, how to source from India, food ingredient import process"
             />
             <Helmet>
                 <script type="application/ld+json">
@@ -60,6 +61,13 @@ export default function HowWeWorkPage() {
                         { name: 'Home', url: '/' },
                         { name: 'How We Work', url: '/how-we-work' }
                     ]))}
+                </script>
+                <script type="application/ld+json">
+                    {JSON.stringify(getHowToSchema({
+                        name: 'How to Source Indian Food Ingredients from Export Desi',
+                        description: 'Five sequential steps to source and import Indian food ingredients — makhana, turmeric, dehydrated onion & garlic, and moringa — through Export Desi, an APEDA and FSSAI certified merchant exporter.',
+                        steps: STEPS.map(s => ({ name: s.title, text: s.description })),
+                    }))}
                 </script>
             </Helmet>
 

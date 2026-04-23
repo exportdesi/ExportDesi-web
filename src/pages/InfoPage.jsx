@@ -12,6 +12,7 @@ export default function InfoPage() {
             />
             <Helmet>
                 <link rel="canonical" href="https://exportdesi.com/info" />
+                <meta name="robots" content="noindex, follow" />
             </Helmet>
 
             <MotionSection className="bg-white" variant="fadeUp">

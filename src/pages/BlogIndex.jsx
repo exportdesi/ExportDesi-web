@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import HeroSection from '../components/HeroSection';
 
@@ -15,10 +15,83 @@ const BLOG_POSTS = [
         author: 'Rajiv Dudeja',
         featured: true,
     },
+    {
+        slug: 'makhana-grades-5-6-7-suta-explained',
+        title: 'Makhana Grades Explained: 5, 6 & 7 Suta — Which One Do You Need?',
+        excerpt: 'What do 5 Suta, 6 Suta, and 7 Suta mean? This guide explains makhana grading, bead sizes, price differences, and which grade suits which application.',
+        category: 'Product Guides',
+        publishDate: '2026-04-14',
+        readTime: '6 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
+    {
+        slug: 'makhana-export-price-guide',
+        title: 'Makhana Export Price Guide: FOB Rates, Seasonal Factors & How to Evaluate Quotes',
+        excerpt: 'Current indicative FOB export prices for makhana by grade, and what drives price variation: crop season, moisture spec, packaging, and Incoterms explained.',
+        category: 'Market Intelligence',
+        publishDate: '2026-04-16',
+        readTime: '5 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
+    {
+        slug: 'lakadong-turmeric-what-buyers-need-to-know',
+        title: 'Lakadong Turmeric: What International Buyers Need to Know',
+        excerpt: 'Lakadong turmeric contains 5-7% curcumin — more than double the standard variety. A buyer\'s guide to sourcing, certifications, product forms, and specifications.',
+        category: 'Product Guides',
+        publishDate: '2026-04-17',
+        readTime: '6 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
+    {
+        slug: 'dehydrated-onion-garlic-buyer-guide',
+        title: 'Dehydrated Onion & Garlic from India: A Complete Buyer\'s Guide',
+        excerpt: 'India supplies 70%+ of the world\'s dehydrated onion. Product forms, specifications, HS codes, Gujarat Mahuva sourcing, sulphite-free options, and documentation.',
+        category: 'Export Guides',
+        publishDate: '2026-04-18',
+        readTime: '7 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
+    {
+        slug: 'indian-food-export-documentation-checklist',
+        title: 'Indian Food Export Documentation Checklist: Every Document You Need',
+        excerpt: 'Complete checklist of export documents for Indian food shipments. Mandatory docs, destination-specific requirements (US, EU, Australia, GCC), timelines, and common mistakes.',
+        category: 'Compliance & Documentation',
+        publishDate: '2026-04-19',
+        readTime: '8 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
+    {
+        slug: 'how-to-import-moringa-from-india',
+        title: 'How to Import Moringa from India: Product Forms, HS Codes & Certifications',
+        excerpt: 'India produces 80% of the world\'s moringa. A buyer\'s guide to moringa leaf powder, HS codes, organic certifications, EU Novel Food status, MOQ, and pricing.',
+        category: 'Export Guides',
+        publishDate: '2026-04-21',
+        readTime: '6 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
+    {
+        slug: 'india-fta-food-ingredient-importers',
+        title: 'India\'s Free Trade Agreements: What Food Ingredient Importers Need to Know',
+        excerpt: 'India has active FTAs with the UAE, Australia, Japan, and South Korea. A practical guide to preferential duty rates, Rules of Origin, Preferential Certificates of Origin, and how to verify current rates from official sources.',
+        category: 'Trade & Compliance',
+        publishDate: '2026-04-21',
+        readTime: '7 min read',
+        author: 'Rajiv Dudeja',
+        featured: false,
+    },
 ];
 
 const CATEGORIES = [
-    { name: 'Export Guides', count: 1, description: 'Step-by-step import procedures' },
+    { name: 'Export Guides', count: 4, description: 'Step-by-step import procedures' },
+    { name: 'Product Guides', count: 2, description: 'Deep dives into specific products' },
+    { name: 'Trade & Compliance', count: 2, description: 'FTAs, docs, and regulations' },
+    { name: 'Market Intelligence', count: 1, description: 'Pricing and market trends' },
 ];
 
 const BLOG_SCHEMA = {
@@ -53,7 +126,7 @@ export default function BlogIndex() {
                     label="Insights & Expertise"
                     title="Export Desi Blog"
                     subtitle="Expert guides on importing Indian food products. Compliance insights, market intelligence, and product knowledge for international buyers."
-                    imageUrl="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=700&fit=crop"
+                    imageUrl="/images/blog-hero.jpg"
                 />
             </motion.div>
 

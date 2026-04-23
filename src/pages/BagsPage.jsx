@@ -21,13 +21,6 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Eco-Friendly Packaging',
     countryOfOrigin: 'IN',
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        bestRating: '5',
-        ratingCount: '1',
-        reviewCount: '0',
-    },
 };
 
 const INFO_PAGES = [
@@ -151,8 +144,9 @@ export default function BagsPage() {
     return (
         <>
             <SEOMeta
-                title="Jute Bags & Non-Woven Bags Manufacturer | Custom Eco-Friendly Packaging | Export Desi"
+                title="Jute Bags & Non-Woven Bags Manufacturer India | Custom Eco-Friendly Packaging"
                 description="Export Desi connects you with Indian manufacturers of jute and non-woven bags. Custom sizes, GSM, handles, and printing. MOQ from 500 pieces (non-woven screen print). FOB pricing. Get a quote within 48 hours."
+                keywords="jute bags exporter India, non-woven bags manufacturer India, eco-friendly bags wholesale India, custom jute bags export, reusable bags manufacturer India, jute shopping bags bulk"
             />
             <Helmet>
                 <script type="application/ld+json">

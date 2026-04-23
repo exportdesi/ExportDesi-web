@@ -53,11 +53,6 @@ export const getWebSiteSchema = () => ({
     url: BASE_URL,
     name: 'Export Desi',
     publisher: { '@id': ORG_ID },
-    potentialAction: {
-        '@type': 'SearchAction',
-        target: `${BASE_URL}/contact?q={search_term_string}`,
-        'query-input': 'required name=search_term_string',
-    },
 });
 
 /**
@@ -87,6 +82,40 @@ export const getBreadcrumbSchema = (items) => ({
     })),
 });
 
+/**
+ * FAQPage schema — adds People Also Ask / AI Overview eligibility.
+ * @param {Array<{question: string, answer: string}>} faqs
+ */
+export const getFAQSchema = (faqs) => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+        },
+    })),
+});
+
+/**
+ * HowTo schema — structured process steps for rich results.
+ * @param {{ name: string, description: string, steps: Array<{name: string, text: string}> }} options
+ */
+export const getHowToSchema = ({ name, description, steps }) => ({
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    step: steps.map((s, i) => ({
+        '@type': 'HowToStep',
+        position: i + 1,
+        name: s.name,
+        text: s.text,
+    })),
+});
+
 export const getProductSchema = (product) => ({
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -99,10 +128,6 @@ export const getProductSchema = (product) => ({
     },
     category: product.category,
     countryOfOrigin: 'IN',
-    offers: {
-        '@type': 'AggregateOffer',
-        priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock',
-        seller: { '@id': ORG_ID },
-    },
+    // No price/offers — B2B quote-based pricing. Adding an empty or fake
+    // AggregateOffer without a real price would trigger Google rich result warnings.
 });

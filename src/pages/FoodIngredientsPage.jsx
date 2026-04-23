@@ -4,7 +4,7 @@ import ContentBlock from '../components/ContentBlock';
 import CTASection from '../components/CTASection';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import FloatingProductNav from '../components/FloatingProductNav';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';

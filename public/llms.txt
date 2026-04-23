@@ -1,0 +1,109 @@
+# /llms.txt for Export Desi
+# Machine-readable company info for AI agents (ChatGPT, Claude, Perplexity)
+
+## Company
+
+**Name:** Export Desi
+**Type:** Merchant Exporter (Export Management Company)
+**Location:** 412A, Vipul Business Park, Sector 48, Gurgaon, Haryana, India 122001
+**Founded:** 2024
+**Founder:** Rajiv Dudeja (20+ years international trade experience)
+
+## Contact
+
+- **Email:** contact@exportdesi.com, info@exportdesi.com
+- **Phone:** +91-9289790283
+- **Website:** https://exportdesi.com
+- **LinkedIn:** https://linkedin.com/company/exportdesi
+- **Response Time:** 48 business hours
+
+## Products (Active)
+
+### 1. Makhana (Fox Nuts / Phool Makhana)
+- **Origin:** Bihar, India (Mithila region, GI-tagged)
+- **Grades:** 5 Suta (15mm), 6 Suta (17mm), 7 Suta (19mm+)
+- **MOQ:** 1 MT (samples: 5-10 kg)
+- **Lead Time:** 10-15 days
+- **Certifications:** FSSAI, APEDA, GI-Tag, Spice Board
+- **Forms:** Raw, size-graded, flavoured, powder, cookies
+
+### 2. Turmeric (Curcuma longa)
+- **Varieties:** Alleppey Finger (Kerala, 5-6.5% curcumin), Lakadong (Meghalaya, 7-9% curcumin)
+- **Forms:** Finger, Powder
+- **MOQ:** 1 MT (samples: 5-10 kg)
+- **Lead Time:** 10-15 days (organic: 4-6 weeks)
+- **Certifications:** FSSAI, APEDA, Spice Board, USDA Organic, EU Organic
+
+### 3. Dehydrated Onion & Garlic
+- **Origin:** Gujarat, India (Mahuva cluster)
+- **Forms:** Flakes, Minced, Granules, Powder
+- **Moisture:** ≤6%
+- **MOQ:** Trial quantities accepted
+- **Lead Time:** 10-15 days
+- **HS Codes:** 0712.20.00 (onion), 0712.90.20 (garlic)
+
+### 4. Moringa Products
+- **Origin:** South India (Tamil Nadu, Karnataka)
+- **Forms:** Leaf Powder (80-100 mesh), Capsules (500mg), Tablets (500mg)
+- **Certifications:** USDA Organic, EU Organic, NPOP, NOP
+- **MOQ:** 50 kg (powder), 100 bottles (capsules/tablets)
+- **Lead Time:** 4-6 weeks
+
+## Certifications
+
+- **FSSAI:** 10824999000454 (Food Safety)
+- **APEDA RCMC:** 06757/2024-2025 (Agricultural & Processed Food Products Export Development Authority)
+- **Spice Board RCMC:** CRES/SBCB/23080/2024-2025
+- **FIEO RCMC:** 13083/2025-2026 (Federation of Indian Export Organisations)
+- **GST:** 06ALYPD9414C1Z1
+- **IEC:** ALYPD9414C (Import Export Code)
+
+## Services
+
+- Processor qualification and vetting
+- Pre-dispatch lot inspection (size, moisture, purity, packaging)
+- Export documentation (Commercial Invoice, Packing List, Certificate of Origin, Phytosanitary, Lab Reports)
+- Port coordination (container stuffing, BL issuance)
+- Private label / OEM packaging
+- Custom spice blending
+
+## Target Markets
+
+- **UAE / Middle East:** Jebel Ali, Dammam, Muscat
+- **USA / Canada:** FDA-compliant documentation, FSMA
+- **Europe:** EU MRL pesticide limits, aflatoxin testing
+- **Southeast Asia:** Singapore, Malaysia, Indonesia
+
+## Pricing Terms
+
+- **FOB:** Nhava Sheva (Mumbai), Chennai, Kochi
+- **CIF:** Available on request
+- **Payment:** 30% advance, 70% against BL copy (negotiable for repeat orders)
+- **Currency:** USD, EUR, GBP
+
+## Shipping
+
+- **Container Types:** 20ft FCL (~10-12 MT), 40ft FCL (~20-22 MT), LCL available
+- **Transit Time:**
+  - UAE: 10-14 days
+  - USA (East Coast): 35-40 days
+  - Europe: 25-30 days
+- **Packaging:** 25kg aluminum-lined bags, 5/10/20kg cartons, private label available
+
+## Quality Control
+
+- Third-party lab testing (NABL accredited)
+- Parameters: Moisture, Curcumin (HPLC), Aflatoxin, Pesticide residues, Heavy metals, Microbiology
+- Retained samples: 6 months per shipment
+
+## Key Differentiators
+
+1. **Processor-level pricing** — No middlemen markup
+2. **Single-point contact** — One coordinator from order to BL
+3. **Documentation-first approach** — All docs verified before sailing
+4. **Transparent communication** — Weekly WhatsApp updates during production
+5. **Buyer-first approach** — We represent buyer interests, not processor interests
+
+## Last Updated
+
+2026-04-20

@@ -8,7 +8,7 @@ import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection } from '../components/MotionWrapper';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useSpring } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useRef } from 'react';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
@@ -32,34 +32,20 @@ const PRODUCT_SCHEMA = {
         {
             '@type': 'Product',
             name: 'Dehydrated Onion',
-            description: 'Export Desi supplies dehydrated onion in flakes, minced, chopped, granules, and powder forms from Gujarat processors. Moisture ≤6%, third-party lab reports per lot.',
+            description: 'Export Desi is a dehydrated onion powder exporter in India, supplying flakes, minced, granules, and powder from Gujarat. Moisture ≤6%, HPLC lab reports. Bulk wholesale.',
             image: 'https://exportdesi.com/images/products/dehydrated/dehydrated-onion.webp',
             brand: { '@type': 'Brand', name: 'Export Desi' },
             category: 'Food Ingredients',
             countryOfOrigin: 'IN',
-            aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '5',
-                bestRating: '5',
-                ratingCount: '1',
-                reviewCount: '0',
-            },
         },
         {
             '@type': 'Product',
             name: 'Dehydrated Garlic',
-            description: 'Export Desi supplies dehydrated garlic in flakes, minced, granules, and powder forms. Machine cleaned, double sorted. HS Code: 0712.90.20',
+            description: 'Export Desi supplies dehydrated garlic flakes and powder from Gujarat processors. Machine cleaned, double sorted, HS Code 0712.90.20. Lab-tested for allicin content.',
             image: 'https://exportdesi.com/images/products/dehydrated/dehydrated-garlic.webp',
             brand: { '@type': 'Brand', name: 'Export Desi' },
             category: 'Food Ingredients',
             countryOfOrigin: 'IN',
-            aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '5',
-                bestRating: '5',
-                ratingCount: '1',
-                reviewCount: '0',
-            },
         },
     ],
 };
@@ -194,11 +180,15 @@ function BuyerPersonaCard({ icon, type, description, example, delay }) {
 }
 
 export default function DehydratedPage() {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
     return (
         <>
+            <motion.div className="fixed top-0 left-0 right-0 h-1 bg-brand origin-left z-50" style={{ scaleX }} />
             <SEOMeta
-                title="Dehydrated Onion & Garlic Exporter | Gujarat | Export Desi"
-                description="Export Desi supplies dehydrated onion and garlic from Gujarat. Flakes, powder, granules, minced. ≤6% moisture, lab-tested. Trial orders welcome. Quote in 48 hours."
+                title="Dehydrated Onion Powder Exporter India | Garlic Flakes | Gujarat Supplier"
+                description="Export Desi supplies bulk dehydrated onion powder and garlic flakes from Gujarat. Flakes, minced, granules. ≤6% moisture, lab-tested. FOB/CIF quotes in 48 hours."
+                keywords="dehydrated onion exporter India, dehydrated garlic supplier India, onion powder exporter Gujarat, garlic flakes wholesale, dehydrated onion flakes bulk, garlic powder exporter India, dehydrated vegetable supplier"
             />
             <Helmet>
                 <script type="application/ld+json">

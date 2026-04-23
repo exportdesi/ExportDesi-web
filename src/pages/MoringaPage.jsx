@@ -7,7 +7,7 @@ import FAQAccordion from '../components/FAQAccordion';
 import ContentAccordion from '../components/ContentAccordion';
 import ProductSnapshot from '../components/ProductSnapshot';
 import FloatingProductNav from '../components/FloatingProductNav';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -23,18 +23,11 @@ const PRODUCT_SCHEMA = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'Moringa Products',
-    description: 'Export Desi supplies organic moringa leaf powder, capsules, and tablets from certified farms in South India. Rich in vitamins, minerals, and antioxidants.',
+    description: 'Export Desi is a bulk moringa leaf powder exporter in India, supplying organic moringa powder, capsules, and tablets from South India. USDA, EU Organic certified. Rich in vitamins, minerals, 46+ antioxidants. Nutraceutical grade.',
     image: 'https://exportdesi.com/images/products/moringa/moringa-hero.webp',
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Ayurvedic & Wellness',
     countryOfOrigin: 'IN',
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        bestRating: '5',
-        ratingCount: '1',
-        reviewCount: '0',
-    },
 };
 
 const MORINGA_SNAPSHOT = [
@@ -82,11 +75,15 @@ const MORINGA_FAQS = [
 ];
 
 export default function MoringaPage() {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
     return (
         <>
+            <motion.div className="fixed top-0 left-0 right-0 h-1 bg-brand origin-left z-50" style={{ scaleX }} />
             <SEOMeta
-                title="Moringa Powder, Capsules & Tablets Exporter | Organic | Export Desi"
-                description="Export Desi supplies organic moringa leaf powder, capsules, and tablets. USDA, EU Organic certified. Rich in vitamins, minerals, antioxidants. Quote in 48 hours."
+                title="Bulk Moringa Leaf Powder Exporter India | Organic Capsules | USDA EU Certified"
+                description="Export Desi supplies bulk organic moringa leaf powder, capsules, tablets from South India. USDA, EU Organic (NPOP/NOP) certified. 80-100 mesh. Nutraceutical grade. FOB/CIF quotes in 48 hours."
+                keywords="moringa powder exporter India, organic moringa leaf powder bulk, USDA organic moringa supplier, moringa capsules exporter India, moringa tablets wholesale, moringa oleifera powder supplier, EU organic moringa India"
             />
             <Helmet>
                 <script type="application/ld+json">

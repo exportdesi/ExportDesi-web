@@ -5,7 +5,7 @@ const SITE_URL = 'https://exportdesi.com';
 const DEFAULT_IMAGE = '/og-image.jpg'; // 1200x630 recommended
 const TWITTER_HANDLE = '@exportdesi'; // Update when you have a Twitter handle
 
-export default function SEOMeta({ title, description, image, type = 'website', article }) {
+export default function SEOMeta({ title, description, image, type = 'website', article, keywords }) {
     const siteName = 'Export Desi';
     const fullTitle = title ? `${title} | ${siteName}` : siteName;
     const { pathname } = useLocation();
@@ -16,12 +16,8 @@ export default function SEOMeta({ title, description, image, type = 'website', a
         <Helmet>
             {/* Primary Meta Tags */}
             <title>{fullTitle}</title>
-            {description && (
-                <>
-                    <meta name="description" content={description} />
-                    <meta name="keywords" content="export from India, food ingredients, makhana, dehydrated onion, dehydrated garlic, moringa powder, banana powder, Indian spices, B2B export" />
-                </>
-            )}
+            {description && <meta name="description" content={description} />}
+            {keywords && <meta name="keywords" content={keywords} />}
             <link rel="canonical" href={canonical} />
 
             {/* Open Graph / Facebook */}

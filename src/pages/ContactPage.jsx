@@ -7,7 +7,7 @@ import HeroSection from '../components/HeroSection';
 import ContentBlock from '../components/ContentBlock';
 import { MotionSection } from '../components/MotionWrapper';
 import FloatingProductNav from '../components/FloatingProductNav';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
@@ -218,7 +218,7 @@ export default function ContactPage() {
     return (
         <>
             <SEOMeta
-                title="Contact Export Desi | Get a Sourcing Quote | Indian Food Ingredients"
+                title="Get a Sourcing Quote | Indian Food Ingredient Exporter | 48-Hour Response"
                 description="Contact Export Desi for Indian food ingredient sourcing. Makhana, turmeric, dehydrated onion & garlic. Response within 48 business hours."
             />
             <Helmet>
@@ -356,7 +356,7 @@ export default function ContactPage() {
                                     {status === 'error' && (
                                         <p className="text-sm text-red-600">
                                             There was an error submitting your enquiry. Email us directly at{' '}
-                                            <a href="mailto:inquiry@exportdesi.com" className="underline">inquiry@exportdesi.com</a>.
+                                            <a href="mailto:contact@exportdesi.com" className="underline">contact@exportdesi.com</a>.
                                         </p>
                                     )}
 
@@ -382,8 +382,8 @@ export default function ContactPage() {
                                 <p className="section-label mb-3">Direct Contact</p>
                                 <div className="space-y-3 text-sm">
                                     <div>
-                                        <a href="mailto:inquiry@exportdesi.com" className="text-muted hover:text-brand transition-colors block leading-loose">
-                                            inquiry@exportdesi.com
+                                        <a href="mailto:contact@exportdesi.com" className="text-muted hover:text-brand transition-colors block leading-loose">
+                                            contact@exportdesi.com
                                         </a>
                                     </div>
                                     <div>

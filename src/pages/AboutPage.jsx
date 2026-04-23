@@ -5,7 +5,7 @@ import CTASection from '../components/CTASection';
 import ImageGrid from '../components/ImageGrid';
 import FloatingProductNav from '../components/FloatingProductNav';
 import { MotionSection, MotionCard } from '../components/MotionWrapper';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion } from 'framer-motion';  
 import { Helmet } from 'react-helmet-async';
 import { getOrganizationSchema, getBreadcrumbSchema } from '../utils/schemaGenerator';
 
@@ -41,8 +41,9 @@ export default function AboutPage() {
     return (
         <>
             <SEOMeta
-                title="About Export Desi | Indian Food Ingredients Exporter Since 2024"
+                title="About | Indian Food Ingredients Merchant Exporter | APEDA Certified Since 2024"
                 description="Export Desi coordinates processor qualification, documentation, and shipment for Indian food ingredients. 20+ years experience with international corporates. Response within 48 business hours."
+                keywords="Export Desi company, Indian food ingredient exporter, merchant exporter India, Rajiv Dudeja exporter, APEDA certified merchant exporter, food export management India"
             />
             <Helmet>
                 <script type="application/ld+json">
