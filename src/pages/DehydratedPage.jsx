@@ -37,6 +37,14 @@ const PRODUCT_SCHEMA = {
             brand: { '@type': 'Brand', name: 'Export Desi' },
             category: 'Food Ingredients',
             countryOfOrigin: 'IN',
+            offers: {
+                '@type': 'AggregateOffer',
+                lowPrice: '1',
+                highPrice: '5',
+                priceCurrency: 'USD',
+                priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'KGM' },
+                seller: { '@type': 'Organization', name: 'Export Desi' },
+            },
         },
         {
             '@type': 'Product',
@@ -46,6 +54,14 @@ const PRODUCT_SCHEMA = {
             brand: { '@type': 'Brand', name: 'Export Desi' },
             category: 'Food Ingredients',
             countryOfOrigin: 'IN',
+            offers: {
+                '@type': 'AggregateOffer',
+                lowPrice: '2',
+                highPrice: '9',
+                priceCurrency: 'USD',
+                priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'KGM' },
+                seller: { '@type': 'Organization', name: 'Export Desi' },
+            },
         },
     ],
 };

@@ -21,6 +21,14 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Eco-Friendly Packaging',
     countryOfOrigin: 'IN',
+    offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '0.3',
+        highPrice: '4',
+        priceCurrency: 'USD',
+        priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'C62' },
+        seller: { '@type': 'Organization', name: 'Export Desi' },
+    },
 };
 
 const INFO_PAGES = [

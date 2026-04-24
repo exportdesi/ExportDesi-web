@@ -23,6 +23,14 @@ const TURMERIC_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Spices & Condiments',
     countryOfOrigin: 'IN',
+    offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '2',
+        highPrice: '12',
+        priceCurrency: 'USD',
+        priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'KGM' },
+        seller: { '@type': 'Organization', name: 'Export Desi' },
+    },
 };
 
 const TURMERIC_IMAGES = [

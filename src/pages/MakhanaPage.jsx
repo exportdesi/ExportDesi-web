@@ -29,6 +29,14 @@ const PRODUCT_SCHEMA = {
     brand: { '@type': 'Brand', name: 'Export Desi' },
     category: 'Food Ingredients',
     countryOfOrigin: 'IN',
+    offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '6',
+        highPrice: '22',
+        priceCurrency: 'USD',
+        priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'KGM' },
+        seller: { '@type': 'Organization', name: 'Export Desi' },
+    },
 };
 
 // ============================================================================
