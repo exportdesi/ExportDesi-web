@@ -41,7 +41,7 @@ const PRODUCT_SCHEMA = {
 const MORINGA_SNAPSHOT = [
     { label: 'Products', value: 'Powder · Capsules · Tablets', sub: '100% pure moringa oleifera' },
     { label: 'Origin', value: 'South India', sub: 'Certified organic farms' },
-    { label: 'MOQ', value: '50 kg', sub: 'Sample orders 5-10 kg available' },
+    { label: 'MOQ', value: '500 kg', sub: 'Sample orders 5-10 kg available' },
     { label: 'Certifications', value: 'USDA · EU Organic', sub: 'NPOP, NOP certified' },
 ];
 
@@ -66,7 +66,7 @@ const MORINGA_FAQS = [
     },
     {
         question: 'What is the minimum order quantity?',
-        answer: 'Minimum order is 50 kg for powder and 100 bottles for capsules/tablets. Sample orders of 5-10 kg (powder) or 10-20 bottles (capsules/tablets) are available at cost for quality evaluation.',
+        answer: 'Minimum order is 500 kg for powder and 100 bottles for capsules/tablets. Sample orders of 5-10 kg (powder) or 10-20 bottles (capsules/tablets) are available at cost for quality evaluation.',
     },
     {
         question: 'What are the key nutritional benefits?',
@@ -153,7 +153,7 @@ export default function MoringaPage() {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <svg className="w-4 h-4 text-brand flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-                                        <span>MOQ: 50 kg (samples available)</span>
+                                        <span>MOQ: 500 kg (samples available)</span>
                                     </li>
                                 </ul>
                             </MotionCard>
