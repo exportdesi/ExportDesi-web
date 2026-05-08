@@ -22,6 +22,7 @@ import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import NotFoundPage from './pages/NotFoundPage';
 import InfoPage from './pages/InfoPage';
+import BeverageIngredientsPage from './pages/BeverageIngredientsPage';
 
 export default function App() {
   return (
@@ -61,6 +62,12 @@ export default function App() {
 
         {/* Info Page (Visiting Card QR Landing) */}
         <Route path="info" element={<InfoPage />} />
+
+        {/* Case Studies */}
+        <Route path="case-studies">
+            <Route index element={<Navigate to="/case-studies/beverage-ingredients" replace />} />
+            <Route path="beverage-ingredients" element={<BeverageIngredientsPage />} />
+        </Route>
 
         {/* Legacy URL Redirects (SEO Preservation) */}
         <Route path="export-desi-sharing-the-best-of-india-with-the-world" element={<Navigate to="/about" replace />} />
