@@ -227,7 +227,7 @@ export default function ContactPage() {
                         ...getOrganizationSchema(),
                         contactPoint: {
                             '@type': 'ContactPoint',
-                            telephone: '+91-9289790283',
+                            telephone: ['+91-9289790283', '+91-8796440283'],
                             contactType: 'sales',
                             email: 'contact@exportdesi.com',
                             availableLanguage: ['English', 'Hindi'],
@@ -390,6 +390,9 @@ export default function ContactPage() {
                                         <p className="font-semibold text-brand mb-1">WhatsApp</p>
                                         <a href="https://wa.me/919289790283" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-brand transition-colors block">
                                             +91 928 979 0283
+                                        </a>
+                                        <a href="tel:+918796440283" className="text-muted hover:text-brand transition-colors block mt-1">
+                                            +91 879 644 0283
                                         </a>
                                     </div>
                                 </div>

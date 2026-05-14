@@ -30,7 +30,7 @@ export const getOrganizationSchema = () => ({
         latitude: '28.4595',
         longitude: '77.0266',
     },
-    telephone: '+91-9289790283',
+    telephone: ['+91-9289790283', '+91-8796440283'],
     email: 'contact@exportdesi.com',
     priceRange: '$$',
     foundingDate: '2024',

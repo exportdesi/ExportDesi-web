@@ -75,7 +75,7 @@ export default function NotFoundPage() {
                             <p className="text-base">
                                 <a href="mailto:contact@exportdesi.com" className="text-brand underline">contact@exportdesi.com</a>
                                 {' | '}
-                                <a href="tel:+919289790283" className="text-brand underline">+91 9289790283</a>
+                                <a href="tel:+919289790283" className="text-brand underline">+91 9289790283</a> / <a href="tel:+918796440283" className="text-brand underline">+91 8796440283</a>
                             </p>
                         </div>
                     </div>

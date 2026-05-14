@@ -28,7 +28,7 @@ const PERSON_SCHEMA = {
     jobTitle: 'Founder & Principal',
     worksFor: { '@id': 'https://exportdesi.com/#organization' },
     email: 'mailto:rajiv@exportdesi.com',
-    telephone: '+91-9289790283',
+    telephone: ['+91-9289790283', '+91-8796440283'],
     address: {
         '@type': 'PostalAddress',
         addressLocality: 'Gurgaon',

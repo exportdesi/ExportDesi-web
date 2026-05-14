@@ -15,7 +15,7 @@ const ORG_SCHEMA = {
     url: 'https://exportdesi.com',
     logo: 'https://exportdesi.com/ExportDesi-logo.png',
     email: 'contact@exportdesi.com',
-    telephone: '+919289790283',
+    telephone: ['+91-9289790283', '+91-8796440283'],
     address: {
         '@type': 'PostalAddress',
         addressLocality: 'Gurgaon',

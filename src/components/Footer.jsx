@@ -63,11 +63,14 @@ export default function Footer() {
                             <a href="mailto:contact@exportdesi.com" className="hover:text-white transition-colors">
                                 contact@exportdesi.com
                             </a>
-                            <p>
+                            <div className="flex flex-col gap-0.5">
                                 <a href="tel:+919289790283" className="hover:text-white transition-colors">
                                     +91 928 979 0283
                                 </a>
-                            </p>
+                                <a href="tel:+918796440283" className="hover:text-white transition-colors">
+                                    +91 879 644 0283
+                                </a>
+                            </div>
                         </div>
 
                         {/* Social Links */}

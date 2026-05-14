@@ -160,7 +160,7 @@ export default function DisclaimerPage() {
                                 <p className="text-base mb-2"><strong>Export Desi</strong></p>
                                 <p className="text-base mb-2">Gurgaon, Haryana, India</p>
                                 <p className="text-base mb-2">Email: <a href="mailto:contact@exportdesi.com" className="text-brand underline">contact@exportdesi.com</a></p>
-                                <p className="text-base">Phone: <a href="tel:+919289790283" className="text-brand underline">+91 9289790283</a></p>
+                                <p className="text-base">Phone: <a href="tel:+919289790283" className="text-brand underline">+91 9289790283</a> / <a href="tel:+918796440283" className="text-brand underline">+91 8796440283</a></p>
                             </div>
                         </div>
                     </div>
