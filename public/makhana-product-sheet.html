@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makhana (Fox Nuts) - Product Sheet | Export Desi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #fff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 12mm;
+            margin: 0 auto;
+        }
+
+        /* Hero Section - Magazine Style */
+        .hero {
+            background: linear-gradient(135deg, #fdf8f0 0%, #fff 100%);
+            border: 2.5px solid #1a1a1a;
+            padding: 0;
+            margin-bottom: 14px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            width: 100px;
+            height: auto;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            background: #1a1a1a;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            object-fit: scale-down;
+            display: block;
+        }
+
+        .hero-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 6.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #d97706;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34pt;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: #4b5563;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 16px;
+        }
+
+        .badge {
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 7pt;
+            font-weight: 600;
+            padding: 5px 9px;
+            border-radius: 2px;
+        }
+
+        .hero-description {
+            font-size: 10pt;
+            color: #78350f;
+            line-height: 1.7;
+            background: #fef3c7;
+            padding: 12px 14px;
+            border-radius: 2px;
+        }
+
+        /* Section Styles - Varied spacing for visual rhythm */
+        .section {
+            margin-bottom: 10px;
+            padding: 16px 18px;
+            border: 1px solid #e5e7eb;
+            border-radius: 2px;
+            background: #fff;
+        }
+
+        .section.major {
+            margin-bottom: 16px;
+            padding: 20px 22px;
+        }
+
+        .section.compact {
+            margin-bottom: 8px;
+            padding: 12px 14px;
+        }
+
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 7pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15pt;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+            margin-bottom: 0;
+        }
+
+        .section.with-title-margin .section-title {
+            margin-bottom: 14px;
+        }
+
+        /* Why Makhana - Grid with icons */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 8.5pt;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .benefit-icon {
+            width: 18px;
+            height: 18px;
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .check {
+            color: #059669;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        /* Product Overview */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .overview-item {
+            background: #fafafa;
+            padding: 12px;
+            border: 1px solid #f3f4f6;
+            border-radius: 3px;
+        }
+
+        .overview-label {
+            font-weight: 600;
+            color: #9ca3af;
+            font-size: 7pt;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 5px;
+        }
+
+        .overview-value {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 9.5pt;
+        }
+
+        /* Forms List */
+        .forms-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .form-tag {
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 8pt;
+            font-weight: 600;
+            padding: 5px 11px;
+            border-radius: 2px;
+            border: 1px solid #fcd34d;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.5pt;
+        }
+
+        th, td {
+            padding: 9px 11px;
+            text-align: left;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        th {
+            font-weight: 700;
+            color: #6b7280;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: #fafafa;
+        }
+
+        td {
+            color: #1a1a1a;
+        }
+
+        tr:last-child td {
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Value Added Section - Warm amber theme with flavours */
+        .value-added {
+            background: linear-gradient(135deg, #fef3c7 0%, #fff 100%);
+            border: 1.5px solid #d97706;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .value-added-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .retail-formats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .format-box {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #fcd34d;
+            border-radius: 3px;
+        }
+
+        .format-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: #92400e;
+        }
+
+        .format-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .format-box li {
+            font-size: 8pt;
+            color: #4b5563;
+            padding: 2px 0;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .format-box li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #d97706;
+        }
+
+        .flavour-text-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .flavour-text {
+            background: #fef3c7;
+            padding: 10px 12px;
+            border-radius: 3px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            color: #92400e;
+            text-align: center;
+        }
+
+        .value-added-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .value-added .section-title {
+            color: #92400e;
+        }
+
+        .value-added img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1.5px solid #d97706;
+            display: block;
+            justify-self: end;
+            align-self: center;
+        }
+
+        .retail-formats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 14px 0;
+        }
+
+        .format-box {
+            background: #fff;
+            padding: 14px;
+            border: 1px solid #fcd34d;
+            border-radius: 3px;
+        }
+
+        .format-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9.5pt;
+            font-weight: 700;
+            margin-bottom: 9px;
+            color: #92400e;
+        }
+
+        .format-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .format-box li {
+            font-size: 8.5pt;
+            color: #4b5563;
+            padding: 3px 0;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .format-box li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #d97706;
+        }
+
+        /* Flavour Options - Full width with SVG icons */
+        .flavour-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .flavour-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 6px;
+            background: #f9fafb;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .flavour-icon {
+            width: 36px;
+            height: 36px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flavour-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flavour-name {
+            font-size: 7.5pt;
+            font-weight: 600;
+            color: #374151;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Applications - Combined block with images */
+        .applications-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .app-card {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .app-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .app-card-name {
+            font-size: 9pt;
+            font-weight: 700;
+            color: #166534;
+            text-align: center;
+            padding: 10px 8px;
+        }
+
+        /* Image strip */
+        .image-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .image-strip img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Packaging */
+        .packaging-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        /* Packaging - Full width layout with bigger content area */
+        .packaging-section {
+            display: grid;
+            grid-template-columns: 0.35fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .packaging-hero {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 3px;
+            border: 1px solid #d97706;
+        }
+
+        .docs-block {
+            background: linear-gradient(135deg, #fafafa 0%, #fff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            padding: 18px;
+            margin-top: 16px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .docs-col h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .docs-col ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .docs-col li {
+            font-size: 8.5pt;
+            color: #4b5563;
+            padding: 4px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .docs-col li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+        }
+
+        .packaging-box {
+            background: #fafafa;
+            padding: 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 3px;
+        }
+
+        .packaging-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            margin-bottom: 9px;
+            color: #1a1a1a;
+        }
+
+        .packaging-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .packaging-box li {
+            font-size: 8.5pt;
+            color: #4b5563;
+            padding: 3px 0;
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .packaging-box li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+        }
+
+        /* Export Documentation */
+        .export-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .doc-list, .market-list {
+            list-style: none;
+        }
+
+        .doc-list li, .market-list li {
+            font-size: 8.5pt;
+            color: #374151;
+            padding: 4px 0;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .doc-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: 700;
+        }
+
+        .market-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #6b7280;
+        }
+
+        /* Why Export Desi - Dark section */
+        .why-us {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px 22px;
+        }
+
+        .why-us .section-label {
+            color: #fcd34d;
+        }
+
+        .why-us .section-title {
+            color: #fff;
+            margin-bottom: 14px;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 11px;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 7px;
+            font-size: 8pt;
+            font-weight: 500;
+            line-height: 1.35;
+        }
+
+        .why-item .check {
+            color: #86efac;
+            font-size: 9pt;
+        }
+
+        /* Footer / Contact */
+        .footer {
+            margin-top: 14px;
+            padding: 18px 22px;
+            background: linear-gradient(135deg, #fafafa 0%, #fff 100%);
+            border: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            border-right: 2px solid #e5e7eb;
+            padding-right: 24px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-brand p {
+            font-size: 8.5pt;
+            color: #6b7280;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-contact p {
+            font-size: 8.5pt;
+            margin: 3px 0;
+        }
+
+        .footer-contact strong {
+            color: #1a1a1a;
+        }
+
+        .footer-contact a {
+            color: #1a1a1a;
+            text-decoration: none;
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        /* Section with image side */
+        .section-with-image {
+            display: grid;
+            grid-template-columns: 1fr 150px;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .section-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 3px;
+            border: 1px solid #e5e7eb;
+            display: block;
+            justify-self: end;
+        }
+
+        /* Print adjustments */
+        @media print {
+            body {
+                background: #fff;
+            }
+            .page {
+                margin: 0;
+                padding: 12mm;
+            }
+            .section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HERO SECTION - Magazine Layout -->
+        <div class="hero">
+            <div class="hero-content">
+                <img src="../../../website-v2/public/ExportDesi-logo.png" alt="Export Desi" class="hero-logo" />
+                <p class="hero-label">Product Sheet</p>
+                <h1>MAKHANA<br/><span style="color: #d97706;">FOX NUTS</span></h1>
+                <p class="hero-subtitle">Premium India-Origin Healthy Snacking &amp; Food Innovation Ingredient</p>
+                <div class="hero-badges">
+                    <span class="badge">GI-Certified Bihar</span>
+                    <span class="badge">Export Ready</span>
+                    <span class="badge">Bulk Supply</span>
+                    <span class="badge">Retail Ready</span>
+                    <span class="badge">Private Label</span>
+                </div>
+                <p class="hero-description">
+                    Directly sourced through Bihar supply networks with focus on quality consistency, export alignment, and commercial scalability.
+                </p>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="../../../website-v2/public/images/products/makhana/big-sized-makhana.jpg" alt="Premium Big Sized Makhana" class="hero-image" />
+            </div>
+        </div>
+
+        <!-- WHY MAKHANA -->
+        <div class="section compact">
+            <p class="section-label">Key Benefits</p>
+            <h2 class="section-title">Why Makhana</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Plant Based</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Gluten Free</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> High Protein</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Light &amp; Crunchy</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Healthy Snacking</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Clean Label</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Retail Ready</div>
+                <div class="benefit-item"><div class="benefit-icon"><span class="check">✓</span></div> Food Innovation</div>
+            </div>
+        </div>
+
+        <!-- PRODUCT OVERVIEW -->
+        <div class="section compact">
+            <p class="section-label">Product Details</p>
+            <h2 class="section-title">Product Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <p class="overview-label">Product Name</p>
+                    <p class="overview-value">Makhana (Fox Nuts)</p>
+                </div>
+                <div class="overview-item">
+                    <p class="overview-label">Botanical Name</p>
+                    <p class="overview-value">Euryale ferox</p>
+                </div>
+                <div class="overview-item">
+                    <p class="overview-label">Origin</p>
+                    <p class="overview-value">Bihar, India</p>
+                </div>
+                <div class="overview-item">
+                    <p class="overview-label">Category</p>
+                    <p class="overview-value">Healthy Snacking</p>
+                </div>
+            </div>
+            <p class="overview-label" style="margin-bottom: 8px;">Product Forms Available</p>
+            <div class="forms-list">
+                <span class="form-tag">Raw Makhana</span>
+                <span class="form-tag">Roasted Makhana</span>
+                <span class="form-tag">Flavoured Makhana</span>
+                <span class="form-tag">Retail Pack Formats</span>
+                <span class="form-tag">Bulk Commercial Supply</span>
+            </div>
+        </div>
+
+        <!-- SIZE GRADES with Image -->
+        <div class="section major">
+            <img src="../../../website-v2/public/images/products/makhana/makhana-grades-suta-sizes.webp" alt="Makhana Suta Grades Comparison" style="width: 100%; height: 180px; object-fit: cover; border-radius: 3px; border: 1px solid #e5e7eb; margin-bottom: 16px; display: block;" />
+            <p class="section-label">Grading</p>
+            <h2 class="section-title">Size Grades Available</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Grade</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>4 Sutta</strong></td>
+                        <td>Standard Commercial Grade (12-14mm)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5 Sutta</strong></td>
+                        <td>Premium Commercial Grade (14-16mm)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6 Sutta</strong></td>
+                        <td>Large Premium Grade (16-18mm)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hand Picked</strong></td>
+                        <td>Custom Selection, Any Size, Unbroken</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 8pt; color: #9ca3af; margin-top: 10px;">Custom grading available for commercial requirements.</p>
+        </div>
+
+        <!-- PRODUCT SPECIFICATIONS -->
+        <div class="section major">
+            <p class="section-label">Quality Parameters</p>
+            <h2 class="section-title">Product Specifications</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Specification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Appearance</td>
+                        <td>White / Cream White</td>
+                    </tr>
+                    <tr>
+                        <td>Shape</td>
+                        <td>Round Expanded Kernel</td>
+                    </tr>
+                    <tr>
+                        <td>Taste</td>
+                        <td>Mild / Neutral</td>
+                    </tr>
+                    <tr>
+                        <td>Moisture (Raw)</td>
+                        <td>9–12%</td>
+                    </tr>
+                    <tr>
+                        <td>Moisture (Flavoured)</td>
+                        <td>1–2%</td>
+                    </tr>
+                    <tr>
+                        <td>Admixture</td>
+                        <td>≤1%</td>
+                    </tr>
+                    <tr>
+                        <td>Broken</td>
+                        <td>≤5%</td>
+                    </tr>
+                    <tr>
+                        <td>Shelf Life (Raw)</td>
+                        <td>12 Months</td>
+                    </tr>
+                    <tr>
+                        <td>Shelf Life (Flavoured)</td>
+                        <td>9 Months</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>Cool and Dry Conditions</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- VALUE ADDED RETAIL FOCUS -->
+        <div class="section value-added major">
+            <div class="value-added-content">
+                <p class="section-label">Commercial Opportunity</p>
+                <h2 class="section-title">Value Added Retail Focus</h2>
+                <p style="font-size: 9pt; color: #92400e; margin-bottom: 12px; line-height: 1.5;">
+                    Makhana's low density and high volume make retail-ready value-added formats commercially viable with stronger margins.
+                </p>
+                <div class="retail-formats">
+                    <div class="format-box">
+                        <h4>Pouches</h4>
+                        <ul>
+                            <li>80g Retail Pack</li>
+                            <li>100g Retail Pack</li>
+                            <li>Custom Weights</li>
+                        </ul>
+                    </div>
+                    <div class="format-box">
+                        <h4>Jars</h4>
+                        <ul>
+                            <li>80g PET Jar</li>
+                            <li>100g PET Jar</li>
+                            <li>Custom Labels</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="font-size: 8pt; color: #92400e; font-style: italic;">Private label solutions and custom packaging fully supported.</p>
+            </div>
+            <img src="../../../website-v2/public/images/products/makhana/makhana-retail-packaging.webp" alt="Makhana Retail Packaging Options" />
+        </div>
+
+        <!-- FLAVOURS - Full Width Section -->
+        <div class="section major">
+            <p class="section-label">Taste Profile</p>
+            <h2 class="section-title">Flavour Options</h2>
+            <div class="flavour-text-grid">
+                <div class="flavour-text">Himalayan Salt</div>
+                <div class="flavour-text">Pudina</div>
+                <div class="flavour-text">Peri Peri</div>
+                <div class="flavour-text">Cheese</div>
+                <div class="flavour-text">Cream &amp; Onion</div>
+                <div class="flavour-text">Barbecue</div>
+                <div class="flavour-text">Masala</div>
+                <div class="flavour-text">Custom Dev</div>
+            </div>
+        </div>
+
+        <!-- APPLICATIONS ONLY -->
+        <div class="section compact">
+            <p class="section-label">Market Use</p>
+            <h2 class="section-title">Applications</h2>
+            <div class="applications-block">
+                <div class="app-card">
+                    <img src="../../../website-v2/public/images/products/makhana/makhana-flavoured-packs.webp" alt="Healthy Snacking" />
+                    <p class="app-card-name">Healthy Snacking</p>
+                </div>
+                <div class="app-card">
+                    <img src="../../../website-v2/public/images/products/makhana/makhna-powder-and-kheer-mix.webp" alt="Makhana Powder &amp; Kheer Mix" />
+                    <p class="app-card-name">Makhana Powder &amp; Kheer Mix</p>
+                </div>
+                <div class="app-card">
+                    <img src="../../../website-v2/public/images/products/makhana/makhana-cookies.webp" alt="Makhana Cookies" />
+                    <p class="app-card-name">Makhana Cookies</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HAND PICKED PREMIUM - New Highlight Section -->
+        <div class="section major" style="background: linear-gradient(135deg, #fafafa 0%, #fff 100%);">
+            <p class="section-label">Premium Selection</p>
+            <h2 class="section-title">Hand-Picked Select Grade</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
+                <div>
+                    <p style="font-size: 10pt; color: #374151; line-height: 1.7; margin-bottom: 10px;">
+                        Our premium hand-picked makhana represents the finest selection — each kernel individually inspected for size uniformity,
+                        whiteness, and zero breakage. This grade commands premium pricing in retail markets and is ideal for gift packaging
+                        and gourmet food applications.
+                    </p>
+                    <div style="display: flex; gap: 14px; margin-top: 12px;">
+                        <div style="background: #f0fdf4; padding: 8px 12px; border-radius: 3px; border: 1px solid #86efac;">
+                            <span style="font-size: 7pt; color: #9ca3af; text-transform: uppercase; display: block;">Purity</span>
+                            <span style="font-size: 9pt; font-weight: 600; color: #166534;">99.5% Unbroken</span>
+                        </div>
+                        <div style="background: #fef3c7; padding: 8px 12px; border-radius: 3px; border: 1px solid #fcd34d;">
+                            <span style="font-size: 7pt; color: #9ca3af; text-transform: uppercase; display: block;">Selection</span>
+                            <span style="font-size: 9pt; font-weight: 600; color: #92400e;">100% Hand Sorted</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="../../../website-v2/public/images/products/makhana/hand-picking-makhana.webp" alt="Hand-Picked Makhana Selection" class="section-image" />
+            </div>
+        </div>
+
+        <!-- PACKAGING + EXPORT DOCS - Full Width Layout -->
+        <div class="section major">
+            <p class="section-label">Logistics &amp; Documentation</p>
+            <h2 class="section-title">Packaging &amp; Export Support</h2>
+            <div class="packaging-section">
+                <img src="../../../website-v2/public/images/products/makhana/storage-makhana.jpg" alt="Bulk Makhana Packaging" class="packaging-hero" />
+                <div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                        <div>
+                            <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; margin-bottom: 10px; color: #1a1a1a;">Bulk Commercial</h4>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="font-size: 8.5pt; color: #4b5563; padding: 3px 0; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: #1a1a1a;">•</span>8–10 kg HDPE bags</li>
+                                <li style="font-size: 8.5pt; color: #4b5563; padding: 3px 0; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: #1a1a1a;">•</span>Custom bulk options</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; margin-bottom: 10px; color: #1a1a1a;">Retail Formats</h4>
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="font-size: 8.5pt; color: #4b5563; padding: 3px 0; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: #1a1a1a;">•</span>Custom branded pouches</li>
+                                <li style="font-size: 8.5pt; color: #4b5563; padding: 3px 0; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: #1a1a1a;">•</span>PET jars with labels</li>
+                                <li style="font-size: 8.5pt; color: #4b5563; padding: 3px 0; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: #1a1a1a;">•</span>Stand-up pouches</li>
+                                <li style="font-size: 8.5pt; color: #4b5563; padding: 3px 0; padding-left: 14px; position: relative;"><span style="position: absolute; left: 0; color: #1a1a1a;">•</span>Private label packaging</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="docs-block">
+                        <div class="docs-grid">
+                            <div class="docs-col">
+                                <h4>Documents</h4>
+                                <ul class="doc-list">
+                                    <li>Commercial Invoice</li>
+                                    <li>Packing List</li>
+                                    <li>Certificate of Origin</li>
+                                </ul>
+                            </div>
+                            <div class="docs-col">
+                                <h4>Compliance</h4>
+                                <ul class="doc-list">
+                                    <li>Phytosanitary Docs</li>
+                                    <li>APEDA Documentation</li>
+                                    <li>Export Coordination</li>
+                                </ul>
+                            </div>
+                            <div class="docs-col">
+                                <h4>Markets</h4>
+                                <ul class="market-list">
+                                    <li>USA</li>
+                                    <li>EU / UK</li>
+                                    <li>UAE</li>
+                                </ul>
+                            </div>
+                            <div class="docs-col">
+                                <h4>Regions</h4>
+                                <ul class="market-list">
+                                    <li>Australia</li>
+                                    <li>Singapore</li>
+                                    <li>Middle East</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHY EXPORT DESI -->
+        <div class="section why-us major">
+            <p class="section-label">Competitive Advantage</p>
+            <h2 class="section-title">Why Export Desi</h2>
+            <div class="why-us-grid">
+                <div class="why-item"><span class="check">✓</span> India-Origin Supply Network</div>
+                <div class="why-item"><span class="check">✓</span> Export Coordination Support</div>
+                <div class="why-item"><span class="check">✓</span> Commercial Quantity Alignment</div>
+                <div class="why-item"><span class="check">✓</span> Bulk + Retail Capability</div>
+                <div class="why-item"><span class="check">✓</span> Product Customization</div>
+                <div class="why-item"><span class="check">✓</span> Private Label Support</div>
+                <div class="why-item"><span class="check">✓</span> Food Industry Focus</div>
+                <div class="why-item"><span class="check">✓</span> End-to-End Management</div>
+            </div>
+        </div>
+
+        <!-- FOOTER / CONTACT -->
+        <div class="footer">
+            <div class="footer-brand">
+                <h3>EXPORT DESI</h3>
+                <p>Rajiv Dudeja — Founder</p>
+            </div>
+            <div class="footer-contact">
+                <p><strong>Phone:</strong> <a href="tel:+919289790283">+91 9289790283</a></p>
+                <p><strong>Email:</strong> <a href="mailto:contact@exportdesi.com">contact@exportdesi.com</a></p>
+                <p><strong>Web:</strong> <a href="https://www.exportdesi.com">www.exportdesi.com</a></p>
+                <p style="color: #9ca3af; font-size: 7.5pt; margin-top: 5px;">412A, Vipul Business Park, Sector 48, Gurgaon, Haryana 122018, India</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
