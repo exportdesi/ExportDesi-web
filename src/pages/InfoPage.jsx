@@ -47,7 +47,7 @@ export default function InfoPage() {
                                 Complete overview of our products, certifications, and capabilities
                             </p>
                             <a
-                                href="/Export-Desi-Company-Profile.pdf"
+                                href="/Export-Desi-Company-Profile-v2.pdf"
                                 download
                                 className="btn-primary inline-flex items-center gap-2"
                             >
